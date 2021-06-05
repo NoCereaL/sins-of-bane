@@ -30,16 +30,7 @@ public class Movement : MonoBehaviour
     {
         move();
         jump();
-        desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
-        if (desiredVelocity >= 0.01f)
-        {
-            transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
-            FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        } else if (desiredVelocity <= -0.01f)
-        {
-            transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
-            FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
+        moveTransform();
     }
 
     void move()
@@ -58,5 +49,22 @@ public class Movement : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
     }
-    
+
+    void moveTransform()
+    {
+        desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
+        if (desiredVelocity >= 0.01f)
+        {
+            transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
+            FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        else if (desiredVelocity <= -0.01f)
+        {
+            transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
+            FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
+
 }
+
+
