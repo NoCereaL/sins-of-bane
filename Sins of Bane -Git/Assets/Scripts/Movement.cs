@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
     {
         float center = Screen.width - (Screen.width / 2);
 
-        desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
+        /*desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
         if (desiredVelocity >= 0.01f)
         {
             hasTurned = false;
@@ -68,9 +68,9 @@ public class Movement : MonoBehaviour
             hasTurned = true;
             transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
+        }*/
 
-        else if (Input.mousePosition.x >= center)
+        if (Input.mousePosition.x >= center)
         {
             Debug.Log(Input.mousePosition);
             hasTurned = false;
