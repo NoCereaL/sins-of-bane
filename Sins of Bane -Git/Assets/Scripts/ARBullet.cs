@@ -6,12 +6,12 @@ public class ARBullet : MonoBehaviour
 {
     public float speed = 20f;
 
-    public int damage = 40;
+    public int damage = 5;
     public Rigidbody2D rb;
 
     public GameObject bullet;
 
-    public int BulletLife = 5;
+    public int BulletLife = 2;
 
     public GameObject impactEffect;
     // Start is called before the first frame update

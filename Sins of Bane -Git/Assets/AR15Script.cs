@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class M4Script : MonoBehaviour
+public class AR15Script : MonoBehaviour
 {
-
     public PickUpController pickUpController;
     public GameObject AR;
     public GunMovement gunPosition;
@@ -16,7 +15,7 @@ public class M4Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody.isKinematic = false;
     }
 
     // Update is called once per frame
