@@ -50,6 +50,10 @@ public class Movement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
+        else if (Input.GetKeyDown("w") && isGrounded == true)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+        }
     }
 
     void moveTransform()
