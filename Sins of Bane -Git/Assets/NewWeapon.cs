@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class NewWeapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
+
     private AudioSource audioData;
 
     void Start()
@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        //transform.Rotate(0, 180, 0);
+        Instantiate(bulletPrefab, firePoint.position, transform.rotation);
     }
 }

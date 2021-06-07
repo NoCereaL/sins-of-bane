@@ -12,11 +12,18 @@ public class Bullet : MonoBehaviour
 
     public GameObject bullet;
 
+    public int BulletLife = 5;
+
     public GameObject impactEffect;
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.right * speed;
+    }
+
+    void Update()
+    {
+        StartCoroutine(DestroyBullet());
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
@@ -29,5 +36,11 @@ public class Bullet : MonoBehaviour
             Destroy(bullet);
             //DestroyImmediate(impactEffect, true);
         }
+    }
+
+    IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(bullet);
     }
 }

@@ -22,15 +22,21 @@ public class PlayerMenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown("p"))
         {
-            print("Button Pressed");
-            Canvas.SetActive(true);
-            Canvas.GetComponent<CanvasGroup>().alpha = 0.8f;
+            Pause();            
         }
+    }
+
+    public void Pause()
+    {
+        Canvas.SetActive(true);
+        Canvas.GetComponent<CanvasGroup>().alpha = 0.8f;
+        Cursor.visible = true;
     }
 
     public void Resume()
     {
         Canvas.SetActive(false);
+        Cursor.visible = false;
     }
 
     public void CreditsMenu()
