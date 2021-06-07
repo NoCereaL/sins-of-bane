@@ -10,8 +10,6 @@ public class PickUpController : MonoBehaviour
     public Transform player, gunContainer, cam;
     public GunMovement gunPosition;
 
-    public GameObject currentWeapon;
-
     public float pickUpRange;
     public float dropForwardForce;
 
@@ -87,7 +85,7 @@ public class PickUpController : MonoBehaviour
         //AddForce
         //rb.AddForce(cam.forward * dropForwardForce, ForceMode2D.Impulse);
         //float random = Random.Range(-1f, 1f);
-        //rb.AddTorque(random * 10);
+        //rb.AddTorque(random);
 
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = false;

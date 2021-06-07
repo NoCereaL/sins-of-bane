@@ -9,6 +9,9 @@ public class NewWeapon : MonoBehaviour
 
     public GunMovement gun;
 
+    public PickUpController pickUpController;
+
+
     private AudioSource audioData;
 
     void Start()
@@ -19,7 +22,7 @@ public class NewWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && gun.firePoint != null)
+        if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
             Shoot();
         }

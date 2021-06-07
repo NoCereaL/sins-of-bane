@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class M4Script : MonoBehaviour
+public class GlockScript : MonoBehaviour
 {
 
     public PickUpController pickUpController;
-    public GameObject M4;
+    public GameObject Glock;
     public GunMovement gunPosition;
+
     public Rigidbody2D rigidbody;
     public BoxCollider2D boxCollider;
 
@@ -22,11 +23,11 @@ public class M4Script : MonoBehaviour
     {
         if (pickUpController.equipped == true)
         {
-            gunPosition.firePoint = M4;
+            gunPosition.firePoint = Glock;
             boxCollider.enabled = false;
             rigidbody.simulated = false;
         }
-        else if (pickUpController.equipped == false)
+        else if(pickUpController.equipped == false)
         {
             boxCollider.enabled = true;
             rigidbody.simulated = true;

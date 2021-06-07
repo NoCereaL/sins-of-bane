@@ -1871,6 +1871,7 @@ GameObject:
   - component: {fileID: 426099492}
   - component: {fileID: 426099489}
   - component: {fileID: 426099493}
+  - component: {fileID: 426099494}
   m_Layer: 0
   m_Name: Glock
   m_TagString: Untagged
@@ -1912,8 +1913,7 @@ MonoBehaviour:
   gunContainer: {fileID: 1052849865}
   cam: {fileID: 350051224}
   gunPosition: {fileID: 1052849866}
-  currentWeapon: {fileID: 0}
-  pickUpRange: 10
+  pickUpRange: 4
   dropForwardForce: 15
   equipped: 1
 --- !u!212 &426099490
@@ -1981,6 +1981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1949869864}
   bulletPrefab: {fileID: 1248324076552602840, guid: fbcad6578b4ddac49a39fcdaba71a44c, type: 3}
+  gun: {fileID: 1052849866}
+  pickUpController: {fileID: 426099489}
 --- !u!50 &426099492
 Rigidbody2D:
   serializedVersion: 4
@@ -2028,6 +2030,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7458081, y: 5.1565056}
   m_EdgeRadius: 0
+--- !u!114 &426099494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426099487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d77eab9e8e820840a5095be79ea8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpController: {fileID: 426099489}
+  Glock: {fileID: 426099487}
+  gunPosition: {fileID: 1052849866}
+  rigidbody: {fileID: 426099492}
+  boxCollider: {fileID: 426099493}
 --- !u!1 &540482928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,10 +5085,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1516737566}
   - component: {fileID: 1516737565}
-  - component: {fileID: 1516737564}
   - component: {fileID: 1516737563}
+  - component: {fileID: 1516737564}
   - component: {fileID: 1516737562}
   - component: {fileID: 1516737561}
+  - component: {fileID: 1516737567}
   m_Layer: 0
   m_Name: Glock
   m_TagString: Untagged
@@ -5117,13 +5137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 1516737564}
   rb: {fileID: 1516737563}
-  coll: {fileID: 0}
+  coll: {fileID: 1516737561}
   player: {fileID: 274713439}
   gunContainer: {fileID: 1052849865}
   cam: {fileID: 350051224}
-  gunPosition: {fileID: 0}
-  currentWeapon: {fileID: 0}
-  pickUpRange: 10
+  gunPosition: {fileID: 1052849866}
+  pickUpRange: 4
   dropForwardForce: 15
   equipped: 1
 --- !u!50 &1516737563
@@ -5161,6 +5180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1371278775}
   bulletPrefab: {fileID: 1248324076552602840, guid: fbcad6578b4ddac49a39fcdaba71a44c, type: 3}
+  gun: {fileID: 1052849866}
+  pickUpController: {fileID: 1516737562}
 --- !u!212 &1516737565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5227,6 +5248,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1516737567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516737560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d77eab9e8e820840a5095be79ea8183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpController: {fileID: 1516737562}
+  Glock: {fileID: 1516737560}
+  gunPosition: {fileID: 1052849866}
+  rigidbody: {fileID: 1516737563}
+  boxCollider: {fileID: 1516737561}
 --- !u!1 &1536978365
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,8 +6094,7 @@ MonoBehaviour:
   gunContainer: {fileID: 1052849865}
   cam: {fileID: 350051224}
   gunPosition: {fileID: 1052849866}
-  currentWeapon: {fileID: 0}
-  pickUpRange: 10
+  pickUpRange: 4
   dropForwardForce: 15
   equipped: 0
 --- !u!114 &1771936227
@@ -6074,6 +6111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 340919804}
   bulletPrefab: {fileID: 1248324076552602840, guid: fbcad6578b4ddac49a39fcdaba71a44c, type: 3}
+  gun: {fileID: 1052849866}
+  pickUpController: {fileID: 1771936226}
 --- !u!50 &1771936228
 Rigidbody2D:
   serializedVersion: 4
@@ -6176,6 +6215,8 @@ MonoBehaviour:
   pickUpController: {fileID: 1771936226}
   M4: {fileID: 1771936224}
   gunPosition: {fileID: 1052849866}
+  rigidbody: {fileID: 1771936228}
+  boxCollider: {fileID: 1771936225}
 --- !u!1 &1812188176
 GameObject:
   m_ObjectHideFlags: 0
