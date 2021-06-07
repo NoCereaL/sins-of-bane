@@ -44,6 +44,10 @@ public class ARWeapons : MonoBehaviour
             CancelInvoke("Shoot");
         }
 
+        if (pickUpController.equipped == false)
+        {
+            CancelInvoke("Shoot");
+        }
 
     }
     

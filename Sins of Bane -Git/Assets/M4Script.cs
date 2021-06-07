@@ -16,7 +16,7 @@ public class M4Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody.isKinematic = false;
     }
 
     // Update is called once per frame

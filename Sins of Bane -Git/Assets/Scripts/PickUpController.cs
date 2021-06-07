@@ -63,7 +63,7 @@ public class PickUpController : MonoBehaviour
         transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = new Vector3(0.1f,0.1f,0f);
+        transform.localScale = new Vector3(0.2f,0.2f,0f);
 
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
