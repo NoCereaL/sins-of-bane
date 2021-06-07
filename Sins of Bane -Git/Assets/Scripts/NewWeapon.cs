@@ -17,6 +17,7 @@ public class NewWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
@@ -28,4 +29,5 @@ public class NewWeapon : MonoBehaviour
         //transform.Rotate(0, 180, 0);
         Instantiate(bulletPrefab, firePoint.position, transform.rotation);
     }
+
 }

@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
             Destroy(bullet);
             //DestroyImmediate(impactEffect, true);
         }
+        Destroy(bullet);
     }
 
     IEnumerator DestroyBullet()

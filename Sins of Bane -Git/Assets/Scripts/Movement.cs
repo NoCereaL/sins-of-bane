@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     
     public bool isGrounded = false;
 
+    public bool hasTurned;
+
     public float horizontalMove = 0f;
 
     public float PlayerScale = 1f;
@@ -52,14 +54,33 @@ public class Movement : MonoBehaviour
 
     void moveTransform()
     {
+        float center = Screen.width - (Screen.width / 2);
+
         desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
         if (desiredVelocity >= 0.01f)
         {
+            hasTurned = false;
             transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
         else if (desiredVelocity <= -0.01f)
         {
+            hasTurned = true;
+            transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
+            FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+
+        else if (Input.mousePosition.x >= center)
+        {
+            Debug.Log(Input.mousePosition);
+            hasTurned = false;
+            transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
+            FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        } 
+        else if (Input.mousePosition.x <= center)
+        {
+            Debug.Log(Input.mousePosition);
+            hasTurned = true;
             transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
