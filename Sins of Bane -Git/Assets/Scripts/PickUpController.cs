@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpController : MonoBehaviour
 {
     public NewWeapon weapon;
+    public ARWeapons aRWeapons;
     public Rigidbody2D rb;
     public BoxCollider2D coll;
     public Transform player, gunContainer, cam;
@@ -23,6 +24,8 @@ public class PickUpController : MonoBehaviour
             weapon.enabled = false;
             rb.isKinematic = false;
             coll.isTrigger = false;
+
+            aRWeapons.enabled = false;
         }
 
         if (equipped)
@@ -31,6 +34,8 @@ public class PickUpController : MonoBehaviour
             rb.isKinematic = true;
             coll.isTrigger = true;
             slotFull = true;
+
+            aRWeapons.enabled = true;
         }
     }
 
@@ -66,6 +71,8 @@ public class PickUpController : MonoBehaviour
 
         //Enable Sctipt
         weapon.enabled = true;
+
+        aRWeapons.enabled = true;
     }
 
     void Drop()
@@ -93,5 +100,7 @@ public class PickUpController : MonoBehaviour
 
         //Disable Sctipt
         weapon.enabled = false;
+
+        aRWeapons.enabled = false;
     }
 }

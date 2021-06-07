@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewWeapon : MonoBehaviour
+public class ARWeapons : MonoBehaviour
 {
+
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -14,9 +15,10 @@ public class NewWeapon : MonoBehaviour
 
     public AudioSource audioData;
 
+    // Start is called before the first frame update
     void Start()
     {
-        audioData = GetComponent<AudioSource>();
+        //audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,5 +35,4 @@ public class NewWeapon : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, transform.rotation);
         audioData.Play();
     }
-
 }
