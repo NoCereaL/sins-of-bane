@@ -7,6 +7,8 @@ public class NewWeapon : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
 
+    public GunMovement gun;
+
     private AudioSource audioData;
 
     void Start()
@@ -17,8 +19,7 @@ public class NewWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && gun.firePoint != null)
         {
             Shoot();
         }
