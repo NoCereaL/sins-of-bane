@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class NewWeapon : MonoBehaviour
+public class PistolWeapons : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -22,9 +23,11 @@ public class NewWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JoinGameController();
         if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
             Shoot();
+            ShootInServer();
         }
     }
 
@@ -34,4 +37,14 @@ public class NewWeapon : MonoBehaviour
         audioData.Play();
     }
 
+    void ShootInServer()
+    {
+        PhotonNetwork.Instantiate("Bullet", firePoint.position, transform.rotation);
+        audioData.Play();
+    }
+
+    public void JoinGameController()
+    {
+        gun = GameObject.Find("Weapon").GetComponent<GunMovement>();
+    }
 }

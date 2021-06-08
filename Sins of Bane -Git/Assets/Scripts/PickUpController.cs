@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpController : MonoBehaviour
 {
-    public NewWeapon weapon;
+    public PistolWeapons weapon;
     public ARWeapons aRWeapons;
     public Rigidbody2D rb;
     public BoxCollider2D coll;

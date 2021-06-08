@@ -15,12 +15,13 @@ public class GlockScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody.isKinematic = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        JoinGameController();
         if (pickUpController.equipped == true)
         {
             gunPosition.firePoint = Glock;
@@ -32,5 +33,10 @@ public class GlockScript : MonoBehaviour
             boxCollider.enabled = true;
             rigidbody.simulated = true;
         }
+    }
+
+    public void JoinGameController()
+    {
+        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
     }
 }
