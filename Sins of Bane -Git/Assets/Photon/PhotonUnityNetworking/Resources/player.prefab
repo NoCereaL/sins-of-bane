@@ -2017,7 +2017,7 @@ MonoBehaviour:
   m_ScaleModel:
     SynchronizeEnabled: 1
     InterpolateOption: 1
-    InterpolateMoveTowardsSpeed: 1
+    InterpolateMoveTowardsSpeed: 0
     InterpolateLerpSpeed: 0
 --- !u!114 &3199090218922019300
 MonoBehaviour:
