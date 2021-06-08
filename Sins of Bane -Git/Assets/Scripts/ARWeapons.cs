@@ -40,19 +40,19 @@ public class ARWeapons : MonoBehaviour
         {
             isShooting = true;
             InvokeRepeating("Shoot", 0.1f, 1f/CurrentFireRate);
-            InvokeRepeating("ShootInServer", 0.1f, 1f / CurrentFireRate);
+            //InvokeRepeating("ShootInServer", 0.1f, 1f / CurrentFireRate);
         }
         else if (Input.GetButtonUp("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
             isShooting = false;
             CancelInvoke("Shoot");
-            CancelInvoke("ShootInServer");
+            //CancelInvoke("ShootInServer");
         }
 
         if (pickUpController.equipped == false)
         {
             CancelInvoke("Shoot");
-            CancelInvoke("ShootInServer");
+            //CancelInvoke("ShootInServer");
         }
 
     }
