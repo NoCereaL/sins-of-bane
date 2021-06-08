@@ -19,6 +19,8 @@ public class PickUpController : MonoBehaviour
 
     private void Start()
     {
+        //gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
+        JoinGameController();
         if (!equipped)
         {
             weapon.enabled = false;
@@ -41,11 +43,12 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         //Check if player in range and "E" is pressed
         Vector3 distanceToPlayer = player.position - transform.position;
         if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
         {
-            PickUp();
+            PickUp();            
         }
 
         if(equipped && Input.GetKeyDown(KeyCode.Q))
@@ -102,5 +105,15 @@ public class PickUpController : MonoBehaviour
         weapon.enabled = false;
 
         aRWeapons.enabled = false;
+    }
+
+
+    //Sets weapon and game parameters for current player
+    public void JoinGameController()
+    {
+        player = GameObject.Find("player1").GetComponent<Transform>();
+        gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+        cam = GameObject.Find("Camera").GetComponent<Transform>();
+        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
     }
 }

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerNetworking : MonoBehaviour
+public class AR15Networking : MonoBehaviour
 {
-    public GameObject player;
-
     public MonoBehaviour[] scriptsToIgnore;
 
     private PhotonView photonView;
@@ -21,12 +19,12 @@ public class PlayerNetworking : MonoBehaviour
                 script.enabled = false;
             }
         }
-        player.name = PhotonNetwork.LocalPlayer.NickName;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

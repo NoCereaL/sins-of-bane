@@ -28,6 +28,7 @@ public class ARWeapons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JoinGameController();
         if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
             Shoot();
@@ -58,4 +59,9 @@ public class ARWeapons : MonoBehaviour
         audioData.Play();
     }
 
+    //Sets weapon and game parameters for current player
+    public void JoinGameController()
+    {
+        gun = GameObject.Find("Weapon").GetComponent<GunMovement>();
+    }
 }

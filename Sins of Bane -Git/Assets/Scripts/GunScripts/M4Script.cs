@@ -22,6 +22,7 @@ public class M4Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JoinGameController();
         if (pickUpController.equipped == true)
         {
             gunPosition.firePoint = AR;
@@ -34,5 +35,11 @@ public class M4Script : MonoBehaviour
             boxCollider.enabled = true;
             rigidbody.simulated = true;
         }
+    }
+
+    //Sets weapon and game parameters for current player
+    public void JoinGameController()
+    {
+        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
     }
 }

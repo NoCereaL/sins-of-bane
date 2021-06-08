@@ -33,7 +33,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f,11f), transform.position.y), Quaternion.identity);
-        PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        SpawnGuns();
+        PhotonNetwork.LocalPlayer.NickName = "player1";
+        //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
         //base.OnJoinedRoom();
+    }
+
+    public void SpawnGuns()
+    {
+        PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
     }
 }
