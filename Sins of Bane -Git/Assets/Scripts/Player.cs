@@ -23,9 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
         Death();
-        
     }
 
     public void TakeDamage(int damage)
