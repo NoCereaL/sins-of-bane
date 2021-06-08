@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ARWeapons : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class ARWeapons : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
             Shoot();
+            ShootInServer();
         }
 
         if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
@@ -56,6 +58,12 @@ public class ARWeapons : MonoBehaviour
     {
         Debug.Log("Shoot");
         Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        audioData.Play();
+    }
+
+    void ShootInServer()
+    {
+        PhotonNetwork.Instantiate("AR_Bullet", firePoint.position, transform.rotation);
         audioData.Play();
     }
 
