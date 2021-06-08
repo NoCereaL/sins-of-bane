@@ -33,6 +33,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f,11f), transform.position.y), Quaternion.identity);
+        PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
         //base.OnJoinedRoom();
     }
 }
