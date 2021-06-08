@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5187562054233147427}
-  bulletPrefab: {fileID: 8708321353370088235, guid: a94157b374320274aa0ed1068842d460, type: 3}
+  bulletPrefab: {fileID: 4584634058227477736, guid: d143ebfbd8fdd0a47aa13b5d45162e93, type: 3}
   gun: {fileID: 0}
   pickUpController: {fileID: 5187562055646008381}
   m4: {fileID: 5187562055646008376}

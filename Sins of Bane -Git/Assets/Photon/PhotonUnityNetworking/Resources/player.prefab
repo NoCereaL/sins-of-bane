@@ -2009,7 +2009,7 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
+  observableSearch: 1
   ObservedComponents:
   - {fileID: 3199090218922019301}
   - {fileID: 3199090218922019300}
