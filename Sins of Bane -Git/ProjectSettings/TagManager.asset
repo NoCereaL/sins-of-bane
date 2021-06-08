@@ -9,6 +9,7 @@ TagManager:
   - spike
   - enemy
   - crosshair
+  - PlayerCamera
   layers:
   - Default
   - TransparentFX

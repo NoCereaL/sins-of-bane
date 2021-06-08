@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public int Lives = 3;
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
-    public GameObject cam;
+
     public GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -56,10 +56,5 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }
-
-    public void JoinGameController()
-    {
-        cam = GameObject.Find("Camera").GetComponent<GameObject>();
     }
 }
