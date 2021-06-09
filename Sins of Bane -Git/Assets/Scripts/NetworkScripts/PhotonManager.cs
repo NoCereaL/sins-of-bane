@@ -48,8 +48,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void SpawnGuns()
     {
-        PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
-        PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
-        PhotonNetwork.Instantiate("Glock", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        GameObject M4 = (GameObject)PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        GameObject AR15 = (GameObject)PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        GameObject Glock = (GameObject)PhotonNetwork.Instantiate("Glock", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
     }
 }
