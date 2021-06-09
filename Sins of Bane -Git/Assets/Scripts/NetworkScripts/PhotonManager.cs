@@ -34,9 +34,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         GameObject myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f,11f), transform.position.y), Quaternion.identity);
         myPlayer.GetComponent<Movement>().enabled = true;
-        myPlayer.GetComponent<Camera>().enabled = false;
+        myPlayer.transform.FindChild("Camera").gameObject.SetActive(true);
         SpawnGuns();
-        PhotonNetwork.LocalPlayer.NickName = "player1";
+        //PhotonNetwork.LocalPlayer.NickName = "player1";
         //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
         //base.OnJoinedRoom();
     }
