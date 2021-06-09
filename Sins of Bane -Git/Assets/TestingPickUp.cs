@@ -24,7 +24,7 @@ public class TestingPickUp : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            transform.SetParent(player);
+            //transform.SetParent(player);
             transform.localPosition = new Vector2(0, 0);
             //transform.localScale = new Vector2(1f, 1f);
         }
