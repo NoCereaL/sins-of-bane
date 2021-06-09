@@ -76,14 +76,12 @@ public class Movement : MonoBehaviour
 
         if (Input.mousePosition.x >= center)
         {
-            Debug.Log(Input.mousePosition);
             hasTurned = false;
             transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         } 
         else if (Input.mousePosition.x <= center)
         {
-            Debug.Log(Input.mousePosition);
             hasTurned = true;
             transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);

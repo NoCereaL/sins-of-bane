@@ -56,4 +56,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         AR15 = (GameObject)PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
         Glock = (GameObject)PhotonNetwork.Instantiate("Glock", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
     }
+
+    public override void OnCreatedRoom()
+    {
+        //base.OnCreatedRoom();
+    }
 }
