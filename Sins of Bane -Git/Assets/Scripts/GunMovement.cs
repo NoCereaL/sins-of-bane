@@ -24,8 +24,11 @@ public class GunMovement : MonoBehaviour
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
 
-        angle = AngleBetweenTwoPoints(firePoint.transform.position, mouseWorldPosition);
-
+        try
+        {
+            angle = AngleBetweenTwoPoints(firePoint.transform.position, mouseWorldPosition);
+        }
+        catch { }
         transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle));
 
         WeaponTransfer();
