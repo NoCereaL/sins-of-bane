@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class TestingPickUp : MonoBehaviour
 {
@@ -30,4 +32,10 @@ public class TestingPickUp : MonoBehaviour
             //transform.localScale = new Vector2(1f, 1f);
         }
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        Debug.Log("Hey The SerializeView is Working!!!");
+    }
+
 }
