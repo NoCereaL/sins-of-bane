@@ -26,7 +26,7 @@ public class PistolWeapons : MonoBehaviour
         JoinGameController();
         if (Input.GetButtonDown("Fire1") && gun.firePoint != null && pickUpController.equipped == true)
         {
-            Shoot();
+            //Shoot();
             ShootInServer();
         }
     }
