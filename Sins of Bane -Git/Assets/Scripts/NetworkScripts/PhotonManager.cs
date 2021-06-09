@@ -46,10 +46,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer.transform.FindChild("Camera").gameObject.SetActive(true);
     }
 
+    public GameObject M4;
+    public GameObject AR15;
+    public GameObject Glock;
     public void SpawnGuns()
     {
-        GameObject M4 = (GameObject)PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
-        GameObject AR15 = (GameObject)PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
-        GameObject Glock = (GameObject)PhotonNetwork.Instantiate("Glock", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        M4 = (GameObject)PhotonNetwork.Instantiate("M4", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        AR15 = (GameObject)PhotonNetwork.Instantiate("AR-15", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        Glock = (GameObject)PhotonNetwork.Instantiate("Glock", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
     }
 }

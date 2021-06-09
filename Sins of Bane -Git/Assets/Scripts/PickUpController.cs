@@ -43,12 +43,13 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+        JoinGameController();
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         //Check if player in range and "E" is pressed
         Vector3 distanceToPlayer = player.position - transform.position;
         if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
         {
-            PickUp();            
+            PickUp();
         }
 
         if(equipped && Input.GetKeyDown(KeyCode.Q))
