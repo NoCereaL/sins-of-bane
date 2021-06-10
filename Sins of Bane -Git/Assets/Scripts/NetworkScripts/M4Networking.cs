@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon;
 
-public class M4Networking : MonoBehaviour
+public class M4Networking : MonoBehaviour, IPunObservable
 {
     public MonoBehaviour[] scriptsToIgnore;
 
