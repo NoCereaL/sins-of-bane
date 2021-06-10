@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PickUpController : MonoBehaviour, IPunObservable
+public class PickUpController : MonoBehaviour
 {
     public PistolWeapons weapon;
     public ARWeapons aRWeapons;
@@ -117,11 +117,5 @@ public class PickUpController : MonoBehaviour, IPunObservable
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        PickUp();
-        //throw new System.NotImplementedException();
     }
 }
