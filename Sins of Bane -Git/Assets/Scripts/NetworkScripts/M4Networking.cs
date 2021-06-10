@@ -35,7 +35,6 @@ public class M4Networking : MonoBehaviour, IPunObservable
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            stream.SendNext(transform.parent);
         }
         else
         {
