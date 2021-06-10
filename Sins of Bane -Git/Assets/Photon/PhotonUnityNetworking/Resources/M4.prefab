@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: -3425189071183075026}
   - component: {fileID: 2543267537294076861}
   - component: {fileID: 6812494011827940009}
-  - component: {fileID: 3194615252736621191}
   m_Layer: 0
   m_Name: M4
   m_TagString: Untagged
@@ -351,7 +350,7 @@ MonoBehaviour:
   - {fileID: -3425189071183075026}
   - {fileID: 2543267537294076861}
   - {fileID: 6812494011827940009}
-  - {fileID: 3194615252736621191}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -417,15 +416,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptsToIgnore: []
---- !u!114 &3194615252736621191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5187562055646008383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77f39ec49370fd44d9aac18645b12257, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
