@@ -122,6 +122,6 @@ public class PickUpController : MonoBehaviour, IPunObservable
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         PickUp();
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }
