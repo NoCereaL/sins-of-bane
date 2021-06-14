@@ -145,7 +145,21 @@ public class PickUpController : MonoBehaviourPun
     {
         //player = GameObject.Find("player1").GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+        //gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+
+        gunContainer = player.transform.GetChild(5);
+
+
+        if (player.name == "player(Clone)")
+        {
+           // gunContainer.FindChild("player(Clone)").Find("Weapon").GetComponent<Transform>();
+        }
+
+        if (player.name == "player2(Clone)")
+        {
+            gunContainer.FindChild("player2(Clone)").Find("Weapon").GetComponent<Transform>();
+        }
+        
         cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
     }
