@@ -27,13 +27,5 @@ public class PlayerNetworking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("ChangeNames", RpcTarget.All);
-    }
-
-    [PunRPC]
-    void ChangeNames()
-    {
-        PhotonManager.myPlayer.name = "play1";
-        PhotonManager.myPlayer2.name = "play2";
     }
 }

@@ -82,6 +82,4 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         SpawnGuns();
         //base.OnCreatedRoom();
     }
-
-    
 }
