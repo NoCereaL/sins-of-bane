@@ -15,8 +15,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        myPlayer.name = "play1";
-        myPlayer2.name = "play2";
+        
     }
 
     public override void OnConnectedToMaster()
@@ -47,8 +46,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         //base.OnJoinedRoom();
     }
 
-    public GameObject myPlayer;
-    public GameObject myPlayer2;
+    public static GameObject myPlayer;
+    public static GameObject myPlayer2;
     public void SpawnPlayer()
     {
         myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);

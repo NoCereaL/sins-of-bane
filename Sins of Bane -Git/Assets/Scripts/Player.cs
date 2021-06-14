@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PhotonManager.myPlayer.name = "play1";
+        PhotonManager.myPlayer2.name = "play2";
         Death();
     }
 
