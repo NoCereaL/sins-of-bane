@@ -56,8 +56,6 @@ public class PickUpController : MonoBehaviourPun
             //PickUp();
             //newPickUp();
             photonView.RPC("newPickUp", RpcTarget.AllBuffered);
-            //modPickUp();
-            
         }
 
         if(equipped && Input.GetKeyDown(KeyCode.Q))
@@ -117,27 +115,6 @@ public class PickUpController : MonoBehaviourPun
         aRWeapons.enabled = true;
     }
 
-    void modPickUp()
-    {
-        equipped = true;
-        slotFull = true;
-
-        //Make Weapon/Gun a child of Weapon and move it to default position
-        //transform.SetParent(gunContainer);
-        transform.position = MyPosition * Time.deltaTime;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
-
-        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
-        rb.isKinematic = true;
-        coll.isTrigger = true;
-
-        //Enable Sctipt
-        weapon.enabled = true;
-
-        aRWeapons.enabled = true;
-    }
-
     void Drop()
     {
         equipped = false;
@@ -151,11 +128,6 @@ public class PickUpController : MonoBehaviourPun
 
         //Gun carries momentum of player
         rb.velocity = player.GetComponent<Rigidbody2D>().velocity;
-
-        //AddForce
-        //rb.AddForce(cam.forward * dropForwardForce, ForceMode2D.Impulse);
-        //float random = Random.Range(-1f, 1f);
-        //rb.AddTorque(random);
 
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = false;
@@ -172,7 +144,8 @@ public class PickUpController : MonoBehaviourPun
     public void JoinGameController()
     {
         if(photonView.IsMine)
-        player = GameObject.Find("player1").GetComponent<Transform>();
+        //player = GameObject.Find("player1").GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
