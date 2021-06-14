@@ -40,8 +40,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             SpawnPlayer2();
         }
-        myPlayer.name = "player1";
-        myPlayer2.name = "player2";
+        myPlayer.name = "play1";
+        myPlayer2.name = "play2";
         //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";
         //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
