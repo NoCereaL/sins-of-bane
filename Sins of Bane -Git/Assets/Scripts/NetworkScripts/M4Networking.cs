@@ -36,8 +36,6 @@ public class M4Networking : MonoBehaviour, IPunObservable
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(transform.parent);
-            stream.SendNext(PhotonManager.myPlayer.name = "player1");
-            stream.SendNext(PhotonManager.myPlayer2.name = "player2");
         }
         else
         {
