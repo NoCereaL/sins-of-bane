@@ -15,7 +15,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        
+        myPlayer.name = "play1";
+        myPlayer2.name = "play2";
     }
 
     public override void OnConnectedToMaster()
@@ -40,8 +41,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             SpawnPlayer2();
         }
-        myPlayer.name = "play1";
-        myPlayer2.name = "play2";
         //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";
         //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
