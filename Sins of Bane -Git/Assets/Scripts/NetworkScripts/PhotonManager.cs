@@ -54,7 +54,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer.GetComponent<Movement>().enabled = true;
         myPlayer.transform.FindChild("Camera").gameObject.SetActive(true);
         myPlayer.name = "player1";
-        myPlayer2.name = "player22";
     }
 
     public void SpawnPlayer2()
@@ -63,7 +62,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer2.GetComponent<Movement>().enabled = true;
         myPlayer2.transform.FindChild("Camera").gameObject.SetActive(true);
         myPlayer2.name = "player2";
-        myPlayer.name = "player11";
     }
 
     public GameObject M4;
@@ -83,5 +81,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         //myPlayer2.name = "player2";
         SpawnGuns();
         //base.OnCreatedRoom();
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(PhotonManager.myPlayer.name = "player1");
+            stream.SendNext(PhotonManager.myPlayer2.name = "player2");
+        }
     }
 }
