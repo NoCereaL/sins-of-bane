@@ -48,14 +48,7 @@ public class PickUpController : MonoBehaviourPun
     {
         JoinGameController();
 
-        if(player.name == "player(Clone)")
-        {
-            player.name = "player1";
-        }
-        else if(player.name == "player2(Clone)")
-        {
-            player.name = "player2";
-        }
+        photonView.RPC("ChangeNames", RpcTarget.All);
 
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         //Check if player in range and "E" is pressed
@@ -71,6 +64,19 @@ public class PickUpController : MonoBehaviourPun
         if(equipped && Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
+        }
+    }
+
+    [PunRPC]
+    void ChangeNames()
+    {
+        if (player.name == "player(Clone)")
+        {
+            player.name = "player1";
+        }
+        else if (player.name == "player2(Clone)")
+        {
+            player.name = "player2";
         }
     }
 
