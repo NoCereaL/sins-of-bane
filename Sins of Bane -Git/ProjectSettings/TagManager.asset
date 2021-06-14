@@ -10,6 +10,7 @@ TagManager:
   - enemy
   - crosshair
   - PlayerCamera
+  - Player2
   layers:
   - Default
   - TransparentFX

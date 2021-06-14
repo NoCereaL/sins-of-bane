@@ -32,18 +32,42 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        SpawnPlayer();
-        SpawnGuns();
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            SpawnPlayer();
+            myPlayer.name = "player1";
+            myPlayer2.name = "player2";
+        }
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        {
+            SpawnPlayer2();
+            myPlayer2.name = "player2";
+            myPlayer.name = "player1";
+        }
+        //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";
         //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
         //base.OnJoinedRoom();
     }
 
+    public GameObject myPlayer;
+    public GameObject myPlayer2;
     public void SpawnPlayer()
     {
-        GameObject myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
         myPlayer.GetComponent<Movement>().enabled = true;
         myPlayer.transform.FindChild("Camera").gameObject.SetActive(true);
+        myPlayer.name = "player1";
+        myPlayer2.name = "player2";
+    }
+
+    public void SpawnPlayer2()
+    {
+        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        myPlayer2.GetComponent<Movement>().enabled = true;
+        myPlayer2.transform.FindChild("Camera").gameObject.SetActive(true);
+        myPlayer2.name = "player2";
+        myPlayer.name = "player1";
     }
 
     public GameObject M4;
@@ -59,6 +83,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
+        SpawnGuns();
         //base.OnCreatedRoom();
     }
 }

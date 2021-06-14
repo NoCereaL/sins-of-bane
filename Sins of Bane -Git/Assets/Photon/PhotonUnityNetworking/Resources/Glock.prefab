@@ -151,6 +151,7 @@ MonoBehaviour:
   gunContainer: {fileID: 0}
   cam: {fileID: 0}
   gunPosition: {fileID: 0}
+  MyPosition: {x: 0, y: 0, z: 0}
   pickUpRange: 4
   dropForwardForce: 15
   equipped: 0

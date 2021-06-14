@@ -21,7 +21,7 @@ public class PlayerNetworking : MonoBehaviour
                 script.enabled = false;
             }
         }
-        player.name = "player1";
+        //player.name = "player1";
     }
 
     // Update is called once per frame

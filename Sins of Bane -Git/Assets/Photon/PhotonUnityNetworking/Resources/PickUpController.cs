@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class PickUpController : MonoBehaviour
+public class PickUpController : MonoBehaviourPun
 {
     public PistolWeapons weapon;
     public ARWeapons aRWeapons;
@@ -12,6 +12,7 @@ public class PickUpController : MonoBehaviour
     public BoxCollider2D coll;
     public Transform player, gunContainer, cam;
     public GunMovement gunPosition;
+    public Vector3 MyPosition;
 
     public float pickUpRange;
     public float dropForwardForce;
@@ -45,18 +46,32 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+        JoinGameController();
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         //Check if player in range and "E" is pressed
         Vector3 distanceToPlayer = player.position - transform.position;
         if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
         {
-            PickUp();
+            Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+            //PickUp();
+            //newPickUp();
+            photonView.RPC("newPickUp", RpcTarget.AllBuffered);
+            //modPickUp();
+            
         }
 
         if(equipped && Input.GetKeyDown(KeyCode.Q))
         {
             Drop();
         }
+    }
+
+    [PunRPC]
+    void SetParent()
+    {
+        photonView.transform.SetParent(player);
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
+        
     }
 
     void PickUp()
@@ -69,6 +84,49 @@ public class PickUpController : MonoBehaviour
         transform.localPosition = Vector2.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = new Vector3(0.2f,0.2f,0f);
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = true;
+        coll.isTrigger = true;
+
+        //Enable Sctipt
+        weapon.enabled = true;
+
+        aRWeapons.enabled = true;
+    }
+
+    [PunRPC]
+    void newPickUp()
+    {
+        equipped = true;
+        slotFull = true;
+
+        //Make Weapon/Gun a child of Weapon and move it to default position
+        transform.SetParent(gunContainer);
+        transform.localPosition = Vector2.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = true;
+        coll.isTrigger = true;
+
+        //Enable Sctipt
+        weapon.enabled = true;
+
+        aRWeapons.enabled = true;
+    }
+
+    void modPickUp()
+    {
+        equipped = true;
+        slotFull = true;
+
+        //Make Weapon/Gun a child of Weapon and move it to default position
+        //transform.SetParent(gunContainer);
+        transform.position = MyPosition * Time.deltaTime;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
 
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
@@ -113,6 +171,7 @@ public class PickUpController : MonoBehaviour
     //Sets weapon and game parameters for current player
     public void JoinGameController()
     {
+        if(photonView.IsMine)
         player = GameObject.Find("player1").GetComponent<Transform>();
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
