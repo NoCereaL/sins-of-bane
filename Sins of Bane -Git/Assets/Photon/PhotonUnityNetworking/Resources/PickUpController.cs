@@ -143,7 +143,6 @@ public class PickUpController : MonoBehaviourPun
     //Sets weapon and game parameters for current player
     public void JoinGameController()
     {
-        if(photonView.IsMine)
         //player = GameObject.Find("player1").GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
