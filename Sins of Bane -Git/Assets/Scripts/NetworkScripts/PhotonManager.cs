@@ -15,7 +15,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("ChangeNames", RpcTarget.All);
+        
     }
 
     public override void OnConnectedToMaster()
@@ -83,10 +83,5 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         //base.OnCreatedRoom();
     }
 
-    [PunRPC]
-    void ChangeNames()
-    {
-        myPlayer.name = "play1";
-        myPlayer2.name = "play2";
-    }
+    
 }
