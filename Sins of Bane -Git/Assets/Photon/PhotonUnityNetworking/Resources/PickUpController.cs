@@ -47,9 +47,9 @@ public class PickUpController : MonoBehaviourPun
     private void Update()
     {
 
-        //ExecuteTheUpdate();
+        ExecuteTheUpdate();
 
-        
+        /*
         JoinGameController();
 
         //Check if player in range and "E" is pressed
@@ -66,7 +66,7 @@ public class PickUpController : MonoBehaviourPun
         {
             Drop();
         }
-        
+        */
     }
 
     void ExecuteTheUpdate()
@@ -98,7 +98,7 @@ public class PickUpController : MonoBehaviourPun
         }
 
 
-        else if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
 
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
@@ -108,7 +108,7 @@ public class PickUpController : MonoBehaviourPun
 
             distanceToPlayer = player.position - transform.position;
 
-            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
+            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull && PhotonNetwork.LocalPlayer.ActorNumber == 2)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 //PickUp();
