@@ -130,18 +130,7 @@ public class PickUpController : MonoBehaviourPun
         slotFull = true;
 
         //Make Weapon/Gun a child of Weapon and move it to default position
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
-            transform.SetParent(gunContainer);
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-            transform.SetParent(gunContainer);
-        }
-        //transform.SetParent(gunContainer);
+        transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
         transform.localScale = new Vector3(0.2f,0.2f,0f);
