@@ -46,9 +46,12 @@ public class PickUpController : MonoBehaviourPun
 
     private void Update()
     {
+
+        ExecuteTheUpdate();
+
+        /*
         JoinGameController();
 
-        //gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         //Check if player in range and "E" is pressed
         Vector3 distanceToPlayer = player.position - transform.position;
         if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
@@ -63,16 +66,62 @@ public class PickUpController : MonoBehaviourPun
         {
             Drop();
         }
-        //player.name = "Hello";
-        Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
+        */
     }
 
-    [PunRPC]
-    void SetParent()
+    void ExecuteTheUpdate()
     {
-        photonView.transform.SetParent(player);
-        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
-        
+        Vector3 distanceToPlayer;
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+
+            player = GameObject.Find("player(Clone)").GetComponent<Transform>();
+            gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+            cam = GameObject.Find("Camera").GetComponent<Transform>();
+            gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
+
+            distanceToPlayer = player.position - transform.position;
+
+            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
+            {
+                Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+                //PickUp();
+                //newPickUp();
+                photonView.RPC("newPickUp", RpcTarget.AllBuffered);
+            }
+
+            if (equipped && Input.GetKeyDown(KeyCode.Q))
+            {
+                Drop();
+            }
+        }
+
+
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+
+            player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
+            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
+            cam = GameObject.Find("Camera").GetComponent<Transform>();
+            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+
+            distanceToPlayer = player.position - transform.position;
+
+            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
+            {
+                Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+                //PickUp();
+                //newPickUp();
+                photonView.RPC("newPickUp", RpcTarget.AllBuffered);
+            }
+
+            if (equipped && Input.GetKeyDown(KeyCode.Q))
+            {
+                Drop();
+            }
+        }
+
     }
 
     void PickUp()
@@ -188,6 +237,35 @@ public class PickUpController : MonoBehaviourPun
     [PunRPC]
     void JoinController2()
     {
+        player = GameObject.Find("player(Clone)").GetComponent<Transform>();
 
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
+        }
+
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+
+        //Gun Containers
+        gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
+        }
+
+
+        //Camera
+        cam = GameObject.Find("Camera").GetComponent<Transform>();
+
+
+        //Gun Positions
+        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+        }
     }
 }
