@@ -47,9 +47,9 @@ public class PickUpController : MonoBehaviourPun
     private void Update()
     {
 
-        ExecuteTheUpdate();
+        //ExecuteTheUpdate();
 
-        /*
+        
         JoinGameController();
 
         //Check if player in range and "E" is pressed
@@ -66,7 +66,7 @@ public class PickUpController : MonoBehaviourPun
         {
             Drop();
         }
-        */
+        
     }
 
     void ExecuteTheUpdate()
