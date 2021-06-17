@@ -27,4 +27,16 @@ public class GlockNetworking : MonoBehaviour
     {
 
     }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+        }
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class GlockScript : MonoBehaviour
 {
@@ -38,5 +39,10 @@ public class GlockScript : MonoBehaviour
     public void JoinGameController()
     {
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
+
+        if (PhotonNetwork.LocalPlayer.ActorNumber >= 2)
+        {
+            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+        }
     }
 }
