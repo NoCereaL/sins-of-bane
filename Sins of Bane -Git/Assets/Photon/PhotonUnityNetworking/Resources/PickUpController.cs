@@ -51,7 +51,7 @@ public class PickUpController : MonoBehaviourPun
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            pv2.RPC("Send", RpcTarget.All);
+            this.photonView.RPC("Send", RpcTarget.All);
         }
 
         JoinController2();
