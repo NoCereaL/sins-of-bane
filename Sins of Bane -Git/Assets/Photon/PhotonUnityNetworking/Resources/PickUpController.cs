@@ -46,7 +46,7 @@ public class PickUpController : MonoBehaviourPun
 
     private void Update()
     {
-
+        JoinController2();
         ExecuteTheUpdate();
 
         /*
