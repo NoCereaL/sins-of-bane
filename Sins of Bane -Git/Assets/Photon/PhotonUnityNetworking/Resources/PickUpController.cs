@@ -44,8 +44,13 @@ public class PickUpController : MonoBehaviourPun
         }
     }
 
-    private void Update()
+    public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            photonView.RPC("Send", RpcTarget.All);
+        }
+
         JoinController2();
         ExecuteTheUpdate();
 
@@ -130,6 +135,12 @@ public class PickUpController : MonoBehaviourPun
             }
         }
 
+    }
+
+    [PunRPC]
+    void Send()
+    {
+        Debug.Log("Hello Simon, Message Recievied");
     }
 
     void PickUp()
