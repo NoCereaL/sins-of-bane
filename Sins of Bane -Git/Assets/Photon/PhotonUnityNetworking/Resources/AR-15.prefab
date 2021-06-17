@@ -230,6 +230,8 @@ MonoBehaviour:
   cam: {fileID: 0}
   gunPosition: {fileID: 0}
   MyPosition: {x: 0, y: 0, z: 0}
+  pv: {fileID: 0}
+  pv2: {fileID: 0}
   pickUpRange: 4
   dropForwardForce: 15
   equipped: 0
@@ -350,6 +352,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7416656297888646717}
   - {fileID: 2383200535480677413}
+  - {fileID: 3744591412774535429}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

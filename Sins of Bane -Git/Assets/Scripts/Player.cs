@@ -37,9 +37,6 @@ public class Player : MonoBehaviourPun
     {
         print("Initiating");
 
-        GameObject gun = GameObject.Find("M4(Clone)").GetComponent<GameObject>();
-        gun.transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
-
         Debug.Log("Successfully Recieved");
     }
 

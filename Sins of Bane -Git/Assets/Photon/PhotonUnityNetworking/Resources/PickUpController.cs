@@ -56,7 +56,7 @@ public class PickUpController : MonoBehaviourPun
 
 
 
-        JoinController2();
+        //JoinController2();
         ExecuteTheUpdate();
 
         /*
