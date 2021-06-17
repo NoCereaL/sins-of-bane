@@ -88,8 +88,8 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player1PickedUp", RpcTarget.AllBuffered);
-                Player1PickedUP();
+                photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
+                //Player1PickedUP();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -114,8 +114,8 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player2PickedUp", RpcTarget.AllBuffered);
-                Player2PickedUP();
+                photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
+                //Player2PickedUP();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -185,7 +185,8 @@ public class PickUpController : MonoBehaviourPun
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
-        
+        PhotonNetwork.Instantiate(gameObject.name, transform.position, Quaternion.Euler(Vector3.zero));
+
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
         transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -202,6 +203,7 @@ public class PickUpController : MonoBehaviourPun
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon2").GetComponent<Transform>());
+        PhotonNetwork.Instantiate(gameObject.name, transform.position, Quaternion.Euler(Vector3.zero));
 
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
