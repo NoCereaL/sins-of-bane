@@ -89,6 +89,7 @@ public class PickUpController : MonoBehaviourPun
                 PickUp();
                 //newPickUp();
                 photonView.RPC("Player1PickedUp", RpcTarget.AllBuffered);
+                Player1PickedUP();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -114,6 +115,7 @@ public class PickUpController : MonoBehaviourPun
                 PickUp();
                 //newPickUp();
                 photonView.RPC("Player2PickedUp", RpcTarget.AllBuffered);
+                Player2PickedUP();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
