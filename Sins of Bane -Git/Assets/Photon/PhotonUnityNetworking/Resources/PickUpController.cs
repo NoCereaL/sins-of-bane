@@ -86,9 +86,9 @@ public class PickUpController : MonoBehaviourPun
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
-                //PickUp();
+                PickUp();
                 //newPickUp();
-                photonView.RPC("newPickUp", RpcTarget.AllBuffered);
+                photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -111,9 +111,9 @@ public class PickUpController : MonoBehaviourPun
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.R) && !slotFull && PhotonNetwork.LocalPlayer.ActorNumber == 2)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
-                //PickUp();
+                PickUp();
                 //newPickUp();
-                photonView.RPC("newPickUp", RpcTarget.AllBuffered);
+                photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -175,6 +175,40 @@ public class PickUpController : MonoBehaviourPun
         weapon.enabled = true;
 
         aRWeapons.enabled = true;
+    }
+
+    [PunRPC]
+    void Player1PickedUP()
+    {
+        //Make Weapon/Gun a child of Weapon and move it to default position
+        gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
+        transform.SetParent(gunContainer);
+        
+        //transform.SetParent(gunContainer);
+        transform.localPosition = Vector2.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = true;
+        coll.isTrigger = true;
+    }
+
+    [PunRPC]
+    void Player2PickedUP()
+    {
+        //Make Weapon/Gun a child of Weapon and move it to default position
+        gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
+        transform.SetParent(gunContainer);
+
+        //transform.SetParent(gunContainer);
+        transform.localPosition = Vector2.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = true;
+        coll.isTrigger = true;
     }
 
     void Drop()
