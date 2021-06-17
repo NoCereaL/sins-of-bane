@@ -96,7 +96,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                pv.RPC("Player1PickedUP", RpcTarget.All);
+                photonView.RPC("Player1PickedUP", RpcTarget.All);
                 //Player1PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
@@ -125,7 +125,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 //PickUp();
                 //newPickUp();
-                pv.RPC("Player2PickedUP", RpcTarget.All);
+                photonView.RPC("Player2PickedUP", RpcTarget.All);
                 //Player2PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
