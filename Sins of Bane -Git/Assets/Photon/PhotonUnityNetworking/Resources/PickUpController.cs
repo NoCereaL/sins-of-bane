@@ -77,7 +77,7 @@ public class PickUpController : MonoBehaviourPun
     {
         Vector3 distanceToPlayer;
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        if (PhotonNetwork.LocalPlayer.ActorNumber >= 1)
         {
 
             player = GameObject.Find("player(Clone)").GetComponent<Transform>();
@@ -104,7 +104,7 @@ public class PickUpController : MonoBehaviourPun
             }
         }
 
-
+        /*
         else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
 
@@ -130,7 +130,7 @@ public class PickUpController : MonoBehaviourPun
                 photonView.RPC("Player2Dropped", RpcTarget.All);
                 DisableScripts();
             }
-        }
+        }*/
 
     }
 
