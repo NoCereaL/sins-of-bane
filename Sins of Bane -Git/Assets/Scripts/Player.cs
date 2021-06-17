@@ -35,6 +35,7 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     void SendMsg()
     {
+        print("Hello Simon, Message Successfully Recieved");
         Debug.Log("Hello Simon, Message Successfully Recieved");
     }
 
