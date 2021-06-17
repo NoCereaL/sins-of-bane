@@ -14,6 +14,8 @@ public class PickUpController : MonoBehaviourPun
     public GunMovement gunPosition;
     public Vector3 MyPosition;
 
+    public PhotonView pv = GameObject.Find("player(clone)").GetComponent<PhotonView>();
+
     public float pickUpRange;
     public float dropForwardForce;
 
@@ -93,7 +95,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player1PickedUP", RpcTarget.All);
+                pv.RPC("Player1PickedUP", RpcTarget.All);
                 //Player1PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
@@ -122,7 +124,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 //PickUp();
                 //newPickUp();
-                photonView.RPC("Player2PickedUP", RpcTarget.All);
+                pv.RPC("Player2PickedUP", RpcTarget.All);
                 //Player2PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
