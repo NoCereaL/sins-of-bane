@@ -32,13 +32,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= 1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
             SpawnPlayer();
         }
         if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
-            //SpawnPlayer2();
+            SpawnPlayer2();
         }
         //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";

@@ -42,7 +42,7 @@ public class GlockScript : MonoBehaviour
 
         if (PhotonNetwork.LocalPlayer.ActorNumber >= 2)
         {
-            //gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
         }
     }
 }
