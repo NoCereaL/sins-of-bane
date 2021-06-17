@@ -74,5 +74,10 @@ public class ARWeapons : MonoBehaviour
     public void JoinGameController()
     {
         gun = GameObject.Find("Weapon").GetComponent<GunMovement>();
+
+        if(PhotonNetwork.LocalPlayer.ActorNumber >= 2)
+        {
+            gun = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+        }
     }
 }
