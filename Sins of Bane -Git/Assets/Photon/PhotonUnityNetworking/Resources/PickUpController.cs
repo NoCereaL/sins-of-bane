@@ -95,9 +95,7 @@ public class PickUpController : MonoBehaviourPun
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
-                //newPickUp();
                 photonView.RPC("Player1PickedUP", RpcTarget.AllBuffered);
-                //Player1PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -105,6 +103,7 @@ public class PickUpController : MonoBehaviourPun
             if (equipped && Input.GetKeyDown(KeyCode.Q))
             {
                 Drop();
+                photonView.RPC("Player1Dropped", RpcTarget.All);
                 DisableScripts();
             }
         }
@@ -123,10 +122,8 @@ public class PickUpController : MonoBehaviourPun
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull && PhotonNetwork.LocalPlayer.ActorNumber == 2)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
-                //PickUp();
-                //newPickUp();
+                PickUp();
                 photonView.RPC("Player2PickedUP", RpcTarget.AllBuffered);
-                //Player2PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -134,6 +131,7 @@ public class PickUpController : MonoBehaviourPun
             if (equipped && Input.GetKeyDown(KeyCode.Q))
             {
                 Drop();
+                photonView.RPC("Player2Dropped", RpcTarget.All);
                 DisableScripts();
             }
         }
@@ -228,11 +226,38 @@ public class PickUpController : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = false;
         coll.isTrigger = false;
+    }
 
-        //Disable Sctipt
-        //weapon.enabled = false;
+    [PunRPC]
+    void Player1Dropped()
+    {
+        transform.SetParent(null);
 
-        //aRWeapons.enabled = false;
+        //Set FirePoint to null
+        gunPosition.firePoint = null;
+
+        //Gun carries momentum of player
+        rb.velocity = player.GetComponent<Rigidbody2D>().velocity;
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = false;
+        coll.isTrigger = false;
+    }
+
+    [PunRPC]
+    void Player2Dropped()
+    {
+        transform.SetParent(null);
+
+        //Set FirePoint to null
+        gunPosition.firePoint = null;
+
+        //Gun carries momentum of player
+        rb.velocity = player.GetComponent<Rigidbody2D>().velocity;
+
+        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
+        rb.isKinematic = false;
+        coll.isTrigger = false;
     }
 
     void EnableScripts()
