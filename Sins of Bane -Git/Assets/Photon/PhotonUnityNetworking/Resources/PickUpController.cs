@@ -88,8 +88,8 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
-                Player1PickedUP();
+                photonView.RPC("Player1PickedUP", RpcTarget.OthersBuffered);
+                //Player1PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -117,8 +117,8 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 //PickUp();
                 //newPickUp();
-                photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
-                Player2PickedUP();
+                photonView.RPC("Player2PickedUP", RpcTarget.OthersBuffered);
+                //Player2PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
