@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class AR15Networking : MonoBehaviour
+public class AR15Networking : MonoBehaviour, IPunObservable
 {
     public MonoBehaviour[] scriptsToIgnore;
 

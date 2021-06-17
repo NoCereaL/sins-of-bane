@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class GlockNetworking : MonoBehaviour
+public class GlockNetworking : MonoBehaviour, IPunObservable
 {
     public MonoBehaviour[] scriptsToIgnore;
 
