@@ -32,7 +32,7 @@ public class GunMovement : MonoBehaviour
 
         try
         {
-            angle = AngleBetweenTwoPoints(firePoint.transform.position, touchPosition);
+            angle = AngleBetweenTwoPoints(firePoint.transform.position, mouseWorldPosition);
         }
         catch { }
         transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle));
