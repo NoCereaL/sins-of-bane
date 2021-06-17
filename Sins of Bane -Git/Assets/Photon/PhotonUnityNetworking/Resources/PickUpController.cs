@@ -54,6 +54,8 @@ public class PickUpController : MonoBehaviourPun
             this.photonView.RPC("Send", RpcTarget.All);
         }
 
+
+
         JoinController2();
         ExecuteTheUpdate();
 
@@ -119,7 +121,7 @@ public class PickUpController : MonoBehaviourPun
 
             distanceToPlayer = player.position - transform.position;
 
-            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull && PhotonNetwork.LocalPlayer.ActorNumber == 2)
+            if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
