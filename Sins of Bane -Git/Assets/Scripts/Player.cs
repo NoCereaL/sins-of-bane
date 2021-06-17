@@ -35,12 +35,12 @@ public class Player : MonoBehaviourPun
     [PunRPC]
     void SendMsg()
     {
+        print("Initiating");
+
         GameObject gun = GameObject.Find("M4(Clone)").GetComponent<GameObject>();
-        GameObject gunContainer = GameObject.Find("Weapon").GetComponent<GameObject>();
         gun.transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
 
-        print("Hello Simon, Message Successfully Recieved");
-        Debug.Log("Hello Simon, Message Successfully Recieved");
+        Debug.Log("Successfully Recieved");
     }
 
     public void TakeDamage(int damage)
