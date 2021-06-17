@@ -86,16 +86,18 @@ public class PickUpController : MonoBehaviourPun
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
-                //PickUp();
+                PickUp();
                 //newPickUp();
                 photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
                 //Player1PickedUP();
                 Debug.Log("All Successfully Executed");
+                EnableScripts();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
             {
                 Drop();
+                DisableScripts();
             }
         }
 
@@ -117,11 +119,13 @@ public class PickUpController : MonoBehaviourPun
                 //newPickUp();
                 photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
                 //Player2PickedUP();
+                EnableScripts();
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
             {
                 Drop();
+                DisableScripts();
             }
         }
 
@@ -131,9 +135,6 @@ public class PickUpController : MonoBehaviourPun
     {
         equipped = true;
         slotFull = true;
-
-        Debug.Log("Executed");
-
 
         //Make Weapon/Gun a child of Weapon and move it to default position
         transform.SetParent(gunContainer);
@@ -146,43 +147,14 @@ public class PickUpController : MonoBehaviourPun
         coll.isTrigger = true;
 
         //Enable Sctipt
-        weapon.enabled = true;
+        //weapon.enabled = true;
 
-        aRWeapons.enabled = true;
+        //aRWeapons.enabled = true;
+
+        Debug.Log("Executed");
 
     }
 
-    [PunRPC]
-    void newPickUp()
-    {
-        equipped = true;
-        slotFull = true;
-
-        //Make Weapon/Gun a child of Weapon and move it to default position
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
-            transform.SetParent(gunContainer);
-        }
-        else if (Input.GetKeyDown(KeyCode.R))
-        {
-            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-            transform.SetParent(gunContainer);
-        }
-        //transform.SetParent(gunContainer);
-        transform.localPosition = Vector2.zero;
-        transform.localRotation = Quaternion.Euler(Vector3.zero);
-        transform.localScale = new Vector3(0.2f, 0.2f, 0f);
-
-        //Make Rigidbody2D kinematic and BoxCollider2D a trigger
-        rb.isKinematic = true;
-        coll.isTrigger = true;
-
-        //Enable Sctipt
-        weapon.enabled = true;
-
-        aRWeapons.enabled = true;
-    }
 
     [PunRPC]
     void Player1PickedUP()
@@ -242,6 +214,20 @@ public class PickUpController : MonoBehaviourPun
         coll.isTrigger = false;
 
         //Disable Sctipt
+        //weapon.enabled = false;
+
+        //aRWeapons.enabled = false;
+    }
+
+    void EnableScripts()
+    {
+        weapon.enabled = true;
+
+        aRWeapons.enabled = true;
+    }
+
+    void DisableScripts()
+    {
         weapon.enabled = false;
 
         aRWeapons.enabled = false;
