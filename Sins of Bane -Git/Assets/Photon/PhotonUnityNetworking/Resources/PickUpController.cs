@@ -89,7 +89,7 @@ public class PickUpController : MonoBehaviourPun
                 PickUp();
                 //newPickUp();
                 photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
-                //Player1PickedUP();
+                Player1PickedUP();
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -118,7 +118,8 @@ public class PickUpController : MonoBehaviourPun
                 //PickUp();
                 //newPickUp();
                 photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
-                //Player2PickedUP();
+                Player2PickedUP();
+                Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
 
@@ -150,20 +151,19 @@ public class PickUpController : MonoBehaviourPun
         //weapon.enabled = true;
 
         //aRWeapons.enabled = true;
-
-        Debug.Log("Executed");
-
     }
 
 
     [PunRPC]
     void Player1PickedUP()
     {
+        Debug.Log("Did it Work?");
+
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
         //PhotonNetwork.Instantiate(gameObject.name, transform.position, Quaternion.Euler(Vector3.zero));
-        Debug.Log("Did it Worj?");
+        Debug.Log("Did it Work?");
 
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
@@ -178,6 +178,8 @@ public class PickUpController : MonoBehaviourPun
     [PunRPC]
     void Player2PickedUP()
     {
+        Debug.Log("Did it Work?");
+
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon2").GetComponent<Transform>());
