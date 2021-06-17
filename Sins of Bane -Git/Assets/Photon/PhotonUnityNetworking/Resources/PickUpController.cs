@@ -186,6 +186,7 @@ public class PickUpController : MonoBehaviourPun
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
         PhotonNetwork.Instantiate(gameObject.name, transform.position, Quaternion.Euler(Vector3.zero));
+        Debug.Log("Did it Worj?");
 
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
@@ -204,6 +205,8 @@ public class PickUpController : MonoBehaviourPun
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         transform.SetParent(GameObject.Find("Weapon2").GetComponent<Transform>());
         PhotonNetwork.Instantiate(gameObject.name, transform.position, Quaternion.Euler(Vector3.zero));
+        Debug.Log("Did it Worj?");
+
 
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
