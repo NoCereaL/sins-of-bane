@@ -15,6 +15,7 @@ public class PickUpController : MonoBehaviourPun
     public Vector3 MyPosition;
 
     public PhotonView pv = GameObject.Find("player(clone)").GetComponent<PhotonView>();
+    public PhotonView pv2 = GameObject.Find("player2(clone)").GetComponent<PhotonView>();
 
     public float pickUpRange;
     public float dropForwardForce;
@@ -50,7 +51,7 @@ public class PickUpController : MonoBehaviourPun
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            photonView.RPC("Send", RpcTarget.All);
+            pv.RPC("Send", RpcTarget.All);
         }
 
         JoinController2();
