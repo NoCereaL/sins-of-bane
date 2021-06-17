@@ -88,7 +88,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player1PickedUp", RpcTarget.OthersBuffered);
+                photonView.RPC("Player1PickedUp", RpcTarget.AllBuffered);
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -113,7 +113,7 @@ public class PickUpController : MonoBehaviourPun
                 Debug.Log(PhotonNetwork.LocalPlayer.UserId);
                 PickUp();
                 //newPickUp();
-                photonView.RPC("Player2PickedUp", RpcTarget.OthersBuffered);
+                photonView.RPC("Player2PickedUp", RpcTarget.AllBuffered);
             }
 
             if (equipped && Input.GetKeyDown(KeyCode.Q))
@@ -182,7 +182,7 @@ public class PickUpController : MonoBehaviourPun
     {
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
-        transform.SetParent(gunContainer);
+        transform.SetParent(GameObject.Find("Weapon").GetComponent<Transform>());
         
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
@@ -199,7 +199,7 @@ public class PickUpController : MonoBehaviourPun
     {
         //Make Weapon/Gun a child of Weapon and move it to default position
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-        transform.SetParent(gunContainer);
+        transform.SetParent(GameObject.Find("Weapon2").GetComponent<Transform>());
 
         //transform.SetParent(gunContainer);
         transform.localPosition = Vector2.zero;
