@@ -5,7 +5,6 @@ using Photon.Pun;
 
 public class M4Script : MonoBehaviour
 {
-
     public PickUpController pickUpController;
     public GameObject AR;
     public GunMovement gunPosition;

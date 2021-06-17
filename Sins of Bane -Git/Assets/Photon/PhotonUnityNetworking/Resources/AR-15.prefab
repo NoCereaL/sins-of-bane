@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 3247652627675284218}
   - component: {fileID: 3247652627675284217}
   - component: {fileID: 3247652627675284216}
-  - component: {fileID: 3247652627675284103}
   - component: {fileID: 3247652627675284102}
+  - component: {fileID: 3247652627675284103}
   - component: {fileID: 3247652627675284101}
   - component: {fileID: 2551952471965586866}
   - component: {fileID: 7416656297888646717}
@@ -190,25 +190,6 @@ MonoBehaviour:
   AR15: {fileID: 3247652627675284103}
   CurrentFireRate: 0
   audioData: {fileID: 3247652627675284101}
---- !u!114 &3247652627675284103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3247652627675284100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1e975b30168bd46b4988e86c04db13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpController: {fileID: 3247652627675284102}
-  AR: {fileID: 3247652627675284100}
-  gunPosition: {fileID: 0}
-  rigidbody: {fileID: 3247652627675284218}
-  boxCollider: {fileID: 3247652627675284217}
-  arWeaponsFireRate: {fileID: 3247652627675284216}
-  fireRate: 5
 --- !u!114 &3247652627675284102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,12 +210,28 @@ MonoBehaviour:
   gunContainer: {fileID: 0}
   cam: {fileID: 0}
   gunPosition: {fileID: 0}
-  MyPosition: {x: 0, y: 0, z: 0}
-  pv: {fileID: 0}
-  pv2: {fileID: 0}
   pickUpRange: 4
   dropForwardForce: 15
   equipped: 0
+--- !u!114 &3247652627675284103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247652627675284100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1e975b30168bd46b4988e86c04db13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpController: {fileID: 3247652627675284102}
+  AR: {fileID: 3247652627675284100}
+  gunPosition: {fileID: 0}
+  rigidbody: {fileID: 3247652627675284218}
+  boxCollider: {fileID: 3247652627675284217}
+  arWeaponsFireRate: {fileID: 3247652627675284216}
+  fireRate: 5
 --- !u!82 &3247652627675284101
 AudioSource:
   m_ObjectHideFlags: 0

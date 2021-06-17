@@ -151,7 +151,6 @@ MonoBehaviour:
   gunContainer: {fileID: 0}
   cam: {fileID: 0}
   gunPosition: {fileID: 0}
-  MyPosition: {x: 0, y: 0, z: 0}
   pickUpRange: 4
   dropForwardForce: 15
   equipped: 0
@@ -315,6 +314,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: -2260551750201138787}
   - {fileID: 8659668663959124005}
+  - {fileID: -3814136561310187088}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

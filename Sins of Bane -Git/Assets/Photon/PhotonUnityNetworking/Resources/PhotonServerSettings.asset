@@ -44,6 +44,12 @@ MonoBehaviour:
   - testM4
   - NetworkParent
   - JoinController2
+  - Player1PickedUP
+  - Player2PickedUP
+  - Send
+  - SendMsg
+  - Player1Dropped
+  - Player2Dropped
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
