@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPun
 {
     public int maxHealth = 100;
     public int currentHealth;
@@ -23,7 +24,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            photonView.RPC("SendMsg", RpcTarget.All);
+        }
         Death();
+    }
+
+    [PunRPC]
+    void SendMsg()
+    {
+        Debug.Log("Hello Simon, Message Successfully Recieved");
     }
 
     public void TakeDamage(int damage)
