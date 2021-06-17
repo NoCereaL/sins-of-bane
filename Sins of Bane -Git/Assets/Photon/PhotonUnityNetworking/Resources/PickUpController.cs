@@ -12,10 +12,6 @@ public class PickUpController : MonoBehaviourPun
     public BoxCollider2D coll;
     public Transform player, gunContainer, cam;
     public GunMovement gunPosition;
-    public Vector3 MyPosition;
-
-    public PhotonView pv = GameObject.Find("player(Clone)").GetComponent<PhotonView>();
-    public PhotonView pv2 = GameObject.Find("player2(Clone)").GetComponent<PhotonView>();
 
     public float pickUpRange;
     public float dropForwardForce;
@@ -53,8 +49,6 @@ public class PickUpController : MonoBehaviourPun
         {
             this.photonView.RPC("Send", RpcTarget.All);
         }
-
-
 
         //JoinController2();
         ExecuteTheUpdate();

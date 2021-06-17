@@ -22,11 +22,17 @@ public class GunMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject crosshair = GameObject.Find("crosshair");
+
+        Transform crosshairPosition = crosshair.GetComponent<Transform>();
+
+        Vector3 touchPosition = crosshairPosition.position;
+
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
 
         try
         {
-            angle = AngleBetweenTwoPoints(firePoint.transform.position, mouseWorldPosition);
+            angle = AngleBetweenTwoPoints(firePoint.transform.position, touchPosition);
         }
         catch { }
         transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle));
