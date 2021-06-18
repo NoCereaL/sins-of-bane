@@ -113,7 +113,7 @@ public class PickUpController : MonoBehaviourPun
             
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
             gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-            cam = GameObject.Find("Camera2").GetComponent<Transform>();
+            cam = GameObject.Find("Camera").GetComponent<Transform>();
             gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
             
 
@@ -292,7 +292,7 @@ public class PickUpController : MonoBehaviourPun
     {
         player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-        cam = GameObject.Find("Camera2").GetComponent<Transform>();
+        cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
     }
 }
