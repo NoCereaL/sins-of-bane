@@ -79,11 +79,14 @@ public class PickUpController : MonoBehaviourPun
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
-
+            /*
             player = GameObject.Find("player(Clone)").GetComponent<Transform>();
             gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
             cam = GameObject.Find("Camera").GetComponent<Transform>();
             gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
+            */
+
+            photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
 
             distanceToPlayer = player.position - transform.position;
 
@@ -107,11 +110,14 @@ public class PickUpController : MonoBehaviourPun
         
         else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
-
+            /*
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
             gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
             cam = GameObject.Find("Camera").GetComponent<Transform>();
             gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+            */
+
+            photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
 
             distanceToPlayer = player.position - transform.position;
 
@@ -272,72 +278,21 @@ public class PickUpController : MonoBehaviourPun
 
 
     //Sets weapon and game parameters for current player
+    [PunRPC]
     public void JoinGameController()
     {
         player = GameObject.Find("player(Clone)").GetComponent<Transform>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
-        }
-
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
-
-        //Gun Containers
         gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-        }
-
-
-        //Camera
         cam = GameObject.Find("Camera").GetComponent<Transform>();
-
-
-        //Gun Positions
         gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
-        }
     }
 
     [PunRPC]
-    void JoinController2()
+    void JoinGameController2()
     {
-        player = GameObject.Find("player(Clone)").GetComponent<Transform>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
-        }
-
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
-
-        //Gun Containers
-        gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
-        }
-
-
-        //Camera
+        player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
+        gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
-
-
-        //Gun Positions
-        gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
-
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
-        }
+        gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
     }
 }
