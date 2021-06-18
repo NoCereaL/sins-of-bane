@@ -79,14 +79,14 @@ public class PickUpController : MonoBehaviourPun
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {
-            /*
+            
             player = GameObject.Find("player(Clone)").GetComponent<Transform>();
             gunContainer = GameObject.Find("Weapon").GetComponent<Transform>();
             cam = GameObject.Find("Camera").GetComponent<Transform>();
             gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
-            */
+            
 
-            photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
+            //photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
 
             distanceToPlayer = player.position - transform.position;
 
@@ -110,14 +110,14 @@ public class PickUpController : MonoBehaviourPun
         
         else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
-            /*
+            
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
             gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
             cam = GameObject.Find("Camera").GetComponent<Transform>();
             gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
-            */
+            
 
-            photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
+            //photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
 
             distanceToPlayer = player.position - transform.position;
 
