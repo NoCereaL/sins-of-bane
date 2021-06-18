@@ -92,7 +92,7 @@ public class PickUpController : MonoBehaviourPun
 
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
-                Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+                photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player1PickedUP", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
@@ -123,7 +123,7 @@ public class PickUpController : MonoBehaviourPun
 
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
-                Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+                photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player2PickedUP", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
