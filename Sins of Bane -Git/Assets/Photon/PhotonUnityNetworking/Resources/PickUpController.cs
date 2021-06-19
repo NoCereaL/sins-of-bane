@@ -108,7 +108,7 @@ public class PickUpController : MonoBehaviourPun
         }
 
         
-        else 
+        else if(PhotonNetwork.CurrentRoom.PlayerCount == 2)
         {
             
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
