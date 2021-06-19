@@ -227,7 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickUpController: {fileID: 5187562055646008381}
   AR: {fileID: 5187562055646008383}
-  gunPosition: {fileID: 0}
   rigidbody: {fileID: 5187562055646008379}
   boxCollider: {fileID: 5187562055646008382}
   arWeaponsFireRate: {fileID: 5187562055646008374}

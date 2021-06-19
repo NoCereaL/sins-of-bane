@@ -123,7 +123,6 @@ public class PickUpController : MonoBehaviourPun
 
             if (!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
             {
-                M4Script.gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
                 photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player2PickedUP", RpcTarget.AllBuffered);
