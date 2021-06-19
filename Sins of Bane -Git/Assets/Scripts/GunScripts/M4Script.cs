@@ -7,7 +7,7 @@ public class M4Script : MonoBehaviour
 {
     public PickUpController pickUpController;
     public GameObject AR;
-    public GunMovement gunPosition;
+    public static GunMovement gunPosition;
     public Rigidbody2D rigidbody;
     public BoxCollider2D boxCollider;
     public ARWeapons arWeaponsFireRate;
