@@ -1,0 +1,62 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ArmMovement : MonoBehaviour
+{
+
+
+    public static float angle;
+
+    public Camera camera;
+
+    public GameObject firePoint;
+    public GameObject Elbow;
+
+    public Movement movement;
+
+    void Start()
+    {
+        camera = Camera.main;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //GameObject crosshair = GameObject.Find("crosshair");
+
+        //Transform crosshairPosition = crosshair.GetComponent<Transform>();
+
+        //Vector3 touchPosition = crosshairPosition.position;
+
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
+        try
+        {
+            angle = AngleBetweenTwoPoints(firePoint.transform.position, mouseWorldPosition);
+        }
+        catch { }
+        transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle + 90));
+        transform.position = Elbow.transform.position;
+        //hingeJoint.transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle));
+        //WeaponTransfer();
+    }
+
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
+
+    /*
+    void WeaponTransfer()
+    {
+        if (movement.hasTurned == true)
+        {
+            transform.localScale = new Vector3(-1, -1, 1);
+        }
+        if (movement.hasTurned == false)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+    }*/
+}
