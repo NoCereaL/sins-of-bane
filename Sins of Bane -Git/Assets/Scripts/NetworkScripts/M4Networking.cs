@@ -32,11 +32,13 @@ public class M4Networking : MonoBehaviour, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(transform.rotation);
+            //stream.SendNext(transform.rotation);
+            stream.SendNext(transform.localScale);
         }
         else
         {
-            transform.rotation = (Quaternion)stream.ReceiveNext();
+            //transform.rotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }

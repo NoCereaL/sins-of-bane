@@ -1520,6 +1520,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3425189071183075026, guid: 43156126edb94ec45910fa4f6e3f59f5, type: 3}
+      propertyPath: m_ScaleModel.SynchronizeEnabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5187562055646008377, guid: 43156126edb94ec45910fa4f6e3f59f5, type: 3}
       propertyPath: m_RootOrder
       value: 1
