@@ -86,7 +86,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         //myPlayer.name = "player1";
         //myPlayer2.name = "player2";
-        SpawnGuns();
+        //SpawnGuns();
         //base.OnCreatedRoom();
     }
 
