@@ -34,10 +34,12 @@ public class WeaponHolder : MonoBehaviour, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(transform.rotation);
+            stream.SendNext(transform.localScale);
         }
         else
         {
             transform.rotation = (Quaternion)stream.ReceiveNext();
+            transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
 }

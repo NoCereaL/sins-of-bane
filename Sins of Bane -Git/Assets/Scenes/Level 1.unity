@@ -1572,6 +1572,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7414769480831118519, guid: 43156126edb94ec45910fa4f6e3f59f5, type: 3}
+      propertyPath: OwnershipTransfer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43156126edb94ec45910fa4f6e3f59f5, type: 3}
 --- !u!1 &710778871
