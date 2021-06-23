@@ -187,6 +187,7 @@ public class PickUpController : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
         coll.isTrigger = true;
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 
     [PunRPC]
@@ -209,6 +210,7 @@ public class PickUpController : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
         coll.isTrigger = true;
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 
     void Drop()
