@@ -26,16 +26,6 @@ public class WeaponHolder : MonoBehaviour, IPunObservable
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("Turn", RpcTarget.OthersBuffered);
-    }
-
-    [PunRPC]
-    void Turn()
-    {
-        if(Player.player.transform.localScale.x == -1)
-        {
-            transform.localScale = new Vector3(-1, -1, 1);
-        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

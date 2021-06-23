@@ -13,7 +13,7 @@ public class Player : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
 
-    public static GameObject player;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
