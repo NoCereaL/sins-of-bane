@@ -95,6 +95,7 @@ public class PickUpController : MonoBehaviourPun
                 photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player1PickedUP", RpcTarget.AllBuffered);
+                photonView.RPC("OnTrasferOwnership", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -126,6 +127,7 @@ public class PickUpController : MonoBehaviourPun
                 photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player2PickedUP", RpcTarget.AllBuffered);
+                photonView.RPC("OnTrasferOwnership", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -187,7 +189,7 @@ public class PickUpController : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
         coll.isTrigger = true;
-        photonView.TransferOwnership(1);
+        //photonView.TransferOwnership(1);
     }
 
     [PunRPC]
@@ -210,7 +212,7 @@ public class PickUpController : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = true;
         coll.isTrigger = true;
-        photonView.TransferOwnership(2);
+        //photonView.TransferOwnership(2);
     }
 
     void Drop()
@@ -296,5 +298,11 @@ public class PickUpController : MonoBehaviourPun
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
+    }
+
+    [PunRPC]
+    void OnTrasferOwnership()
+    {
+        photonView.TransferOwnership(PhotonNetwork.LocalPlayer);
     }
 }
