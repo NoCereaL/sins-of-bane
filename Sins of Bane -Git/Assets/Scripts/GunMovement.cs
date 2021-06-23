@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class GunMovement : MonoBehaviourPun
+public class GunMovement : MonoBehaviour
 {
 
 
@@ -38,8 +37,7 @@ public class GunMovement : MonoBehaviourPun
         catch { }
         transform.rotation = Quaternion.Euler(new Vector3(180f, 180f, angle));
 
-        //WeaponTransfer();
-        photonView.RPC("WeaponTransfer", RpcTarget.AllBuffered);
+        WeaponTransfer();
     }
 
     float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
@@ -47,7 +45,6 @@ public class GunMovement : MonoBehaviourPun
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
-    [PunRPC]
     void WeaponTransfer()
     {
         if(movement.hasTurned == true)
