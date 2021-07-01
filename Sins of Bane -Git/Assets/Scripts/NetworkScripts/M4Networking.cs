@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class M4Networking : MonoBehaviour
+public class M4Networking : MonoBehaviour, IPunObservable
 {
     public MonoBehaviour[] scriptsToIgnore;
 
@@ -28,5 +28,15 @@ public class M4Networking : MonoBehaviour
 
     }
    
-    
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+        }
+    }
 }
