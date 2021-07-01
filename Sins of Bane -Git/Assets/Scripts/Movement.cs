@@ -16,8 +16,6 @@ public class Movement : MonoBehaviour
 
     public float PlayerScale = 1f;
 
-    public float desiredVelocity;
-
     public Animator animator;
 
     public GameObject FirePoint;
