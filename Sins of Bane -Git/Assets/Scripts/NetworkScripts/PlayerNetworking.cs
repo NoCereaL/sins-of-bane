@@ -7,6 +7,8 @@ public class PlayerNetworking : MonoBehaviour
 {
     public GameObject player;
 
+    public GameObject weaponHolder;
+
     public MonoBehaviour[] scriptsToIgnore;
 
     private PhotonView photonView;
@@ -21,7 +23,11 @@ public class PlayerNetworking : MonoBehaviour
                 script.enabled = false;
             }
         }
-        //player.name = "player1";
+        if(PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            player.name = "player1(Clone)";
+            weaponHolder.name = "Weapon2";
+        }
     }
 
     // Update is called once per frame

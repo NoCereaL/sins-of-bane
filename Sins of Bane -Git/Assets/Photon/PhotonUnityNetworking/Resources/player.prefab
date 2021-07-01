@@ -1590,6 +1590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8367196259086800579}
+  weaponHolder: {fileID: 5882013534828855277}
   scriptsToIgnore:
   - {fileID: 7098472264039664979}
   - {fileID: 1502501242892205238}
