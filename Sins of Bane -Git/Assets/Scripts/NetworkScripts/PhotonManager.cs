@@ -58,7 +58,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer2()
     {
-        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
         myPlayer2.GetComponent<Movement>().enabled = true;
         myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
         //myPlayer2.name = "player2";

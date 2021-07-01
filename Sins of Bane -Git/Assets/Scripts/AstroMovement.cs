@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class AstroMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
 
     public float jumpHeight = 5f;
-    
+
     public bool isGrounded = false;
 
     public bool hasTurned;
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         transform.position += movement * Time.deltaTime * moveSpeed;
         horizontalMove = Input.GetAxis("Horizontal") * moveSpeed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        
+
     }
 
     void jump()
@@ -56,36 +56,22 @@ public class Movement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
+        heighOfJump = rb.velocity.y;
+        
+        animator.SetFloat("VerticalVelocity", Mathf.Abs(heighOfJump));
 
-        //heighOfJump = rb.velocity.y;
-
-        //animator.SetFloat("VerticalVelocity", Mathf.Abs(heighOfJump));
     }
 
     void moveTransform()
     {
         float center = Screen.width - (Screen.width / 2);
 
-        /*desiredVelocity = Input.GetAxis("Horizontal") * moveSpeed;
-        if (desiredVelocity >= 0.01f)
-        {
-            hasTurned = false;
-            transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
-            FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else if (desiredVelocity <= -0.01f)
-        {
-            hasTurned = true;
-            transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
-            FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }*/
-
         if (Input.mousePosition.x >= center)
         {
             hasTurned = false;
             transform.localScale = new Vector3(PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        } 
+        }
         else if (Input.mousePosition.x <= center)
         {
             hasTurned = true;

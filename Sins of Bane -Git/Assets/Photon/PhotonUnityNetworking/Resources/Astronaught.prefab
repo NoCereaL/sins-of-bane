@@ -332,7 +332,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2692689059017843724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32e7ec8c2ed7b440b8e29b954562785f, type: 3}
   m_Name: 
@@ -1081,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96278f71b70714e40acddbbf3db5cb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
 --- !u!114 &8024055823369420170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,9 +2636,10 @@ MonoBehaviour:
   isGrounded: 0
   hasTurned: 0
   horizontalMove: 0
-  PlayerScale: 1
+  heighOfJump: 0
   animator: {fileID: 0}
   FirePoint: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!114 &8024055824772643672
 MonoBehaviour:
   m_ObjectHideFlags: 0

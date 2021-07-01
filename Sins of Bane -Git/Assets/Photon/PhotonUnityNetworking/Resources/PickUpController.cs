@@ -75,7 +75,7 @@ public class PickUpController : MonoBehaviourPun
 
     void ExecuteTheUpdate()
     {
-        Vector3 distanceToPlayer;
+        Vector2 distanceToPlayer;
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
         {

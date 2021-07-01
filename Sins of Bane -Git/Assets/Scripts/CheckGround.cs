@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckGround : MonoBehaviour
 {
-    private GameObject Player;
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +21,7 @@ public class CheckGround : MonoBehaviour
     {
         if (collision.collider.tag == "ground")
         {
+            Player.GetComponent<AstroMovement>().isGrounded = true;
             Player.GetComponent<Movement>().isGrounded = true;
         }
     }
@@ -29,7 +30,9 @@ public class CheckGround : MonoBehaviour
     {
         if (collision.collider.tag == "ground")
         {
-           Player.GetComponent<Movement>().isGrounded = false; 
+           Player.GetComponent<AstroMovement>().isGrounded = false;
+           Player.GetComponent<Movement>().isGrounded = false;
+
         }
     }
 }
