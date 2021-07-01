@@ -7,8 +7,6 @@ public class PlayerNetworking : MonoBehaviour
 {
     public GameObject player;
 
-    public GameObject weaponHolder;
-
     public MonoBehaviour[] scriptsToIgnore;
 
     private PhotonView photonView;
@@ -22,11 +20,6 @@ public class PlayerNetworking : MonoBehaviour
             {
                 script.enabled = false;
             }
-        }
-        if(PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            player.name = "player1(Clone)";
-            weaponHolder.name = "Weapon2";
         }
     }
 
