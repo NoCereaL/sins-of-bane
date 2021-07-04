@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class AstroArmMove : MonoBehaviour, IPunObservable
+public class AstroArmMove : MonoBehaviour
 {
     public static float angle;
 
@@ -53,20 +53,6 @@ public class AstroArmMove : MonoBehaviour, IPunObservable
         else if (Input.mousePosition.x <= center)
         {
             transform.localScale = new Vector3(-AstroMovement.PlayerScale, -AstroMovement.PlayerScale, AstroMovement.PlayerScale);
-        }
-    }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(transform.rotation);
-            stream.SendNext(transform.position);
-        }
-        else
-        {
-            transform.rotation = (Quaternion)stream.ReceiveNext();
-            transform.position = (Vector3)stream.ReceiveNext();
         }
     }
 
