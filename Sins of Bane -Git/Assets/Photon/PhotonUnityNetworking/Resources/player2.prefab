@@ -41,17 +41,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626816677673326502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4147e56ec1d40684d9ab00d2ffe98e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1566032135275242149}
-  scriptsToIgnore:
-  - {fileID: 341797995769713780}
-  - {fileID: 2698444853840174430}
-  - {fileID: 626816677673326521}
-  photonView: {fileID: 341797995769713780}
+  scriptsToIgnore: []
+  photonView: {fileID: 7098472264039664979}
 --- !u!114 &341797995769713780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,9 +137,7 @@ MonoBehaviour:
   firePoint: {fileID: 3351287120294352497}
   scriptsToIgnore:
   - {fileID: 951567727172065213}
-  - {fileID: 3958367232343810018}
-  - {fileID: 7978860567971512975}
-  photonView: {fileID: 0}
+  photonView: {fileID: 7098472264039664979}
 --- !u!114 &3958367232343810018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,7 +677,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5882013534828855277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
