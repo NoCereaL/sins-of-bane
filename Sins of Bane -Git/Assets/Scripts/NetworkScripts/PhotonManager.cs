@@ -54,6 +54,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer.GetComponent<AstroMovement>().enabled = true;
         myPlayer.transform.Find("Camera").gameObject.SetActive(true);
         myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
+        myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
         //myPlayer.name = "player1";
     }
 
