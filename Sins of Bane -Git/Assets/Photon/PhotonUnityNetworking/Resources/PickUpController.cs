@@ -95,6 +95,7 @@ public class PickUpController : MonoBehaviourPun
                 photonView.RPC("JoinGameController", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player1PickedUP", RpcTarget.AllBuffered);
+                photonView.RPC("TransformViewOff", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -103,6 +104,7 @@ public class PickUpController : MonoBehaviourPun
             {
                 Drop();
                 photonView.RPC("Player1Dropped", RpcTarget.All);
+                photonView.RPC("TransformViewOn", RpcTarget.AllBuffered);
                 DisableScripts();
             }
         }
@@ -126,6 +128,7 @@ public class PickUpController : MonoBehaviourPun
                 photonView.RPC("JoinGameController2", RpcTarget.AllBuffered);
                 PickUp();
                 photonView.RPC("Player2PickedUP", RpcTarget.AllBuffered);
+                photonView.RPC("TransformViewOff", RpcTarget.AllBuffered);
                 Debug.Log("All Successfully Executed");
                 EnableScripts();
             }
@@ -134,6 +137,7 @@ public class PickUpController : MonoBehaviourPun
             {
                 Drop();
                 photonView.RPC("Player2Dropped", RpcTarget.All);
+                photonView.RPC("TransformViewOn", RpcTarget.AllBuffered);
                 DisableScripts();
             }
         }
@@ -211,6 +215,18 @@ public class PickUpController : MonoBehaviourPun
         rb.isKinematic = true;
         coll.isTrigger = true;
         photonView.TransferOwnership(2);
+    }
+
+    [PunRPC]
+    void TransformViewOff()
+    {
+        gameObject.GetComponent<PhotonTransformView>().enabled = false;
+    }
+
+    [PunRPC]
+    void TransformViewOn()
+    {
+        gameObject.GetComponent<PhotonTransformView>().enabled = true;
     }
 
     void Drop()
