@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1566032135275242149}
-  scriptsToIgnore: []
+  scriptsToIgnore:
+  - {fileID: 626816677673326521}
   photonView: {fileID: 7098472264039664979}
 --- !u!114 &341797995769713780
 MonoBehaviour:
