@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 1005637477049021811}
   - component: {fileID: 6212593891704754855}
   - component: {fileID: 6429206597746853701}
+  - component: {fileID: 1360701343010365627}
   m_Layer: 0
   m_Name: Weapon2
   m_TagString: Untagged
@@ -668,6 +669,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptsToIgnore: []
   photonView: {fileID: 6212593891704754855}
+--- !u!114 &1360701343010365627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5882013534828855277}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bc6745265cbc442ba5376c16be111f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!1 &5976803973266813078
 GameObject:
   m_ObjectHideFlags: 0
