@@ -53,6 +53,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
         myPlayer.GetComponent<AstroMovement>().enabled = true;
         myPlayer.transform.Find("Camera").gameObject.SetActive(true);
+        myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
         //myPlayer.name = "player1";
     }
 
