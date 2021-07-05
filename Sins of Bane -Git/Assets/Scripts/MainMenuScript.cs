@@ -18,7 +18,7 @@ public class MainMenuScript : MonoBehaviour
     public void PlayNowButton()
     {
         // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
         audioData = GetComponent<AudioSource>();
         audioData.Play();
     }
