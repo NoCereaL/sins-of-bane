@@ -5,7 +5,7 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     private GameObject Player;
-    public Player player;
+    public PlayerInfo player;
 
     AudioSource audioData;
     // Start is called before the first frame update

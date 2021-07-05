@@ -8,7 +8,7 @@ public class LivesScript : MonoBehaviour
     public GameObject TwoLife;
     public GameObject ThreeLife;
 
-    public Player player;
+    public PlayerInfo player;
     // Start is called before the first frame update
     void Start()
     {

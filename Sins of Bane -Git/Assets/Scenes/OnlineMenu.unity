@@ -474,7 +474,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027182}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OnlineLauncher, Assembly-CSharp
         m_MethodName: LeaveRoom
         m_Mode: 1
@@ -607,7 +607,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027183}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenMenu
         m_Mode: 2
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027182}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OnlineLauncher, Assembly-CSharp
         m_MethodName: CreateRoom
         m_Mode: 1
@@ -1437,7 +1437,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027183}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenMenu
         m_Mode: 2
@@ -2030,7 +2030,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027182}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OnlineLauncher, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -3089,7 +3089,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027183}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenMenu
         m_Mode: 2
@@ -3689,7 +3689,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125027183}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: OpenMenu
         m_Mode: 2
@@ -4121,7 +4121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2024788088}
-  - component: {fileID: 2024788090}
   - component: {fileID: 2024788089}
   m_Layer: 0
   m_Name: RoomManager
@@ -4167,18 +4166,6 @@ MonoBehaviour:
   sceneViewId: 999
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2024788090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024788086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b8c52efc0b4d40aaac1d81b1c1a266a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2037972232
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,7 +4175,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2037972233}
-  - component: {fileID: 2037972234}
   m_Layer: 5
   m_Name: LoadingMenu
   m_TagString: Untagged
@@ -4216,20 +4202,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2037972234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037972232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad95dc699bc14b3eba8c7024ecf1a0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuName: loading
-  open: 1
 --- !u!1 &2125027177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,8 +4214,6 @@ GameObject:
   - component: {fileID: 2125027180}
   - component: {fileID: 2125027179}
   - component: {fileID: 2125027178}
-  - component: {fileID: 2125027182}
-  - component: {fileID: 2125027183}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4337,42 +4307,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2125027182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125027177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 875df91bc3e024fdf96fbd9aba036780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomNameInputField: {fileID: 527412676}
-  errorText: {fileID: 1414290306}
-  roomNameText: {fileID: 738420261}
-  roomListContent: {fileID: 513197373}
-  roomListItemPrefab: {fileID: 5590041413162275129, guid: 2d7ba8f3f78ec442780c5f398db5b969, type: 3}
-  playerListContent: {fileID: 477289445}
-  PlayerListItemPrefab: {fileID: 1878336002063414184, guid: 64a7e04155caa4008a44db704a30eedc, type: 3}
-  startGameButton: {fileID: 740400222}
---- !u!114 &2125027183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125027177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a605ac70e8df44a969187bec140862fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menus:
-  - {fileID: 2037972234}
-  - {fileID: 520157952}
-  - {fileID: 645285602}
-  - {fileID: 660748791}
-  - {fileID: 870107014}
-  - {fileID: 1917619824}

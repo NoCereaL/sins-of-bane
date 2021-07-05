@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     public int Damage = 20;
 
-    public Player player;
+    public PlayerInfo player;
 
     AudioSource audioData;
     AudioSource audi;

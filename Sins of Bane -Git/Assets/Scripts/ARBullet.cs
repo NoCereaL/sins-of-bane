@@ -15,7 +15,7 @@ public class ARBullet : MonoBehaviour
 
     public GameObject impactEffect;
 
-    public Player player;
+    public PlayerInfo player;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class ARBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        player = hitInfo.GetComponent<Player>();
+        player = hitInfo.GetComponent<PlayerInfo>();
         if (player != null)
         {
             player.TakeDamage(damage);
@@ -49,7 +49,7 @@ public class ARBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Player player = collision.collider.GetComponent<Player>();
+        PlayerInfo player = collision.collider.GetComponent<PlayerInfo>();
         if(collision.collider.tag == "Player")
         {
             player.TakeDamage(damage);
