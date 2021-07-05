@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-public class Player : MonoBehaviourPun
+public class PlayerInfo : MonoBehaviourPun
 {
     public int maxHealth = 100;
     public int currentHealth;

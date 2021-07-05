@@ -144,6 +144,7 @@ MonoBehaviour:
   bullet: {fileID: 4584634058227477736}
   BulletLife: 5
   impactEffect: {fileID: 0}
+  player: {fileID: 0}
 --- !u!82 &4456525397791244312
 AudioSource:
   m_ObjectHideFlags: 0
