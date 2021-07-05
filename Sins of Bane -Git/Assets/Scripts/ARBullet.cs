@@ -14,6 +14,8 @@ public class ARBullet : MonoBehaviour
     public int BulletLife = 2;
 
     public GameObject impactEffect;
+
+    public Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class ARBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
-        Player player = hitInfo.GetComponent<Player>();
+        player = hitInfo.GetComponent<Player>();
         if (player != null)
         {
             player.TakeDamage(damage);
