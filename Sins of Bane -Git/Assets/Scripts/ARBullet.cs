@@ -38,6 +38,17 @@ public class ARBullet : MonoBehaviour
         Destroy(bullet);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Player player = collision.collider.GetComponent<Player>();
+        if(collision.collider.tag == "Player")
+        {
+            player.TakeDamage(damage);
+            Destroy(bullet);
+        }
+        Destroy(bullet);
+    }
+
     IEnumerator DestroyBullet()
     {
         yield return new WaitForSeconds(BulletLife);
