@@ -1526,8 +1526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3069115460866c84a8cb76aae6769b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpHeight: 9
+  moveSpeed: 9
+  jumpHeight: 11
   isGrounded: 0
   hasTurned: 0
   horizontalMove: 0
@@ -1597,8 +1597,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8367196259086800579}
   scriptsToIgnore:
-  - {fileID: 7098472264039664979}
-  - {fileID: 1502501242892205238}
   - {fileID: -4400346559676019362}
   - {fileID: 4030765464500595658}
   - {fileID: 3926565621881125920}
