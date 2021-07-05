@@ -1860,7 +1860,7 @@ MonoBehaviour:
   OneLife: {fileID: 8367196260163897284}
   TwoLife: {fileID: 8367196259577358924}
   ThreeLife: {fileID: 8367196260634708865}
-  player: {fileID: 0}
+  player: {fileID: 4117584928512969002}
 --- !u!1 &8367196259331570042
 GameObject:
   m_ObjectHideFlags: 0
