@@ -28,6 +28,12 @@ public class ARBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
+        Player player = hitInfo.GetComponent<Player>();
+        if (hitInfo.tag == "Player")
+        {
+            player.TakeDamage(damage);
+            Destroy(bullet);
+        }
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
@@ -35,6 +41,7 @@ public class ARBullet : MonoBehaviour
             Destroy(bullet);
             //DestroyImmediate(impactEffect, true);
         }
+        
         Destroy(bullet);
     }
 
