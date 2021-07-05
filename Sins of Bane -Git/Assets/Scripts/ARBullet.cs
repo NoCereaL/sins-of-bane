@@ -29,7 +29,7 @@ public class ARBullet : MonoBehaviour
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         Player player = hitInfo.GetComponent<Player>();
-        if (hitInfo.tag == "Player")
+        if (player != null)
         {
             player.TakeDamage(damage);
             Destroy(bullet);
