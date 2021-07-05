@@ -55,15 +55,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
 	}
 
+	public static GameObject myPlayer;
+	public static GameObject myPlayer2;
 	public void SpawnPlayer()
 	{
-		GameObject myPlayer = (GameObject)PhotonNetwork.Instantiate("Player1", new Vector3(8, 0, -1), Quaternion.identity);
-		myPlayer.GetComponent<Movement>().enabled = true;
+		myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+		myPlayer.GetComponent<AstroMovement>().enabled = true;
+		myPlayer.transform.Find("Camera").gameObject.SetActive(true);
+		myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
+		myPlayer.transform.Find("HUD").gameObject.SetActive(true);
 	}
 
 	public void SpawnPlayer2()
 	{
-		GameObject myPlayer = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector3(-8, 0, -1), Quaternion.identity);
-		myPlayer.GetComponent<Movement>().enabled = true;
+		myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+		myPlayer2.GetComponent<AstroMovement>().enabled = true;
+		myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
+		myPlayer2.GetComponentInChildren<AstroArmMove>().enabled = true;
+		myPlayer2.transform.Find("HUD").gameObject.SetActive(true);
 	}
 }
