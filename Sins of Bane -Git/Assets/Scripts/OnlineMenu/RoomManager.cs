@@ -9,6 +9,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
 	public static RoomManager Instance;
 
+	public static GameObject myPlayer;
+	public static GameObject myPlayer2;
+
 	void Awake()
 	{
 		if(Instance)
@@ -47,16 +50,17 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
 		{
 			SpawnPlayer();
+			myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
 		}
 		if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
 		{
 			SpawnPlayer2();
+			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		}
 
 	}
 
-	public static GameObject myPlayer;
-	public static GameObject myPlayer2;
+	
 	public void SpawnPlayer()
 	{
 		myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
@@ -64,6 +68,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer.transform.Find("Camera").gameObject.SetActive(true);
 		myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
 		myPlayer.transform.Find("HUD").gameObject.SetActive(true);
+		myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
 	}
 
 	public void SpawnPlayer2()
@@ -73,5 +78,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
 		myPlayer2.GetComponentInChildren<AstroArmMove>().enabled = true;
 		myPlayer2.transform.Find("HUD").gameObject.SetActive(true);
+		myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 	}
 }
