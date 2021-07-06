@@ -11,6 +11,7 @@ TagManager:
   - crosshair
   - PlayerCamera
   - Player2
+  - Teleporter
   layers:
   - Default
   - TransparentFX

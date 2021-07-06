@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class AstroMovement : MonoBehaviour
 {
@@ -77,6 +78,18 @@ public class AstroMovement : MonoBehaviour
             hasTurned = true;
             transform.localScale = new Vector3(-PlayerScale, PlayerScale, PlayerScale);
             FirePoint.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Teleporter" && PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+            transform.position = SpawnPoints.spawnPoint[0];
+        }
+        if (collision.collider.tag == "Teleporter" && PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            transform.position = SpawnPoints.spawnPoint[1];
         }
     }
 
