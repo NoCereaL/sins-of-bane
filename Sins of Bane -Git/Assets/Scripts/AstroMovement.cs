@@ -49,11 +49,11 @@ public class AstroMovement : MonoBehaviour
 
     void jump()
     {
-        if (Input.GetButtonDown("Jump") && (isGrounded == true || rb.velocity.y <= 0))
+        if (Input.GetButtonDown("Jump") && (isGrounded == true || rb.velocity.y == 0))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
-        else if (Input.GetKeyDown("w") && (isGrounded == true || rb.velocity.y <= 0))
+        else if (Input.GetKeyDown("w") && (isGrounded == true || rb.velocity.y == 0))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
