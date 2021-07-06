@@ -50,7 +50,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public static GameObject myPlayer2;
     public void SpawnPlayer()
     {
-        myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-35f, 35f), transform.position.y), Quaternion.identity);
+        myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-35f, -10f), transform.position.y), Quaternion.identity);
         myPlayer.GetComponent<AstroMovement>().enabled = true;
         myPlayer.transform.Find("Camera").gameObject.SetActive(true);
         myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
@@ -60,7 +60,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer2()
     {
-        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(-35f, 35f), transform.position.y), Quaternion.identity);
+        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(10f, 35f), transform.position.y), Quaternion.identity);
         myPlayer2.GetComponent<AstroMovement>().enabled = true;
         myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
         myPlayer2.GetComponentInChildren<AstroArmMove>().enabled = true;

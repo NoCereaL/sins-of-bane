@@ -64,12 +64,12 @@ public class PlayerInfo : MonoBehaviourPun
             respawn();
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
-            LoseLife();
-        }
+            //LoseLife();
+        }/*
         if (Lives <= 0)
         {
             SceneManager.LoadScene(0);
-        }
+        }*/
     }
 
 }
