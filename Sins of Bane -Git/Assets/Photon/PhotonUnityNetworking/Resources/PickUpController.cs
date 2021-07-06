@@ -18,11 +18,13 @@ public class PickUpController : MonoBehaviourPun
 
     public bool equipped;
     public static bool slotFull;
+    public GameObject HUD;
 
     private void Start()
     {
         //gunPosition = GameObject.Find("Weapon").GetComponent<GunMovement>();
         JoinGameController();
+        HUD.active = false;
         if (!equipped)
         {
             weapon.enabled = false;
@@ -50,6 +52,14 @@ public class PickUpController : MonoBehaviourPun
             this.photonView.RPC("Send", RpcTarget.All);
         }
 
+        if (equipped == true)
+        {
+            HUD.active = true;
+        }
+        else
+        {
+            HUD.active = false;
+        }
         //JoinController2();
         ExecuteTheUpdate();
 
