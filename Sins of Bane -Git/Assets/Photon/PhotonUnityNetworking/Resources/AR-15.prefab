@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -453,6 +453,7 @@ MonoBehaviour:
   maxAmmo: 10
   amountOfAmmo: 90
   ammo: 0
+  bulletsUsed: 0
   reloadTime: 1.5
   isReloading: 0
   audioData: {fileID: 3247652627675284101}
