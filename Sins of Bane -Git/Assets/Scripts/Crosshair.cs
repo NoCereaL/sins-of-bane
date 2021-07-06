@@ -8,6 +8,8 @@ public class Crosshair : MonoBehaviour
 
     public float MouseSensitivity = 1f;
 
+    public GameObject crosshair;
+
     void Start()
     {
         Cursor.visible = false;    
@@ -16,7 +18,7 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject crosshair = GameObject.Find("crosshair");
+        //GameObject crosshair = GameObject.Find("crosshair");
         mouseCoords = Input.mousePosition;
         mouseCoords = Camera.main.ScreenToWorldPoint(mouseCoords);
         crosshair.transform.position = Vector2.Lerp(transform.position, mouseCoords, MouseSensitivity);

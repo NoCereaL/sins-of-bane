@@ -226,7 +226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4540335841933985693
 Transform:
   m_ObjectHideFlags: 0
@@ -305,7 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseCoords: {x: 0, y: 0, z: 0}
-  MouseSensitivity: 0.1
+  MouseSensitivity: 1
+  crosshair: {fileID: 2346580022426586362}
 --- !u!1 &2849058348579164756
 GameObject:
   m_ObjectHideFlags: 0
