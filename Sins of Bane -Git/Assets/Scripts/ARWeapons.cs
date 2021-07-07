@@ -139,14 +139,19 @@ public class ARWeapons : MonoBehaviour
 
             if (amountOfAmmo < maxAmmo)
             {
-                if (ammo > amountOfAmmo)
+                if (bulletsUsed > amountOfAmmo)
                 {
-                    ammo = maxAmmo;
+                    ammo = ammo + amountOfAmmo;
+                    amountOfAmmo = amountOfAmmo - bulletsUsed;
+                }
+                else if (ammo > amountOfAmmo)
+                {
+                    ammo = ammo + bulletsUsed;
                     amountOfAmmo = amountOfAmmo - bulletsUsed;
                 }
                 else
                 {
-                    ammo = maxAmmo;
+                    ammo = ammo + bulletsUsed;
                     amountOfAmmo = amountOfAmmo - bulletsUsed;
                 }
             }
