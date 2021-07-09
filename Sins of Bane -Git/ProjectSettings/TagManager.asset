@@ -12,6 +12,7 @@ TagManager:
   - PlayerCamera
   - Player2
   - Teleporter
+  - Door
   layers:
   - Default
   - TransparentFX

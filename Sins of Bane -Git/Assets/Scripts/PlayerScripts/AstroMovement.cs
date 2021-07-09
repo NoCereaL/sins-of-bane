@@ -35,6 +35,8 @@ public class AstroMovement : MonoBehaviour
     {
         move();
         jump();
+        Fly();
+
         moveTransform();
     }
 
@@ -61,6 +63,20 @@ public class AstroMovement : MonoBehaviour
         
         animator.SetFloat("VerticalVelocity", Mathf.Abs(heighOfJump));
 
+    }
+
+    void Fly()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && JetPackPickUp.equipped == true)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+        }
     }
 
     void moveTransform()
