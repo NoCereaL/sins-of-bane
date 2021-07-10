@@ -1918,6 +1918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   jumpHeight: 20
+  jetPackPower: 20
   isGrounded: 0
   hasTurned: 0
   horizontalMove: 0

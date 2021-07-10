@@ -8,6 +8,7 @@ public class AstroMovement : MonoBehaviour
     public float moveSpeed = 5f;
 
     public float jumpHeight = 5f;
+    public float jetPackPower = 15f;
 
     public bool isGrounded = false;
 
@@ -67,15 +68,18 @@ public class AstroMovement : MonoBehaviour
 
     void Fly()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && JetPackPickUp.equipped == true)
+        if (JetPack.fuel == 0)
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && JetPackPickUp.equipped == true && JetPack.fuel > 0)
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jetPackPower), ForceMode2D.Impulse);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
-            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
     }
 

@@ -12,12 +12,13 @@ public class JetPackPickUp : MonoBehaviourPun
     public float pickUpRange;
     public static bool equipped;
     public static bool slotFull;
+    public GameObject HUD;
 
     // Start is called before the first frame update
     void Start()
     {
         JoinGameController();
-
+        HUD.active = false;
         if (!equipped)
         {
             rb.isKinematic = false;
@@ -38,7 +39,6 @@ public class JetPackPickUp : MonoBehaviourPun
     void Update()
     {
         ExecuteTheUpdate();
-
     }
 
 
@@ -116,6 +116,8 @@ public class JetPackPickUp : MonoBehaviourPun
 
         rb.isKinematic = true;
         coll.isTrigger = true;
+
+        HUD.active = true;
     }
 
     [PunRPC]
@@ -182,6 +184,8 @@ public class JetPackPickUp : MonoBehaviourPun
         //Make Rigidbody2D kinematic and BoxCollider2D a trigger
         rb.isKinematic = false;
         coll.isTrigger = false;
+
+        HUD.active = false;
     }
 
     [PunRPC]
