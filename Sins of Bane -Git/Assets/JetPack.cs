@@ -20,11 +20,14 @@ public class JetPack : MonoBehaviour
     public Text fuelText;
 
     public FuelBarScript fuelBarScript;
+    public ParticleSystem particleSystem;
+    public AudioSource jetSound;
 
     // Start is called before the first frame update
     void Start()
     {
         fuelBarScript.SetFuel(fuel);
+        particleSystem.Stop();
     }
 
     // Update is called once per frame
@@ -33,6 +36,11 @@ public class JetPack : MonoBehaviour
         if(fuel >= maxFuel)
         {
             fuel = maxFuel;
+        }
+        if (fuel <= 0)
+        {
+            jetSound.Stop();
+            particleSystem.Stop();
         }
         Fly();
     }
@@ -43,12 +51,17 @@ public class JetPack : MonoBehaviour
         {
             timesPressed++;
             InvokeRepeating("Fuel", 0f, burnRate);
+            particleSystem.Play();
+            jetSound.loop = true;
+            jetSound.Play();
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             //gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
             CancelInvoke("Fuel");
             timeUsed = 0f;
+            particleSystem.Stop();
+            jetSound.Stop();
         }
 
         if (fuel < maxFuel )
