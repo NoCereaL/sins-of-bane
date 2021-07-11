@@ -19,6 +19,11 @@ public class PlayerInfo : MonoBehaviourPun
     public Image TeamLogo;
     public Sprite Cosniacs;
     public Sprite Astrolition;
+    public int cosniacsScore;
+    public int astrolitionScore;
+    public Text cosniacsScoreText;
+    public Text astrolitionScoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -89,6 +94,23 @@ public class PlayerInfo : MonoBehaviourPun
         {
             SceneManager.LoadScene(0);
         }*/
+
+        photonView.RPC("SetScores", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    void SetScores()
+    {
+        if (Team == 1)
+        {
+            cosniacsScore++;
+            cosniacsScoreText.text = cosniacsScore + "";
+        }
+        else if (Team == 2)
+        {
+            astrolitionScore++;
+            astrolitionScoreText.text = astrolitionScore + "";
+        }
     }
 
 }

@@ -2338,6 +2338,10 @@ MonoBehaviour:
   TeamLogo: {fileID: 2618680404787296769}
   Cosniacs: {fileID: 21300000, guid: d51b62bfdecf74695a998074225a9369, type: 3}
   Astrolition: {fileID: 21300000, guid: 48d09875b4d5147dcbfd595e4a01891a, type: 3}
+  cosniacsScore: 0
+  astrolitionScore: 0
+  cosniacsScoreText: {fileID: 7103380390290589006}
+  astrolitionScoreText: {fileID: 5357966438632452015}
 --- !u!114 &3926565621881125920
 MonoBehaviour:
   m_ObjectHideFlags: 0
