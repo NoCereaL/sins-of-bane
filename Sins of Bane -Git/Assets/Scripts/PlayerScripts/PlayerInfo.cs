@@ -110,12 +110,16 @@ public class PlayerInfo : MonoBehaviourPun
             Scores.TeamTwoScore++;
             //cosniacsScore++;
             cosniacsScoreText.text = Scores.TeamTwoScore + "";
+            Debug.Log(Scores.TeamTwoScore);
+            Debug.Log(Scores.TeamOneScore);
         }
         else if (Team == 2)
         {
             Scores.TeamOneScore++;
             //astrolitionScore++;
             astrolitionScoreText.text = Scores.TeamOneScore + "";
+            Debug.Log(Scores.TeamTwoScore);
+            Debug.Log(Scores.TeamOneScore);
         }
     }
 
