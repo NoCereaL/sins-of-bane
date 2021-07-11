@@ -107,13 +107,15 @@ public class PlayerInfo : MonoBehaviourPun
     {
         if (Team == 1)
         {
-            cosniacsScore++;
-            cosniacsScoreText.text = cosniacsScore + "";
+            Scores.TeamTwoScore++;
+            //cosniacsScore++;
+            cosniacsScoreText.text = Scores.TeamTwoScore + "";
         }
         else if (Team == 2)
         {
-            astrolitionScore++;
-            astrolitionScoreText.text = astrolitionScore + "";
+            Scores.TeamOneScore++;
+            //astrolitionScore++;
+            astrolitionScoreText.text = Scores.TeamOneScore + "";
         }
     }
 

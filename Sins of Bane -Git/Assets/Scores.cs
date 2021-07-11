@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Scores : MonoBehaviour
 {
-    public int TeamOneScore;
-    public int TeamTwoScore;
+    public static int TeamOneScore;
+    public static int TeamTwoScore;
     // Start is called before the first frame update
     void Start()
     {
