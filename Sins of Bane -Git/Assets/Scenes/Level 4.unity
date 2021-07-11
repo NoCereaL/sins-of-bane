@@ -25621,5 +25621,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: JetPack
       objectReference: {fileID: 0}
+    - target: {fileID: 5189143779778787611, guid: 90276b8adca154752bdfaa7b1794ad47, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90276b8adca154752bdfaa7b1794ad47, type: 3}
