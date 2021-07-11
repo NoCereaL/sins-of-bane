@@ -15,7 +15,9 @@ public class PlayerInfo : MonoBehaviourPun
 
     public GameObject player;
     public Text healthText;
+
     public int Team;
+    public Text teamName;
     public Image TeamLogo;
     public Sprite Cosniacs;
     public Sprite Astrolition;
@@ -49,10 +51,12 @@ public class PlayerInfo : MonoBehaviourPun
         if (Team == 1)
         {
             TeamLogo.sprite = Astrolition;
+            teamName.text = "Astrolition";
         }
         else if(Team == 2)
         {
             TeamLogo.sprite = Cosniacs;
+            teamName.text = "Cosniacs";
         }
     }
 
