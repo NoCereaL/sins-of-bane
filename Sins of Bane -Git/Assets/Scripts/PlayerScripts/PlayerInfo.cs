@@ -41,6 +41,7 @@ public class PlayerInfo : MonoBehaviourPun
         {
             photonView.RPC("SendMsg", RpcTarget.All);
         }
+        photonView.RPC("Scores", RpcTarget.AllBuffered);
         ChangeTeamImage();
         
         Death();
@@ -116,6 +117,13 @@ public class PlayerInfo : MonoBehaviourPun
             astrolitionScore++;
             astrolitionScoreText.text = astrolitionScore + "";
         }
+    }
+
+    [PunRPC]
+    void Scores()
+    {
+        cosniacsScoreText.text = cosniacsScore + "";
+        astrolitionScoreText.text = astrolitionScore + "";
     }
 
 }
