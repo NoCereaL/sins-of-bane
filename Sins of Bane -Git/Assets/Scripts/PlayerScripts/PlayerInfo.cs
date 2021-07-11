@@ -15,6 +15,10 @@ public class PlayerInfo : MonoBehaviourPun
 
     public GameObject player;
     public Text healthText;
+    public int Team;
+    public Image TeamLogo;
+    public Sprite Cosniacs;
+    public Sprite Astrolition;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,21 @@ public class PlayerInfo : MonoBehaviourPun
         {
             photonView.RPC("SendMsg", RpcTarget.All);
         }
+        ChangeTeamImage();
+        
         Death();
+    }
+
+    void ChangeTeamImage()
+    {
+        if (Team == 1)
+        {
+            TeamLogo.sprite = Astrolition;
+        }
+        else if(Team == 2)
+        {
+            TeamLogo.sprite = Cosniacs;
+        }
     }
 
     [PunRPC]

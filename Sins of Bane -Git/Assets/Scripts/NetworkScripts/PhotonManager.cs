@@ -57,6 +57,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer.transform.Find("HUD").gameObject.SetActive(true);
         myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
         myPlayer.transform.Find("MiniMapCam").gameObject.SetActive(true);
+        myPlayer.GetComponent<PlayerInfo>().Team = 1;
         //myPlayer.name = "player1";
     }
 
@@ -69,6 +70,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer2.transform.Find("HUD").gameObject.SetActive(true);
         myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
         myPlayer2.transform.Find("MiniMapCam").gameObject.SetActive(true);
+        myPlayer2.GetComponent<PlayerInfo>().Team = 2;
         //myPlayer2.name = "player2";
     }
 
