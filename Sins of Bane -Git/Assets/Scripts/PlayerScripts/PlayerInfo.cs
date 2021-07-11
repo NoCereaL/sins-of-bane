@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviourPun
     public float RespawnX, RespawnY, RespawnZ;
 
     public GameObject player;
+    public Text healthText;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-
+        healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
             photonView.RPC("SendMsg", RpcTarget.All);
