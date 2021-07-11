@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class JetPack : MonoBehaviour
+public class JetPack : MonoBehaviourPun
 {
     public float jumpHeight = 5f;
 
@@ -41,6 +42,7 @@ public class JetPack : MonoBehaviour
         {
             jetSound.Stop();
             particleSystem.Stop();
+            photonView.RPC("StopAnimations", RpcTarget.AllBuffered);
         }
         Fly();
     }
@@ -51,17 +53,19 @@ public class JetPack : MonoBehaviour
         {
             timesPressed++;
             InvokeRepeating("Fuel", 0f, burnRate);
-            particleSystem.Play();
-            jetSound.loop = true;
-            jetSound.Play();
+            //particleSystem.Play();
+            //jetSound.loop = true;
+            //jetSound.Play();
+            photonView.RPC("PlayAnimations", RpcTarget.AllBuffered);
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             //gameObject.GetComponent<Rigidbody2D>().gravityScale = 2;
             CancelInvoke("Fuel");
             timeUsed = 0f;
-            particleSystem.Stop();
-            jetSound.Stop();
+            //particleSystem.Stop();
+            //jetSound.Stop();
+            photonView.RPC("StopAnimations", RpcTarget.AllBuffered);
         }
 
         if (fuel < maxFuel )
@@ -102,6 +106,21 @@ public class JetPack : MonoBehaviour
             fuelText.text = (int)fuel + "%";
         }
 
+    }
+
+    [PunRPC]
+    void PlayAnimations()
+    {
+        particleSystem.Play();
+        jetSound.loop = true;
+        jetSound.Play();
+    }
+
+    [PunRPC]
+    void StopAnimations()
+    {
+        particleSystem.Stop();
+        jetSound.Stop();
     }
 
     IEnumerator RefillFuel()
