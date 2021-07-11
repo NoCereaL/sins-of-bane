@@ -36,6 +36,10 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        int currentScoreTwo = cosniacsScore;
+        int currentScoreOne = astrolitionScore;
+        cosniacsScoreText.text = currentScoreTwo +"";
+        astrolitionScoreText.text = currentScoreOne +"";
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
