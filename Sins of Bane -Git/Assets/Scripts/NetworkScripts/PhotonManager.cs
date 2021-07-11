@@ -56,6 +56,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
         myPlayer.transform.Find("HUD").gameObject.SetActive(true);
         myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
+        myPlayer.transform.Find("MiniMapCam").gameObject.SetActive(true);
         //myPlayer.name = "player1";
     }
 
@@ -67,6 +68,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         myPlayer2.GetComponentInChildren<AstroArmMove>().enabled = true;
         myPlayer2.transform.Find("HUD").gameObject.SetActive(true);
         myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
+        myPlayer2.transform.Find("MiniMapCam").gameObject.SetActive(true);
         //myPlayer2.name = "player2";
     }
 
