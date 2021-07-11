@@ -88,6 +88,8 @@ public class PlayerInfo : MonoBehaviourPun
             respawn();
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
+            photonView.RPC("SetScores", RpcTarget.AllBuffered);
+
             //LoseLife();
         }/*
         if (Lives <= 0)
@@ -95,7 +97,6 @@ public class PlayerInfo : MonoBehaviourPun
             SceneManager.LoadScene(0);
         }*/
 
-        photonView.RPC("SetScores", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
