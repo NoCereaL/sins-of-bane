@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &19691085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21162,8 +21162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bb2e4e7f61a492b89497ed215a30b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeamOneScore: 0
-  TeamTwoScore: 0
+  TeamOneText: {fileID: 1899503310}
+  TeamTwoText: {fileID: 1819700557}
 --- !u!114 &1726577613
 MonoBehaviour:
   m_ObjectHideFlags: 0
