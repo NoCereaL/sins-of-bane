@@ -15,7 +15,6 @@ public class Scores : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int teamOneScore;
-        int teamTwoScore;
+        
     }
 }

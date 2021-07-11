@@ -36,16 +36,11 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        int currentScoreTwo = cosniacsScore;
-        int currentScoreOne = astrolitionScore;
-        cosniacsScoreText.text = currentScoreTwo +"";
-        astrolitionScoreText.text = currentScoreOne +"";
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
             photonView.RPC("SendMsg", RpcTarget.All);
         }
-        photonView.RPC("Scores", RpcTarget.AllBuffered);
         ChangeTeamImage();
         
         Death();
@@ -98,7 +93,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             photonView.RPC("SetScores", RpcTarget.AllBuffered);
-
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore++;
             //LoseLife();
         }/*
         if (Lives <= 0)
@@ -121,13 +116,6 @@ public class PlayerInfo : MonoBehaviourPun
             astrolitionScore++;
             astrolitionScoreText.text = astrolitionScore + "";
         }
-    }
-
-    [PunRPC]
-    void Scores()
-    {
-        cosniacsScoreText.text = cosniacsScore + "";
-        astrolitionScoreText.text = astrolitionScore + "";
     }
 
 }
