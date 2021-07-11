@@ -93,7 +93,6 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             photonView.RPC("SetScores", RpcTarget.AllBuffered);
-            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore++;
             //LoseLife();
         }/*
         if (Lives <= 0)
