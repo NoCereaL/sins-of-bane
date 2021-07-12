@@ -95,8 +95,7 @@ public class PlayerInfo : MonoBehaviourPun
     {
         transform.position = new Vector3(RespawnX, RespawnY, RespawnZ);
         transform.rotation = new Quaternion(0, 0, 0, 0);
-        Dead = false;
-    }
+     }
 
     public void Death()
     {
