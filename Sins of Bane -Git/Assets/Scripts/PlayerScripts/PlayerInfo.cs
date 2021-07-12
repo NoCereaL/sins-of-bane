@@ -13,6 +13,7 @@ public class PlayerInfo : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
     public int DeathCount;
+    public int localDeathCount;
 
     public GameObject player;
     public Text healthText;
@@ -104,6 +105,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
+            localDeathCount++;
             //LoseLife();
         }/*
         if (Lives <= 0)
@@ -112,4 +114,27 @@ public class PlayerInfo : MonoBehaviourPun
         }*/
     }
 
+    void SetScores()
+    {
+        if(Team == 1 && photonView.IsMine)
+        {
+            cosniacsScore = localDeathCount;
+            cosniacsScoreText.text = cosniacsScore + "";
+        }
+        else if (Team == 1 && !photonView.IsMine)
+        {
+            cosniacsScore = DeathCount;
+            cosniacsScoreText.text = cosniacsScore + "";
+        }
+        if(Team == 2 && photonView.IsMine)
+        {
+            astrolitionScore = localDeathCount;
+            astrolitionScoreText.text = astrolitionScore + "";
+        }
+        else if(Team == 2 && !photonView.IsMine)
+        {
+            astrolitionScore = DeathCount;
+            astrolitionScoreText.text = astrolitionScore + "";
+        }
+    }
 }
