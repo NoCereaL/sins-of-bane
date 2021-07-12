@@ -23,10 +23,9 @@ public class Scores : MonoBehaviourPun
     {
         TeamOneText.text = TeamOneScore + "";
         TeamTwoText.text = TeamTwoScore + "";
-        if (GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().currentHealth <= 0 || GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().currentHealth <= 0)
-        {
-            photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
-        }
+        
+        photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
+        
     }
 
     [PunRPC]
