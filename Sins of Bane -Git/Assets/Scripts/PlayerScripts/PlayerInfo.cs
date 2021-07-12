@@ -13,7 +13,7 @@ public class PlayerInfo : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
     public int DeathCount;
-    public int localDeathCount;
+    //public int localDeathCount;
 
     public GameObject player;
     public Text healthText;
@@ -114,6 +114,7 @@ public class PlayerInfo : MonoBehaviourPun
         }*/
     }
 
+    /*
     void SetScores()
     {
         if(Team == 1 && photonView.IsMine)
@@ -136,5 +137,5 @@ public class PlayerInfo : MonoBehaviourPun
             astrolitionScore = DeathCount;
             astrolitionScoreText.text = astrolitionScore + "";
         }
-    }
+    }*/
 }
