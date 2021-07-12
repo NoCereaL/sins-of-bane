@@ -105,7 +105,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
-            localDeathCount++;
+            //localDeathCount++;
             //LoseLife();
         }/*
         if (Lives <= 0)
