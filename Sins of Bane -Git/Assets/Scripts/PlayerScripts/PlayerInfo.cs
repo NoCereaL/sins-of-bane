@@ -39,7 +39,7 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("UpdateScores", RpcTarget.AllBuffered);
+        photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -48,6 +48,12 @@ public class PlayerInfo : MonoBehaviourPun
         ChangeTeamImage();
         
         Death();
+    }
+
+    [PunRPC]
+    void DeathCounter(int deaths)
+    {
+        DeathCount = deaths;
     }
 
     void ChangeTeamImage()

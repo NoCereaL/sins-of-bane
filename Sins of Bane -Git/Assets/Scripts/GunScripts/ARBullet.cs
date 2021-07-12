@@ -54,10 +54,6 @@ public class ARBullet : MonoBehaviour
         {
             player.TakeDamage(damage);
             Destroy(bullet);
-            if(player.currentHealth <= 0)
-            {
-                player.currentHealth = player.maxHealth;
-            }
         }
         Destroy(bullet);
     }
