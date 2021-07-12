@@ -39,7 +39,7 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore = 1;
+        GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += DeathCount;
         GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore = 3;
 
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered);
@@ -116,12 +116,12 @@ public class PlayerInfo : MonoBehaviourPun
         if (Team == 1)
         {
             cosniacsScore++;
-            cosniacsScoreText.text = cosniacsScore + "";
+            cosniacsScoreText.text = GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore + "";
         }
         else if (Team == 2)
         {
             astrolitionScore++;
-            astrolitionScoreText.text = astrolitionScore + "";
+            astrolitionScoreText.text = GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore + "";
         }
     }
 
