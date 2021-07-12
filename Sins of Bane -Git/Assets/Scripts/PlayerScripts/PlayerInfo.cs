@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviourPun
     public int Lives = 3;
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
+    public int DeathCount;
 
     public GameObject player;
     public Text healthText;
@@ -94,6 +95,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             photonView.RPC("SetScores", RpcTarget.AllBuffered);
+            DeathCount++;
             //LoseLife();
         }/*
         if (Lives <= 0)
