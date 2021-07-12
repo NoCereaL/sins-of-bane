@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &19691085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21989,9 +21989,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score
-
-'
+  m_Text: 0
 --- !u!222 &1819700558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23099,9 +23097,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score
-
-'
+  m_Text: 0
 --- !u!222 &1899503311
 CanvasRenderer:
   m_ObjectHideFlags: 0
