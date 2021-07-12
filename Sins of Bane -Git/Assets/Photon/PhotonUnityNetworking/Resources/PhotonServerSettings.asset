@@ -63,6 +63,10 @@ MonoBehaviour:
   - Scores
   - UpdateScores
   - TestTest
+  - TestRPC
+  - GetDeaths
+  - DeathCounter
+  - GetScores
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
