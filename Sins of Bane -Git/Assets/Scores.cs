@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class Scores : MonoBehaviourPun, IPunObservable
+public class Scores : MonoBehaviourPun
 {
     public int TeamOneScore;
     public int TeamTwoScore;
@@ -34,17 +34,4 @@ public class Scores : MonoBehaviourPun, IPunObservable
 
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsReading)
-        {
-            stream.SendNext(TeamOneScore);
-            stream.SendNext(TeamTwoScore);
-        }
-        else
-        {
-            TeamOneScore = (int)stream.ReceiveNext();
-            TeamTwoScore = (int)stream.ReceiveNext();
-        }
-    }
 }
