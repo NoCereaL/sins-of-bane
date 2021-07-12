@@ -63,21 +63,25 @@ public class RoomManager : MonoBehaviourPunCallbacks
 	
 	public void SpawnPlayer()
 	{
-		myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+		myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-35f, -10f), transform.position.y), Quaternion.identity);
 		myPlayer.GetComponent<AstroMovement>().enabled = true;
 		myPlayer.transform.Find("Camera").gameObject.SetActive(true);
 		myPlayer.GetComponentInChildren<AstroArmMove>().enabled = true;
 		myPlayer.transform.Find("HUD").gameObject.SetActive(true);
 		myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
+		myPlayer.transform.Find("MiniMapCam").gameObject.SetActive(true);
+		myPlayer.GetComponent<PlayerInfo>().Team = 1;
 	}
 
 	public void SpawnPlayer2()
 	{
-		myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
+		myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player2", new Vector2(Random.Range(10f, 35f), transform.position.y), Quaternion.identity);
 		myPlayer2.GetComponent<AstroMovement>().enabled = true;
 		myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
 		myPlayer2.GetComponentInChildren<AstroArmMove>().enabled = true;
 		myPlayer2.transform.Find("HUD").gameObject.SetActive(true);
 		myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
+		myPlayer2.transform.Find("MiniMapCam").gameObject.SetActive(true);
+		myPlayer2.GetComponent<PlayerInfo>().Team = 2;
 	}
 }
