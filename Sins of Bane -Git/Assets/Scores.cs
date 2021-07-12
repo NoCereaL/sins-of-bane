@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class Scores : MonoBehaviour
+public class Scores : MonoBehaviourPun
 {
     public int TeamOneScore;
     public int TeamTwoScore;
@@ -22,6 +23,7 @@ public class Scores : MonoBehaviour
     {
         TeamOneText.text = TeamOneScore + "";
         TeamTwoText.text = TeamTwoScore + "";
+        photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
     }
 
     void GetDeaths()
