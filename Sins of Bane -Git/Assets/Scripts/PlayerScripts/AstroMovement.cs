@@ -103,12 +103,38 @@ public class AstroMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Teleporter" && PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        if(collision.collider.name == "TeleporterAcidRoom")
+        {
+            transform.position = SpawnPoints.spawnPoint[2];
+        }
+        if (collision.collider.name == "TeleporterBlueSpawn")
         {
             transform.position = SpawnPoints.spawnPoint[0];
         }
-        if (collision.collider.tag == "Teleporter" && PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        if (collision.collider.name == "TeleporterRedSpawn")
         {
+            transform.position = SpawnPoints.spawnPoint[1];
+        }
+        if (collision.collider.name == "TeleporterBackSpawn" && this.gameObject.GetComponent<PlayerInfo>().Team == 2)
+        {
+            transform.position = SpawnPoints.spawnPoint[3];
+        }
+        if (collision.collider.name == "TeleporterBackSpawn" && this.gameObject.GetComponent<PlayerInfo>().Team == 1)
+        {
+            transform.position = SpawnPoints.spawnPoint[4];
+        }
+        if (collision.collider.name == "TeleporterBlueSpawn2")
+        {
+            transform.position = SpawnPoints.spawnPoint[5];
+        }
+        if (collision.collider.tag == "KillFloor" && PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+            this.gameObject.GetComponent<PlayerInfo>().DeathCount++;
+            transform.position = SpawnPoints.spawnPoint[0];
+        }
+        if (collision.collider.tag == "KillFloor" && PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            this.gameObject.GetComponent<PlayerInfo>().DeathCount++;
             transform.position = SpawnPoints.spawnPoint[1];
         }
     }
