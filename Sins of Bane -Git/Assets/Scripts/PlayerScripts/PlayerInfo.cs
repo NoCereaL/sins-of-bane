@@ -68,6 +68,7 @@ public class PlayerInfo : MonoBehaviourPun
         print("Initiating");
 
         Debug.Log("Successfully Recieved");
+        Debug.Log(DeathCount);
     }
 
     public void TakeDamage(int damage)
