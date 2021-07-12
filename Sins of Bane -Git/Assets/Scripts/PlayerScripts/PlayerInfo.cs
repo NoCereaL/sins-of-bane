@@ -39,8 +39,8 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        gameManager.GetComponent<Scores>().TeamOneScore = 1;
-        gameManager.GetComponent<Scores>().TeamTwoScore = 3;
+        GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore = 1;
+        GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore = 3;
 
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered);
         healthText.text = currentHealth +"%";

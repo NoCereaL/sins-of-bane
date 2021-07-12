@@ -2413,6 +2413,7 @@ MonoBehaviour:
   RespawnX: 0
   RespawnY: 0
   RespawnZ: 0
+  DeathCount: 0
   player: {fileID: 8367196259086800579}
   healthText: {fileID: 4566988037716375244}
   Team: 0
@@ -2424,6 +2425,7 @@ MonoBehaviour:
   astrolitionScore: 0
   cosniacsScoreText: {fileID: 7103380390290589006}
   astrolitionScoreText: {fileID: 5357966438632452015}
+  gameManager: {fileID: 0}
 --- !u!114 &3926565621881125920
 MonoBehaviour:
   m_ObjectHideFlags: 0
