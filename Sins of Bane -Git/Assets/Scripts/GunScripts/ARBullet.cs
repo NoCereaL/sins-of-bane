@@ -52,10 +52,7 @@ public class ARBullet : MonoBehaviour
         PlayerInfo player = collision.collider.GetComponent<PlayerInfo>();
         if(collision.collider.tag == "Player")
         {
-            if (player.currentHealth > 0)
-            {
-                player.TakeDamage(damage);
-            }
+            player.TakeDamage(damage);
             Destroy(bullet);
         }
         Destroy(bullet);
