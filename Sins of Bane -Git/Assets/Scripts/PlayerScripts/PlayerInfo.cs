@@ -13,6 +13,7 @@ public class PlayerInfo : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
     public int DeathCount;
+    public bool Dead;
 
     public GameObject player;
     public Text healthText;
@@ -94,12 +95,14 @@ public class PlayerInfo : MonoBehaviourPun
     {
         transform.position = new Vector3(RespawnX, RespawnY, RespawnZ);
         transform.rotation = new Quaternion(0, 0, 0, 0);
+        Dead = false;
     }
 
     public void Death()
     {
         if (currentHealth <= 0)
         {
+            Dead = true;
             respawn();
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
