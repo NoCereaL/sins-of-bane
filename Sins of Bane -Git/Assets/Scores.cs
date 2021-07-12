@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Scores : MonoBehaviour
 {
-    public static int TeamOneScore;
-    public static int TeamTwoScore;
+    public int TeamOneScore;
+    public int TeamTwoScore;
 
     public Text TeamOneText;
     public Text TeamTwoText;

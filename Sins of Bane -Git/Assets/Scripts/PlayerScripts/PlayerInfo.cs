@@ -27,6 +27,8 @@ public class PlayerInfo : MonoBehaviourPun
     public Text cosniacsScoreText;
     public Text astrolitionScoreText;
 
+    public GameObject gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,9 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        gameManager.GetComponent<Scores>().TeamOneScore = 1;
+        gameManager.GetComponent<Scores>().TeamTwoScore = 3;
+
         photonView.RPC("UpdateScores", RpcTarget.AllBuffered);
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
@@ -68,7 +73,6 @@ public class PlayerInfo : MonoBehaviourPun
         print("Initiating");
 
         Debug.Log("Successfully Recieved");
-        DeathCount++;
         Debug.Log(DeathCount);
     }
 
@@ -111,19 +115,13 @@ public class PlayerInfo : MonoBehaviourPun
     {
         if (Team == 1)
         {
-            Scores.TeamTwoScore++;
-            //cosniacsScore++;
-            cosniacsScoreText.text = Scores.TeamTwoScore + "";
-            Debug.Log(Scores.TeamTwoScore);
-            Debug.Log(Scores.TeamOneScore);
+            cosniacsScore++;
+            cosniacsScoreText.text = cosniacsScore + "";
         }
         else if (Team == 2)
         {
-            Scores.TeamOneScore++;
-            //astrolitionScore++;
-            astrolitionScoreText.text = Scores.TeamOneScore + "";
-            Debug.Log(Scores.TeamTwoScore);
-            Debug.Log(Scores.TeamOneScore);
+            astrolitionScore++;
+            astrolitionScoreText.text = astrolitionScore + "";
         }
     }
 
