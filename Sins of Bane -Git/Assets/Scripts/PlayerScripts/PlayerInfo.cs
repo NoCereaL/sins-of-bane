@@ -13,6 +13,8 @@ public class PlayerInfo : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
     public int DeathCount;
+    public int TeamOneScore;
+    public int TeamTwoScore;
 
     public GameObject player;
     public Text healthText;
@@ -104,7 +106,6 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
-            photonView.RPC("SetDeaths", RpcTarget.AllBuffered);
             SetDeaths();
             //localDeathCount++;
             //LoseLife();
@@ -121,11 +122,13 @@ public class PlayerInfo : MonoBehaviourPun
 
         if(Team == 1)
         {
-            GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
+            //GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
+            TeamTwoScore += 1;
         }
         if (Team == 2)
         {
-            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
+            //GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
+            TeamOneScore += 1;
         }
     }
 
