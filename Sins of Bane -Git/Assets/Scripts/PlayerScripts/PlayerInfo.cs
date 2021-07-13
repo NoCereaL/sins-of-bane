@@ -104,6 +104,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
+            photonView.RPC("SetDeaths", RpcTarget.AllBuffered);
             SetDeaths();
             //localDeathCount++;
             //LoseLife();
