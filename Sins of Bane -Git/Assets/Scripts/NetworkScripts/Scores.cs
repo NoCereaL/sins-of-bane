@@ -8,6 +8,7 @@ public class Scores : MonoBehaviourPun
 {
     public int TeamOneScore;
     public int TeamTwoScore;
+    public int TotalDeaths;
 
     public Text TeamOneText;
     public Text TeamTwoText;
@@ -41,7 +42,7 @@ public class Scores : MonoBehaviourPun
         }
         
         photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
-        
+        GetDeaths();
     }
 
     [PunRPC]

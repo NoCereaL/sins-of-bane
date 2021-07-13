@@ -104,6 +104,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
+            SetDeaths();
             //localDeathCount++;
             //LoseLife();
         }/*
@@ -111,6 +112,11 @@ public class PlayerInfo : MonoBehaviourPun
         {
             SceneManager.LoadScene(0);
         }*/
+    }
+
+    void SetDeaths()
+    {
+        GameObject.Find("GameManager").GetComponent<Scores>().TotalDeaths = DeathCount;
     }
 
 }
