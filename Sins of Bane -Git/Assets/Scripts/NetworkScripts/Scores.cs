@@ -48,11 +48,8 @@ public class Scores : MonoBehaviourPun
     [PunRPC]
     void GetDeaths()
     {
-        //TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
-        //TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
-
-        TeamOneScore = TeamOneScore;
-        TeamTwoScore = TeamTwoScore;
+        TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
+        TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
     }
 
 }
