@@ -42,6 +42,8 @@ public class PlayerInfo : MonoBehaviourPun
     void Update()
     {
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
+        photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
+        photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -56,6 +58,17 @@ public class PlayerInfo : MonoBehaviourPun
     void DeathCounter(int deaths)
     {
         DeathCount = deaths;
+    }
+
+    [PunRPC]
+    void TeamOneScores(int score)
+    {
+        TeamOneScore = score;
+    }
+    [PunRPC]
+    void TeamTwoScores(int score)
+    {
+        TeamTwoScore = score;
     }
 
     void ChangeTeamImage()
