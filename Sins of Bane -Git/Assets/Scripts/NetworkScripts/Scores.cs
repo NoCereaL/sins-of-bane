@@ -31,8 +31,8 @@ public class Scores : MonoBehaviourPun
         TeamOne.SetScore(TeamOneScore);
         TeamTwo.SetScore(TeamTwoScore);
 
-        photonView.RPC("TeamOneNet", RpcTarget.AllBuffered, TeamOneScore);
-        photonView.RPC("TeamTwoNet", RpcTarget.AllBuffered, TeamTwoScore);
+        //photonView.RPC("TeamOneNet", RpcTarget.AllBuffered, TeamOneScore);
+        //photonView.RPC("TeamTwoNet", RpcTarget.AllBuffered, TeamTwoScore);
 
         if (TeamOneScore > TeamTwoScore) {
             TeamOneText.fontSize = 20;
