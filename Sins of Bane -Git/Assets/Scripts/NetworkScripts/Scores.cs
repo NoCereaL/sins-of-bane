@@ -8,7 +8,7 @@ public class Scores : MonoBehaviourPun
 {
     public int TeamOneScore;
     public int TeamTwoScore;
-    public int TotalDeaths;
+    public int PlayerDeath;
 
     public Text TeamOneText;
     public Text TeamTwoText;
@@ -41,8 +41,8 @@ public class Scores : MonoBehaviourPun
             TeamOneText.fontSize = 15;
         }
         
-        photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
-        GetDeaths();
+        //photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
+        //GetDeaths();
     }
 
     [PunRPC]
