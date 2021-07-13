@@ -12,6 +12,9 @@ public class Scores : MonoBehaviourPun
     public Text TeamOneText;
     public Text TeamTwoText;
 
+    public TeamBarScript TeamOne;
+    public TeamBarScript TeamTwo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,19 @@ public class Scores : MonoBehaviourPun
     {
         TeamOneText.text = TeamOneScore + "";
         TeamTwoText.text = TeamTwoScore + "";
+
+        TeamOne.SetScore(TeamOneScore);
+        TeamTwo.SetScore(TeamTwoScore);
+
+        if (TeamOneScore > TeamTwoScore) {
+            TeamOneText.fontSize = 20;
+            TeamTwoText.fontSize = 15;
+        }
+        if(TeamOneScore < TeamTwoScore)
+        {
+            TeamTwoText.fontSize = 20;
+            TeamOneText.fontSize = 15;
+        }
         
         photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
         
@@ -33,7 +49,6 @@ public class Scores : MonoBehaviourPun
     {
         TeamOneScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
         TeamTwoScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
-
     }
 
 }
