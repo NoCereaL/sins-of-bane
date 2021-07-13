@@ -116,7 +116,16 @@ public class PlayerInfo : MonoBehaviourPun
 
     void SetDeaths()
     {
-        GameObject.Find("GameManager").GetComponent<Scores>().TotalDeaths = DeathCount;
+        //GameObject.Find("GameManager").GetComponent<Scores>().PlayerDeath += DeathCount;
+
+        if(Team == 1)
+        {
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
+        }
+        if (Team == 2)
+        {
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
+        }
     }
 
 }
