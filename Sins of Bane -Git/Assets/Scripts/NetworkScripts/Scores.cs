@@ -41,15 +41,18 @@ public class Scores : MonoBehaviourPun
             TeamOneText.fontSize = 15;
         }
         
-        //photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
-        //GetDeaths();
+        photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
+        GetDeaths();
     }
 
     [PunRPC]
     void GetDeaths()
     {
-        TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
-        TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
+        //TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
+        //TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
+
+        TeamOneScore = TeamOneScore;
+        TeamTwoScore = TeamTwoScore;
     }
 
 }
