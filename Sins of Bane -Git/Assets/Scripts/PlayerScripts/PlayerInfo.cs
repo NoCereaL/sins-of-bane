@@ -119,7 +119,7 @@ public class PlayerInfo : MonoBehaviourPun
             currentHealth = maxHealth;
             healthBar.SetHealth(currentHealth);
             DeathCount++;
-            //SetDeaths();
+            SetDeaths();
             //localDeathCount++;
             //LoseLife();
         }/*
@@ -136,12 +136,12 @@ public class PlayerInfo : MonoBehaviourPun
         if(Team == 1)
         {
             //GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
-            //TeamTwoScore += 1;
+            TeamTwoScore += 1;
         }
         if (Team == 2)
         {
             //GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
-            //TeamOneScore += 1;
+            TeamOneScore += 1;
         }
     }
 
