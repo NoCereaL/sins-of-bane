@@ -42,7 +42,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
         if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
         {
-            SpawnPlayer2();
+            SpawnPlayer3();
         }
         //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";
