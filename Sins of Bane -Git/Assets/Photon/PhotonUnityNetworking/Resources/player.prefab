@@ -2859,6 +2859,8 @@ MonoBehaviour:
   RespawnY: 0
   RespawnZ: 0
   DeathCount: 0
+  TeamOneScore: 0
+  TeamTwoScore: 0
   player: {fileID: 8367196259086800579}
   healthText: {fileID: 4566988037716375244}
   Team: 0

@@ -40,6 +40,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             SpawnPlayer2();
         }
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
+        {
+            SpawnPlayer2();
+        }
         //SpawnGuns();
         //PhotonNetwork.LocalPlayer.NickName = "player1";
         //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
@@ -48,6 +52,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public static GameObject myPlayer;
     public static GameObject myPlayer2;
+    public static GameObject myPlayer3;
+
     public void SpawnPlayer()
     {
         myPlayer = (GameObject)PhotonNetwork.Instantiate("Player", new Vector2(Random.Range(-35f, -10f), transform.position.y), Quaternion.identity);
@@ -76,9 +82,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void SpawnPlayer3()
     {
-        myPlayer2 = (GameObject)PhotonNetwork.Instantiate("Player3", new Vector2(Random.Range(-8f, 11f), transform.position.y), Quaternion.identity);
-        myPlayer2.GetComponent<Movement>().enabled = true;
-        myPlayer2.transform.Find("Camera").gameObject.SetActive(true);
+        myPlayer3 = (GameObject)PhotonNetwork.Instantiate("Player3", new Vector2(Random.Range(10f, 35f), transform.position.y), Quaternion.identity);
+        myPlayer3.GetComponent<AstroMovement>().enabled = true;
+        myPlayer3.transform.Find("Camera").gameObject.SetActive(true);
+        myPlayer3.GetComponentInChildren<AstroArmMove>().enabled = true;
+        myPlayer3.transform.Find("HUD").gameObject.SetActive(true);
+        myPlayer3.transform.Find("crosshair").gameObject.SetActive(true);
+        myPlayer3.transform.Find("MiniMapCam").gameObject.SetActive(true);
+        myPlayer3.GetComponent<PlayerInfo>().Team = 2;
         //myPlayer2.name = "player2";
     }
 
