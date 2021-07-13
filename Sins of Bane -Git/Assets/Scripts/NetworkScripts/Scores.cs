@@ -31,6 +31,9 @@ public class Scores : MonoBehaviourPun
         TeamOne.SetScore(TeamOneScore);
         TeamTwo.SetScore(TeamTwoScore);
 
+        photonView.RPC("TeamOneNet", RpcTarget.AllBuffered, TeamOneScore);
+        photonView.RPC("TeamTwoNet", RpcTarget.AllBuffered, TeamTwoScore);
+
         if (TeamOneScore > TeamTwoScore) {
             TeamOneText.fontSize = 20;
             TeamTwoText.fontSize = 15;
@@ -51,6 +54,18 @@ public class Scores : MonoBehaviourPun
         //TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().DeathCount;
         //TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
 
+    }
+
+    [PunRPC]
+    void TeamOneNet(int score)
+    {
+        TeamOneScore = score;
+    }
+
+    [PunRPC]
+    void TeamTwoNet(int score)
+    {
+        TeamTwoScore = score;
     }
 
 }
