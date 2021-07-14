@@ -37,15 +37,12 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        if (photonView.IsMine)
-        {
-            name = PhotonNetwork.NickName;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        photonView.RPC("SetName", RpcTarget.AllBuffered);
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
@@ -58,6 +55,15 @@ public class PlayerInfo : MonoBehaviourPun
         ChangeTeamImage();
         
         Death();
+    }
+
+    [PunRPC]
+    void SetName()
+    {
+        if (photonView.IsMine)
+        {
+            name = PhotonNetwork.NickName;
+        }
     }
 
     [PunRPC]
