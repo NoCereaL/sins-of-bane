@@ -137,12 +137,12 @@ public class PlayerInfo : MonoBehaviourPun
         if(Team == 1)
         {
             TeamTwoScore += 1;
-            GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += TeamTwoScore;
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
         }
         if (Team == 2)
         {
             TeamOneScore += 1;
-            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += TeamOneScore;
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
         }
         photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore);
         photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore);
