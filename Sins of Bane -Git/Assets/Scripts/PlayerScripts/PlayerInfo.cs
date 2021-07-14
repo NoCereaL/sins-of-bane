@@ -37,7 +37,10 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        name = PhotonNetwork.NickName;
+        if (photonView.IsMine)
+        {
+            name = PhotonNetwork.NickName;
+        }
     }
 
     // Update is called once per frame
