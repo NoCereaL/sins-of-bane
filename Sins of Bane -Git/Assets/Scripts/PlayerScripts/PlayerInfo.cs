@@ -60,26 +60,11 @@ public class PlayerInfo : MonoBehaviourPun
     [PunRPC]
     void SetName()
     {
-        /*if (photonView.IsMine)
+        if (photonView.IsMine)
         {
             name = PhotonNetwork.NickName;
         }
         else
-        {
-            if (PhotonNetwork.CurrentRoom.GetPlayer(1).ActorNumber == 1)
-            {
-                name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-            }
-            if (PhotonNetwork.CurrentRoom.GetPlayer(2).ActorNumber == 2)
-            {
-                name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
-            }
-        }*/
-        if (PhotonNetwork.CurrentRoom.GetPlayer(1).ActorNumber == 1 && photonView.IsMine)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-        }
-        else if (PhotonNetwork.CurrentRoom.GetPlayer(2).ActorNumber == 2 && photonView.IsMine)
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         }
