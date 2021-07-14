@@ -66,11 +66,11 @@ public class PlayerInfo : MonoBehaviourPun
         }
         else
         {
-            if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+            if (PhotonNetwork.CurrentRoom.GetPlayer(1).ActorNumber == 1)
             {
                 name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
             }
-            if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+            if (PhotonNetwork.CurrentRoom.GetPlayer(2).ActorNumber == 2)
             {
                 name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
             }
