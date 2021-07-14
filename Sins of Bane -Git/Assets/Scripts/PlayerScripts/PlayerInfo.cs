@@ -7,6 +7,7 @@ using Photon.Pun;
 
 public class PlayerInfo : MonoBehaviourPun
 {
+    public string name;
     public int maxHealth = 100;
     public int currentHealth;
     public int Lives = 3;
@@ -36,6 +37,7 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        name = PhotonNetwork.NickName;
     }
 
     // Update is called once per frame
@@ -95,10 +97,11 @@ public class PlayerInfo : MonoBehaviourPun
         Debug.Log(DeathCount);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, string actor)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        Debug.Log(actor + " Hit " + PhotonNetwork.LocalPlayer.NickName);
     }
 
     public void LoseLife()

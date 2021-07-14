@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class ARBullet : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class ARBullet : MonoBehaviour
         player = hitInfo.GetComponent<PlayerInfo>();
         if (player != null)
         {
-            player.TakeDamage(damage);
+            player.TakeDamage(damage, player.name);
             Destroy(bullet);
         }
         if (enemy != null)
@@ -52,7 +53,7 @@ public class ARBullet : MonoBehaviour
         PlayerInfo player = collision.collider.GetComponent<PlayerInfo>();
         if(collision.collider.tag == "Player")
         {
-            player.TakeDamage(damage);
+            player.TakeDamage(damage, player.name);
             Destroy(bullet);
         }
         Destroy(bullet);

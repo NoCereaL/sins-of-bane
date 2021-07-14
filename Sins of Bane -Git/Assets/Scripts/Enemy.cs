@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
     {
         if (player != null)
         {
-            player.TakeDamage(Damage);
+            player.TakeDamage(Damage, "");
         }
     }
     void Die()
