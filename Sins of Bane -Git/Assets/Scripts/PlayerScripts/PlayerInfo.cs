@@ -44,8 +44,7 @@ public class PlayerInfo : MonoBehaviourPun
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
-        photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore);
-        photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore);
+        
         healthText.text = currentHealth +"%";
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -145,6 +144,8 @@ public class PlayerInfo : MonoBehaviourPun
             TeamOneScore += 1;
             GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += TeamOneScore;
         }
+        photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore);
+        photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore);
     }
 
     [PunRPC]
