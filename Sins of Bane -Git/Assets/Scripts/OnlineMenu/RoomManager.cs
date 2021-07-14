@@ -11,6 +11,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
 	public static GameObject myPlayer;
 	public static GameObject myPlayer2;
+	public static GameObject myPlayer3;
 
 	void Awake()
 	{
@@ -57,6 +58,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
 			SpawnPlayer2();
 			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		}
+		if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
+		{
+			SpawnPlayer2();
+			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
+		}
 
 	}
 
@@ -83,5 +89,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		myPlayer2.transform.Find("MiniMapCam").gameObject.SetActive(true);
 		myPlayer2.GetComponent<PlayerInfo>().Team = 2;
+	}
+
+	public void SpawnPlayer3()
+	{
+		myPlayer3 = (GameObject)PhotonNetwork.Instantiate("Player3", new Vector2(Random.Range(10f, 35f), transform.position.y), Quaternion.identity);
+		myPlayer3.GetComponent<AstroMovement>().enabled = true;
+		myPlayer3.transform.Find("Camera").gameObject.SetActive(true);
+		myPlayer3.GetComponentInChildren<AstroArmMove>().enabled = true;
+		myPlayer3.transform.Find("HUD").gameObject.SetActive(true);
+		myPlayer3.transform.Find("crosshair").gameObject.SetActive(true);
+		myPlayer3.transform.Find("MiniMapCam").gameObject.SetActive(true);
+		myPlayer3.GetComponent<PlayerInfo>().Team = 2;
+		//myPlayer2.name = "player2";
 	}
 }

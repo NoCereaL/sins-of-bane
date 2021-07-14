@@ -72,6 +72,8 @@ MonoBehaviour:
   - TeamTwoScores
   - TeamOneNet
   - TeamTwoNet
+  - GetScoreOne
+  - GetScoreTwo
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
