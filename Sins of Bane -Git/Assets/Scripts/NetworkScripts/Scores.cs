@@ -41,8 +41,8 @@ public class Scores : MonoBehaviourPun
             TeamOneText.fontSize = 15;
         }
         
-        photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
-        GetDeaths();
+        //photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
+        //GetDeaths();
     }
 
     [PunRPC]
