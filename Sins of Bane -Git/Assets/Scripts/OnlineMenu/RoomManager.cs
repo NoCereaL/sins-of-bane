@@ -60,7 +60,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		}
 		if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
 		{
-			SpawnPlayer2();
+			SpawnPlayer3();
 			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		}
 
