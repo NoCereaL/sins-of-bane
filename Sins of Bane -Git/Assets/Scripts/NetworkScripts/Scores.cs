@@ -31,9 +31,6 @@ public class Scores : MonoBehaviourPun
         TeamOne.SetScore(TeamOneScore);
         TeamTwo.SetScore(TeamTwoScore);
 
-        photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, TeamOneScore);
-        photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, TeamTwoScore);
-
         if (TeamOneScore > TeamTwoScore) {
             TeamOneText.fontSize = 20;
             TeamTwoText.fontSize = 15;
@@ -46,18 +43,6 @@ public class Scores : MonoBehaviourPun
         
         //photonView.RPC("GetDeaths", RpcTarget.AllBuffered);
         //GetDeaths();
-    }
-
-    [PunRPC]
-    void GetScoreOne(int score)
-    {
-        TeamOneScore = score;
-    }
-
-    [PunRPC]
-    void GetScoreTwo(int score)
-    {
-        TeamTwoScore = score;
     }
 
     [PunRPC]
