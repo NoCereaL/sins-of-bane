@@ -8,7 +8,6 @@ using Photon.Pun;
 public class PlayerInfo : MonoBehaviourPun
 {
     public string name;
-    public int playerNum = PhotonNetwork.LocalPlayer.ActorNumber;
     public int maxHealth = 100;
     public int currentHealth;
     public int Lives = 3;
@@ -67,7 +66,14 @@ public class PlayerInfo : MonoBehaviourPun
         }
         else
         {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(playerNum).NickName;
+            if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+            {
+                name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
+            }
+            if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+            {
+                name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
+            }
         }
     }
 
