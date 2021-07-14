@@ -64,6 +64,10 @@ public class PlayerInfo : MonoBehaviourPun
         {
             name = PhotonNetwork.NickName;
         }
+        else
+        {
+            name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
+        }
     }
 
     [PunRPC]
