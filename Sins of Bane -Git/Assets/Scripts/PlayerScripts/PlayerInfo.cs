@@ -75,11 +75,11 @@ public class PlayerInfo : MonoBehaviourPun
                 name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
             }
         }*/
-        if (PhotonNetwork.CurrentRoom.GetPlayer(1).ActorNumber == 1)
+        if (PhotonNetwork.CurrentRoom.GetPlayer(1).ActorNumber == 1 && photonView.IsMine)
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
         }
-        if (PhotonNetwork.CurrentRoom.GetPlayer(2).ActorNumber == 2)
+        else if (PhotonNetwork.CurrentRoom.GetPlayer(2).ActorNumber == 2 && photonView.IsMine)
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         }
