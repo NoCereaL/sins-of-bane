@@ -43,6 +43,7 @@ public class PlayerInfo : MonoBehaviourPun
     void Update()
     {
         photonView.RPC("SetName", RpcTarget.AllBuffered);
+        photonView.RPC("SetOthersName", RpcTarget.OthersBuffered);
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
@@ -65,6 +66,19 @@ public class PlayerInfo : MonoBehaviourPun
             name = PhotonNetwork.NickName;
         }
         else
+        {
+            //name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
+        }
+    }
+
+    [PunRPC]
+    void SetOthersName()
+    {
+        if (PhotonNetwork.CurrentRoom.GetPlayer(1) != null && !photonView.IsMine)
+        {
+            name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
+        }
+        if (PhotonNetwork.CurrentRoom.GetPlayer(2) != null && !photonView.IsMine)
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         }
