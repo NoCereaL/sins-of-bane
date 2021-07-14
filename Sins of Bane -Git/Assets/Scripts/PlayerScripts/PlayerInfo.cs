@@ -68,11 +68,6 @@ public class PlayerInfo : MonoBehaviourPun
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         }
-
-        else if(photonView.IsMine && PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-        }
     }
 
     [PunRPC]

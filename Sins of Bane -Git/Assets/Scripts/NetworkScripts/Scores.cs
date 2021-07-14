@@ -19,7 +19,7 @@ public class Scores : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        
+        photonView.RPC("SetNames", RpcTarget.AllBuffered);
     }
 
     // Update is called once per frame
@@ -53,6 +53,16 @@ public class Scores : MonoBehaviourPun
         TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().TeamOneScore;
         TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().TeamTwoScore;
 
+    }
+
+    [PunRPC]
+    void SetNames()
+    {
+        PlayerInfo player1 = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>();
+        PlayerInfo player2 = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>();
+
+        player1.name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
+        player2.name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
     }
 
 }
