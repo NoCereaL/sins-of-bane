@@ -42,6 +42,7 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        photonView.RPC("GetName", RpcTarget.AllBuffered, name);
         //photonView.RPC("SetName", RpcTarget.AllBuffered);
         //photonView.RPC("SetOthersName", RpcTarget.OthersBuffered);
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
@@ -56,6 +57,12 @@ public class PlayerInfo : MonoBehaviourPun
         ChangeTeamImage();
         
         Death();
+    }
+
+    [PunRPC]
+    void GetName(string n)
+    {
+        name = n;
     }
 
     [PunRPC]
