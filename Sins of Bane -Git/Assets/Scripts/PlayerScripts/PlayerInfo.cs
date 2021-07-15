@@ -136,7 +136,7 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        Debug.Log(actor + " Hit " + PhotonNetwork.LocalPlayer.NickName);
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " Hit " + actor);
     }
 
     public void LoseLife()
