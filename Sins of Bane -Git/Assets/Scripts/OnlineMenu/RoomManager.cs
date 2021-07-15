@@ -77,6 +77,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
 		myPlayer.transform.Find("MiniMapCam").gameObject.SetActive(true);
 		myPlayer.GetComponent<PlayerInfo>().Team = 1;
+		myPlayer.GetComponent<PlayerInfo>().name = PhotonNetwork.LocalPlayer.NickName;
 	}
 
 	public void SpawnPlayer2()
@@ -89,6 +90,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		myPlayer2.transform.Find("MiniMapCam").gameObject.SetActive(true);
 		myPlayer2.GetComponent<PlayerInfo>().Team = 2;
+		myPlayer2.GetComponent<PlayerInfo>().name = PhotonNetwork.LocalPlayer.NickName;
 	}
 
 	public void SpawnPlayer3()
@@ -101,6 +103,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer3.transform.Find("crosshair").gameObject.SetActive(true);
 		myPlayer3.transform.Find("MiniMapCam").gameObject.SetActive(true);
 		myPlayer3.GetComponent<PlayerInfo>().Team = 2;
+		myPlayer2.GetComponent<PlayerInfo>().name = PhotonNetwork.LocalPlayer.NickName;
 		//myPlayer2.name = "player2";
 	}
 }

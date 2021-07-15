@@ -25,8 +25,6 @@ public class Scores : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("SetNames", RpcTarget.AllBuffered);
-
         TeamOneText.text = TeamOneScore + "";
         TeamTwoText.text = TeamTwoScore + "";
 
