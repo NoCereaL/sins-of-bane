@@ -82,13 +82,13 @@ public class PlayerInfo : MonoBehaviourPun
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         }
-        else if (PhotonNetwork.CurrentRoom.GetPlayer(3) != null && !photonView.IsMine)
+        if (PhotonNetwork.CurrentRoom.GetPlayer(3) != null && PhotonNetwork.LocalPlayer.ActorNumber == 1 || PhotonNetwork.LocalPlayer.ActorNumber == 2)
         {
             name = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
         }
-        if (PhotonNetwork.CurrentRoom.GetPlayer(4) != null && !photonView.IsMine)
+        else if (PhotonNetwork.CurrentRoom.GetPlayer(3) != null && PhotonNetwork.LocalPlayer.ActorNumber == 3)
         {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(4).NickName;
+            name = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
         }
     }
 
