@@ -43,7 +43,7 @@ public class PlayerInfo : MonoBehaviourPun
     void Update()
     {
         photonView.RPC("SetName", RpcTarget.AllBuffered);
-        photonView.RPC("SetOthersName", RpcTarget.OthersBuffered);
+        //photonView.RPC("SetOthersName", RpcTarget.OthersBuffered);
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
