@@ -139,15 +139,21 @@ public class PlayerInfo : MonoBehaviourPun
         Debug.Log(DeathCount);
     }
 
+    [PunRPC]
+    void UpdateKillFeed(string actor)
+    {
+        if (currentHealth < 10)
+        {
+            KillFeed.instance.AddNewKillListing(PhotonNetwork.LocalPlayer.NickName, actor);
+        }
+    }
+
     public void TakeDamage(int damage, string actor)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " Hit " + actor);
-        if(currentHealth < 10)
-        {
-            KillFeed.instance.AddNewKillListing(PhotonNetwork.LocalPlayer.NickName, actor);
-        }
+        photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, actor);
     }
 
     public void LoseLife()
