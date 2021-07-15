@@ -153,7 +153,10 @@ public class PlayerInfo : MonoBehaviourPun
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " Hit " + actor);
-        photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, actor);
+        if(currentHealth == 0)
+        {
+            photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, actor);
+        }
     }
 
     public void LoseLife()
