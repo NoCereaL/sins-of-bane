@@ -144,6 +144,10 @@ public class PlayerInfo : MonoBehaviourPun
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " Hit " + actor);
+        if(currentHealth < 10)
+        {
+            KillFeed.instance.AddNewKillListing(PhotonNetwork.LocalPlayer.NickName, actor);
+        }
     }
 
     public void LoseLife()
