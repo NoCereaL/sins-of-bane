@@ -55,14 +55,4 @@ public class Scores : MonoBehaviourPun
 
     }
 
-    [PunRPC]
-    void SetNames()
-    {
-        PlayerInfo player1 = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>();
-        PlayerInfo player2 = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>();
-
-        player1.name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-        player2.name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
-    }
-
 }
