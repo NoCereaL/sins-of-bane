@@ -40,12 +40,12 @@ public class PlayerInfo : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-        photonView.RPC("GetName", RpcTarget.OthersBuffered, name);
+        //photonView.RPC("GetName", RpcTarget.OthersBuffered, name);
         
-        photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
-        photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
-        photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
-        photonView.RPC("UpdateHealth", RpcTarget.OthersBuffered, currentHealth);
+        //photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
+        //photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
+        //photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
+        //photonView.RPC("UpdateHealth", RpcTarget.OthersBuffered, currentHealth);
         healthText.text = currentHealth +"%";
         
         ChangeTeamImage();
@@ -62,7 +62,7 @@ public class PlayerInfo : MonoBehaviourPun
     [PunRPC]
     void UpdateHealth(int health)
     {
-        //currentHealth = health;
+        currentHealth = health;
     }
 
     [PunRPC]
