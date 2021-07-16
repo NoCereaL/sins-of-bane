@@ -30,8 +30,6 @@ public class PlayerInfo : MonoBehaviourPun
     public Text cosniacsScoreText;
     public Text astrolitionScoreText;
 
-    public GameObject gameManager;
-
     // Start is called before the first frame update
     void Start()
     {
