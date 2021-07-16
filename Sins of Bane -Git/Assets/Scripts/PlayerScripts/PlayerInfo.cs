@@ -49,8 +49,22 @@ public class PlayerInfo : MonoBehaviourPun
         healthText.text = currentHealth +"%";
         
         ChangeTeamImage();
-        
+        KillFeedColor();
         Death();
+    }
+
+    void KillFeedColor()
+    {
+        if (Team == 1)
+        {
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
+        }
+        if (Team == 2)
+        {
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
+        }
     }
 
     [PunRPC]
