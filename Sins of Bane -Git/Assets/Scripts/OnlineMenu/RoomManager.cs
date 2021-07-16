@@ -103,7 +103,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		myPlayer3.transform.Find("crosshair").gameObject.SetActive(true);
 		myPlayer3.transform.Find("MiniMapCam").gameObject.SetActive(true);
 		myPlayer3.GetComponent<PlayerInfo>().Team = 2;
-		myPlayer2.GetComponent<PlayerInfo>().name = PhotonNetwork.LocalPlayer.NickName;
+		myPlayer3.GetComponent<PlayerInfo>().name = PhotonNetwork.LocalPlayer.NickName;
 		//myPlayer2.name = "player2";
 	}
 }

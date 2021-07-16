@@ -16,6 +16,10 @@ public class Scores : MonoBehaviourPun
     public TeamBarScript TeamOne;
     public TeamBarScript TeamTwo;
 
+    public PlayerInfo player1;
+    public PlayerInfo player2;
+    public PlayerInfo player3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +56,26 @@ public class Scores : MonoBehaviourPun
         //TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().DeathCount;
         TeamOneScore = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>().TeamOneScore;
         TeamTwoScore = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>().TeamTwoScore;
+    }
 
+    [PunRPC]
+    void GetPlayer()
+    {
+        if(PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            player1 = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>();
+        }
+        else if(PhotonNetwork.CurrentRoom.PlayerCount == 2)
+        {
+            player1 = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>();
+            player2 = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>();
+        }
+        else if (PhotonNetwork.CurrentRoom.PlayerCount == 3)
+        {
+            player1 = GameObject.Find("player(Clone)").GetComponent<PlayerInfo>();
+            player2 = GameObject.Find("player2(Clone)").GetComponent<PlayerInfo>();
+            player3 = GameObject.Find("player3(Clone)").GetComponent<PlayerInfo>();
+        }
     }
 
 }

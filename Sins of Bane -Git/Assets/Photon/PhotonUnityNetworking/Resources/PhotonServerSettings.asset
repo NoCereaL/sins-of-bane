@@ -79,6 +79,8 @@ MonoBehaviour:
   - SetOthersName
   - GetName
   - UpdateKillFeed
+  - UpdateHealth
+  - GetPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -43,17 +43,13 @@ public class PlayerInfo : MonoBehaviourPun
     void Update()
     {
         photonView.RPC("GetName", RpcTarget.OthersBuffered, name);
-        //photonView.RPC("SetName", RpcTarget.AllBuffered);
-        //photonView.RPC("SetOthersName", RpcTarget.OthersBuffered);
+        
         photonView.RPC("DeathCounter", RpcTarget.AllBuffered, DeathCount);
         photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
         photonView.RPC("UpdateHealth", RpcTarget.OthersBuffered, currentHealth);
         healthText.text = currentHealth +"%";
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            photonView.RPC("SendMsg", RpcTarget.All);
-        }
+        
         ChangeTeamImage();
         
         Death();
@@ -63,40 +59,6 @@ public class PlayerInfo : MonoBehaviourPun
     void GetName(string n)
     {
         name = n;
-    }
-
-    [PunRPC]
-    void SetName()
-    {
-        if (photonView.IsMine)
-        {
-            name = PhotonNetwork.NickName;
-        }
-        else
-        {
-            //name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
-        }
-    }
-
-    [PunRPC]
-    void SetOthersName()
-    {
-        if (PhotonNetwork.CurrentRoom.GetPlayer(1) != null && !photonView.IsMine)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
-        }
-        if (PhotonNetwork.CurrentRoom.GetPlayer(2) != null && !photonView.IsMine)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
-        }
-        if (PhotonNetwork.CurrentRoom.GetPlayer(3) != null && PhotonNetwork.LocalPlayer.ActorNumber == 1 || PhotonNetwork.LocalPlayer.ActorNumber == 2)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
-        }
-        else if (PhotonNetwork.CurrentRoom.GetPlayer(3) != null && PhotonNetwork.LocalPlayer.ActorNumber == 3)
-        {
-            name = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
-        }
     }
 
     [PunRPC]
@@ -134,15 +96,6 @@ public class PlayerInfo : MonoBehaviourPun
             TeamLogo.sprite = Cosniacs;
             teamName.text = "Cosniacs";
         }
-    }
-
-    [PunRPC]
-    void SendMsg()
-    {
-        print("Initiating");
-
-        Debug.Log("Successfully Recieved");
-        Debug.Log(DeathCount);
     }
 
     [PunRPC]
@@ -196,7 +149,6 @@ public class PlayerInfo : MonoBehaviourPun
 
     void SetDeaths()
     {
-        //GameObject.Find("GameManager").GetComponent<Scores>().PlayerDeath += DeathCount;
 
         if(Team == 1)
         {

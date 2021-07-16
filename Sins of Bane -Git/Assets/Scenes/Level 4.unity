@@ -25115,6 +25115,9 @@ MonoBehaviour:
   TeamTwoText: {fileID: 1819700557}
   TeamOne: {fileID: 1456075429}
   TeamTwo: {fileID: 917239258}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player3: {fileID: 0}
 --- !u!114 &1726577613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31401,6 +31404,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2340682922345662642, guid: a326bc2c20446425eaf96cf5f9e3b198, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081086404616246087, guid: a326bc2c20446425eaf96cf5f9e3b198, type: 3}
+      propertyPath: m_ShowMaskGraphic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
