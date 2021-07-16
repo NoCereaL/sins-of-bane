@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
 
 	[SerializeField] Menu[] menus;
 
+	public AudioSource audioClick;
+
 	void Awake()
 	{
 		Instance = this;
@@ -30,6 +32,7 @@ public class MenuManager : MonoBehaviour
 
 	public void OpenMenu(Menu menu)
 	{
+		audioClick.Play();
 		for(int i = 0; i < menus.Length; i++)
 		{
 			if(menus[i].open)

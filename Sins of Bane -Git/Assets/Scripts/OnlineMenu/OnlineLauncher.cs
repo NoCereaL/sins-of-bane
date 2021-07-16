@@ -19,6 +19,10 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject PlayerListItemPrefab;
 	[SerializeField] GameObject startGameButton;
 
+	public AudioSource audioClick;
+	public AudioSource audioLeave;
+	public AudioSource audioStartGame;
+
 	void Awake()
 	{
 		Instance = this;
@@ -46,6 +50,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public void CreateRoom()
 	{
+		audioClick.Play();
 		if (string.IsNullOrEmpty(roomNameInputField.text))
 		{
 			return;
@@ -88,17 +93,20 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public void StartGame()
 	{
+		audioStartGame.Play();
 		PhotonNetwork.LoadLevel(1);
 	}
 
 	public void LeaveRoom()
 	{
+		audioLeave.Play();
 		PhotonNetwork.LeaveRoom();
 		MenuManager.Instance.OpenMenu("loading");
 	}
 
 	public void JoinRoom(RoomInfo info)
 	{
+		audioClick.Play();
 		PhotonNetwork.JoinRoom(info.Name);
 		MenuManager.Instance.OpenMenu("loading");
 	}
