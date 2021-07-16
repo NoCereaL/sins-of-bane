@@ -20,6 +20,9 @@ public class ARBullet : MonoBehaviourPun
     public PlayerInfo player;
 
     public string Owner;
+
+    public Text Killer;
+    public Text Killed;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,9 @@ public class ARBullet : MonoBehaviourPun
 
     void Update()
     {
+        Killer = GameObject.Find("Killer").GetComponent<Text>();
+        Killed = GameObject.Find("Killed").GetComponent<Text>();
+
         photonView.RPC("GetOwner", RpcTarget.AllBuffered, Owner);
         StartCoroutine(DestroyBullet());
     }
@@ -47,6 +53,16 @@ public class ARBullet : MonoBehaviourPun
         if (player != null)
         {
             player.TakeDamage(damage, Owner, player.name);
+            if (player.Team == 1)
+            {
+                Killer.color = Color.red;
+                Killed.color = Color.blue;
+            }
+            if (player.Team == 2)
+            {
+                Killer.color = Color.blue;
+                Killed.color = Color.red;
+            }
             Destroy(bullet);
         }
         if (enemy != null)
