@@ -62,7 +62,7 @@ public class PlayerInfo : MonoBehaviourPun
     [PunRPC]
     void UpdateHealth(int health)
     {
-        currentHealth = health;
+        //currentHealth = health;
     }
 
     [PunRPC]
@@ -149,27 +149,27 @@ public class PlayerInfo : MonoBehaviourPun
         if(Team == 1)
         {
             TeamTwoScore += 1;
-            //GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
         }
         if (Team == 2)
         {
             TeamOneScore += 1;
-            //GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
+            GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore += 1;
         }
-        //photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore);
-        //photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore);
+        photonView.RPC("GetScoreOne", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore);
+        photonView.RPC("GetScoreTwo", RpcTarget.AllBuffered, GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore);
     }
 
     [PunRPC]
     void GetScoreOne(int score)
     {
-        //GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore = score;
+        GameObject.Find("GameManager").GetComponent<Scores>().TeamOneScore = score;
     }
 
     [PunRPC]
     void GetScoreTwo(int score)
     {
-        //GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore = score;
+        GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore = score;
     }
 
 }
