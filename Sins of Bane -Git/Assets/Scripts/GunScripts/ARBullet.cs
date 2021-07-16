@@ -49,13 +49,13 @@ public class ARBullet : MonoBehaviourPun
             player.TakeDamage(damage, Owner, player.name);
             if(player.Team == 1)
             {
-                GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
-                GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
-            }
-            else if (player.Team == 2)
-            {
                 GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
                 GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
+            }
+            if (player.Team == 2)
+            {
+                GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
+                GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
             }
             Destroy(bullet);
         }
