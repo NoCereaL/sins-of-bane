@@ -40,6 +40,21 @@ public class ARBullet : MonoBehaviourPun
         Owner = owner;
     }
 
+    [PunRPC]
+    void KillFeedColor()
+    {
+        if (player.Team == 1)
+        {
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
+        }
+        if (player.Team == 2)
+        {
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
@@ -47,16 +62,7 @@ public class ARBullet : MonoBehaviourPun
         if (player != null)
         {
             player.TakeDamage(damage, Owner, player.name);
-            if(player.Team == 1)
-            {
-                GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
-                GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
-            }
-            if (player.Team == 2)
-            {
-                GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
-                GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
-            }
+            photonView.RPC("KillFeedColor", RpcTarget.AllBuffered);
             Destroy(bullet);
         }
         if (enemy != null)
