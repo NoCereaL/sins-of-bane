@@ -5,6 +5,7 @@ using Photon.Pun;
 using TMPro;
 using Photon.Realtime;
 using System.Linq;
+using UnityEngine.UI;
 
 public class OnlineLauncher : MonoBehaviourPunCallbacks
 {
@@ -12,6 +13,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	[SerializeField] TMP_InputField roomNameInputField;
 	[SerializeField] TMP_Text errorText;
+	[SerializeField] Text errorText2;
 	[SerializeField] TMP_Text roomNameText;
 	[SerializeField] Transform roomListContent;
 	[SerializeField] GameObject roomListItemPrefab;
@@ -87,6 +89,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnCreateRoomFailed(short returnCode, string message)
 	{
 		errorText.text = "Room Creation Failed: " + message;
+		errorText2.text = "Room Creation Failed: " + message;
 		Debug.LogError("Room Creation Failed: " + message);
 		MenuManager.Instance.OpenMenu("error");
 	}
