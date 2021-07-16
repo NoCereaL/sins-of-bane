@@ -145,6 +145,7 @@ MonoBehaviour:
   BulletLife: 5
   impactEffect: {fileID: 0}
   player: {fileID: 0}
+  Owner: 
 --- !u!82 &4456525397791244312
 AudioSource:
   m_ObjectHideFlags: 0

@@ -99,22 +99,19 @@ public class PlayerInfo : MonoBehaviourPun
     }
 
     [PunRPC]
-    void UpdateKillFeed(string actor)
+    void UpdateKillFeed(string killer, string killed)
     {
-        if (currentHealth < 10)
-        {
-            KillFeed.instance.AddNewKillListing(PhotonNetwork.LocalPlayer.NickName, actor);
-        }
+        KillFeed.instance.AddNewKillListing(killer, killed);
     }
 
-    public void TakeDamage(int damage, string actor)
+    public void TakeDamage(int damage, string killer, string killed)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        Debug.Log(PhotonNetwork.LocalPlayer.NickName + " Hit " + actor);
-        if(currentHealth == 0)
+        Debug.Log(killer + " Hit " + killed);
+        if(currentHealth == 0 && photonView.IsMine)
         {
-            photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, actor);
+            photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
         }
     }
 
@@ -147,6 +144,8 @@ public class PlayerInfo : MonoBehaviourPun
         }*/
     }
 
+
+    //Updates Scores to server when the player death is confirmed
     void SetDeaths()
     {
 

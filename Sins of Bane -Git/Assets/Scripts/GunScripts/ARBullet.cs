@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ARBullet : MonoBehaviour
+public class ARBullet : MonoBehaviourPun
 {
     public float speed = 20f;
 
@@ -17,15 +17,27 @@ public class ARBullet : MonoBehaviour
     public GameObject impactEffect;
 
     public PlayerInfo player;
+
+    public string Owner;
     // Start is called before the first frame update
     void Start()
     {
         rb.velocity = transform.right * speed;
+        if(photonView.IsMine)
+        Owner = PhotonNetwork.LocalPlayer.NickName;
+        Debug.Log(Owner);
     }
 
     void Update()
     {
+        photonView.RPC("GetOwner", RpcTarget.AllBuffered, Owner);
         StartCoroutine(DestroyBullet());
+    }
+
+    [PunRPC]
+    void GetOwner(string owner)
+    {
+        Owner = owner;
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
@@ -34,7 +46,7 @@ public class ARBullet : MonoBehaviour
         player = hitInfo.GetComponent<PlayerInfo>();
         if (player != null)
         {
-            player.TakeDamage(damage, player.name);
+            player.TakeDamage(damage, Owner, player.name);
             Destroy(bullet);
         }
         if (enemy != null)
@@ -53,7 +65,7 @@ public class ARBullet : MonoBehaviour
         PlayerInfo player = collision.collider.GetComponent<PlayerInfo>();
         if(collision.collider.tag == "Player")
         {
-            player.TakeDamage(damage, player.name);
+            player.TakeDamage(damage, Owner, player.name);
             Destroy(bullet);
         }
         Destroy(bullet);
