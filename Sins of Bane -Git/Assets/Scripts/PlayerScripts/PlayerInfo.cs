@@ -55,7 +55,6 @@ public class PlayerInfo : MonoBehaviourPun
         healthText.text = currentHealth +"%";
         
         ChangeTeamImage();
-        KillFeedColor();
         Death();
     }
 
