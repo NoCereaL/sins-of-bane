@@ -57,6 +57,17 @@ public class ARBullet : MonoBehaviourPun
                 GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
                 GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
             }*/
+
+            if(player.Team == 1)
+            {
+                PlayerInfo.Killer.color = Color.red;
+                PlayerInfo.Killed.color = Color.blue;
+            }
+            if (player.Team == 2)
+            {
+                PlayerInfo.Killer.color = Color.blue;
+                PlayerInfo.Killed.color = Color.red;
+            }
             Destroy(bullet);
         }
         if (enemy != null)
