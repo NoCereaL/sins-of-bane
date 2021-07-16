@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MainMenuScript : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject CreditsMenu;
     
-    AudioSource audioData;
+    public AudioSource audioData;
+    public AudioSource audioBack;
 
     // Start is called before the first frame update
     void Start()
     {
-        MainMenuButton();
     }
     
     public void PlayNowButton()
     {
         // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
         UnityEngine.SceneManagement.SceneManager.LoadScene(2);
-        audioData = GetComponent<AudioSource>();
         audioData.Play();
     }
 
@@ -28,7 +28,6 @@ public class MainMenuScript : MonoBehaviour
         // Show Credits Menu
         MainMenu.SetActive(false);
         CreditsMenu.SetActive(true);
-        audioData = GetComponent<AudioSource>();
         audioData.Play();
     }
 
@@ -37,13 +36,13 @@ public class MainMenuScript : MonoBehaviour
         // Show Main Menu
         MainMenu.SetActive(true);
         CreditsMenu.SetActive(false);
-        audioData = GetComponent<AudioSource>();
-        audioData.Play();
+        audioBack.Play();
     }
 
     public void QuitButton()
     {
-        // Quit Game
+        audioData.Play();
         Application.Quit();
     }
+
 }
