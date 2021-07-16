@@ -57,13 +57,13 @@ public class PlayerInfo : MonoBehaviourPun
     {
         if (Team == 1)
         {
-            GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
-            GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
         }
         if (Team == 2)
         {
-            GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
-            GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
+            GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
+            GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
         }
     }
 
