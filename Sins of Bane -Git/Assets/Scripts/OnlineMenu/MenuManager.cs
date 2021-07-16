@@ -47,4 +47,10 @@ public class MenuManager : MonoBehaviour
 	{
 		menu.Close();
 	}
+
+	public void QuitApp()
+    {
+		audioClick.Play();
+		Application.Quit();
+    }
 }
