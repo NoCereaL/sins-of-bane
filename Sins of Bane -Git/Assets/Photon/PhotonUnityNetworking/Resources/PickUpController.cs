@@ -47,6 +47,11 @@ public class PickUpController : MonoBehaviourPun
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            this.photonView.RPC("Send", RpcTarget.All);
+        }
+
         if (equipped == true)
         {
             HUD.active = true;
@@ -57,6 +62,25 @@ public class PickUpController : MonoBehaviourPun
         }
         //JoinController2();
         ExecuteTheUpdate();
+
+        /*
+        JoinGameController();
+
+        //Check if player in range and "E" is pressed
+        Vector3 distanceToPlayer = player.position - transform.position;
+        if(!equipped && distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull)
+        {
+            Debug.Log(PhotonNetwork.LocalPlayer.UserId);
+            PickUp();
+            //newPickUp();
+            photonView.RPC("newPickUp", RpcTarget.OthersBuffered);
+        }
+
+        if(equipped && Input.GetKeyDown(KeyCode.Q))
+        {
+            Drop();
+        }
+        */
     }
 
     void ExecuteTheUpdate()
