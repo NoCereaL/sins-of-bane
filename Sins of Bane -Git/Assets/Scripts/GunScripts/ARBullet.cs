@@ -46,17 +46,8 @@ public class ARBullet : MonoBehaviourPun
         player = hitInfo.GetComponent<PlayerInfo>();
         if (player != null)
         {
-            player.TakeDamage(damage, Owner, player.name);
-            if (player.Team == 1)
-            {
-                GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
-                GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
-            }
-            if (player.Team == 2)
-            {
-                GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
-                GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
-            }
+            player.TakeDamage(damage, Owner, player.name, player);
+            
             Destroy(bullet);
         }
         if (enemy != null)
@@ -75,7 +66,7 @@ public class ARBullet : MonoBehaviourPun
         PlayerInfo player = collision.collider.GetComponent<PlayerInfo>();
         if(collision.collider.tag == "Player")
         {
-            player.TakeDamage(damage, Owner, player.name);
+            player.TakeDamage(damage, Owner, player.name, player);
             Destroy(bullet);
         }
         Destroy(bullet);

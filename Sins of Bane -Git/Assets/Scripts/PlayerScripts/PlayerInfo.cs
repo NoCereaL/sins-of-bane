@@ -101,13 +101,23 @@ public class PlayerInfo : MonoBehaviourPun
         KillFeed.instance.AddNewKillListing(killer, killed);
     }
 
-    public void TakeDamage(int damage, string killer, string killed)
+    public void TakeDamage(int damage, string killer, string killed, PlayerInfo player)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         if(currentHealth == 0 && photonView.IsMine)
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
+            if (player.Team == 1)
+            {
+                GameObject.Find("Killer").GetComponent<Text>().color = Color.red;
+                GameObject.Find("Killed").GetComponent<Text>().color = Color.blue;
+            }
+            if (player.Team == 2)
+            {
+                GameObject.Find("Killer").GetComponent<Text>().color = Color.blue;
+                GameObject.Find("Killed").GetComponent<Text>().color = Color.red;
+            }
         }
     }
 
