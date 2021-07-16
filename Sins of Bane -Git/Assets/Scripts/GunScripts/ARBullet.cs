@@ -25,7 +25,6 @@ public class ARBullet : MonoBehaviourPun
         rb.velocity = transform.right * speed;
         if(photonView.IsMine)
         Owner = PhotonNetwork.LocalPlayer.NickName;
-        Debug.Log(Owner);
     }
 
     void Update()

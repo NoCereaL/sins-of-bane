@@ -108,7 +108,6 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        Debug.Log(killer + " Hit " + killed);
         if(currentHealth == 0 && photonView.IsMine)
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
