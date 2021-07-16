@@ -30,9 +30,6 @@ public class PlayerInfo : MonoBehaviourPun
     public Text cosniacsScoreText;
     public Text astrolitionScoreText;
 
-    public static Text Killer;
-    public static Text Killed;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -49,27 +46,10 @@ public class PlayerInfo : MonoBehaviourPun
         //photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         //photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
         //photonView.RPC("UpdateHealth", RpcTarget.OthersBuffered, currentHealth);
-
-        Killer = GameObject.Find("Killer").GetComponent<Text>();
-        Killed = GameObject.Find("Killed").GetComponent<Text>();
         healthText.text = currentHealth +"%";
         
         ChangeTeamImage();
         Death();
-    }
-
-    void KillFeedColor()
-    {
-        if (Team == 1)
-        {
-            Killer.color = Color.blue;
-            Killed.color = Color.red;
-        }
-        if (Team == 2)
-        {
-            Killer.color = Color.red;
-            Killed.color = Color.blue;
-        }
     }
 
     [PunRPC]
