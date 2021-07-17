@@ -120,6 +120,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public override void OnLeftRoom()
 	{
+		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+
 		MenuManager.Instance.OpenMenu("title");
 	}
 
