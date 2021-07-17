@@ -38,6 +38,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		PhotonNetwork.ConnectUsingSettings();
 	}
 
+    private void Update()
+    {
+		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+	}
+
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("Connected to Master");
@@ -107,7 +112,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public void LeaveRoom()
 	{
 		audioLeave.Play();
-		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		PhotonNetwork.LeaveRoom();
 		MenuManager.Instance.OpenMenu("loading");
 	}
