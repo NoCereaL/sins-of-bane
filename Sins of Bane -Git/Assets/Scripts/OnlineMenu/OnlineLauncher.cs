@@ -27,6 +27,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public AudioSource audioLeave;
 	public AudioSource audioStartGame;
 	public AudioSource audioPlayerJoined;
+	public AudioSource audioPlayerLeft;
 
 	void Awake()
 	{
@@ -41,7 +42,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+		//playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 	}
 
 	public override void OnConnectedToMaster()
@@ -151,4 +152,9 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
 	}
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+		audioPlayerLeft.Play();
+    }
 }
