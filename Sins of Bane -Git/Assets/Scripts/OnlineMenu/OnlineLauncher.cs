@@ -140,6 +140,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
+		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
 	}
 
