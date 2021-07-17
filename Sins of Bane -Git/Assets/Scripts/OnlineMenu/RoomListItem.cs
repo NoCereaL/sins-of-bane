@@ -13,7 +13,7 @@ public class RoomListItem : MonoBehaviour
 	public void SetUp(RoomInfo _info)
 	{
 		info = _info;
-		text.text = _info.Name + _info.PlayerCount;
+		text.text = _info.Name +"  -  "+ _info.PlayerCount +"/8";
 	}
 
 	public void OnClick()
