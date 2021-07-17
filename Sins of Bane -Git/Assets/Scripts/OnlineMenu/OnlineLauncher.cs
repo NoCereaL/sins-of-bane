@@ -15,11 +15,13 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	[SerializeField] TMP_Text errorText;
 	[SerializeField] Text errorText2;
 	[SerializeField] TMP_Text roomNameText;
+	[SerializeField] Text roomNameText2;
 	[SerializeField] Transform roomListContent;
 	[SerializeField] GameObject roomListItemPrefab;
 	[SerializeField] Transform playerListContent;
 	[SerializeField] GameObject PlayerListItemPrefab;
 	[SerializeField] GameObject startGameButton;
+	[SerializeField] Text playerCount;
 
 	public AudioSource audioClick;
 	public AudioSource audioLeave;
@@ -65,6 +67,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	{
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
+		roomNameText2.text = PhotonNetwork.CurrentRoom.Name;
+		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players"; 
 
 		Player[] players = PhotonNetwork.PlayerList;
 
