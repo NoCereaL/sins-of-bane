@@ -57,7 +57,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	{
 		MenuManager.Instance.OpenMenu("title");
 		Debug.Log("Joined Lobby");
-		PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+
+		if (PhotonNetwork.NickName == null)
+		{
+			PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+		}
 	}
 
 	public void CreateRoom()
@@ -134,7 +138,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-		foreach (Transform trans in roomListContent)
+        foreach (Transform trans in roomListContent)
 		{
 			Destroy(trans.gameObject);
 		}
@@ -142,11 +146,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		for (int i = 0; i < roomList.Count; i++)
 		{
 			if (roomList[i].RemovedFromList)
-				continue;
+				//continue;
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
 	}
-
+	
 	public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
