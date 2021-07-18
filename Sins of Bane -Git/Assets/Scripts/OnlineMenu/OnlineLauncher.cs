@@ -22,6 +22,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	[SerializeField] GameObject PlayerListItemPrefab;
 	[SerializeField] GameObject startGameButton;
 	[SerializeField] Text playerCount;
+	[SerializeField] Text globalCount;
 
 	public AudioSource audioClick;
 	public AudioSource audioLeave;
@@ -128,13 +129,18 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnLeftRoom()
 	{
 		MenuManager.Instance.OpenMenu("title");
+		foreach (Transform trans in roomListContent)
+		{
+			Destroy(trans.gameObject);
+		}
 	}
 
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
+		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
 		foreach (Transform trans in roomListContent)
 		{
-			Destroy(trans.gameObject);
+			//Destroy(trans.gameObject);
 		}
 		/*
 		for (int i = 0; i < roomList.Count; i++)
