@@ -129,25 +129,33 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnLeftRoom()
 	{
 		MenuManager.Instance.OpenMenu("title");
+		DestroyListItem();
 	}
 
-	public override void OnRoomListUpdate(List<RoomInfo> roomList)
-	{
-		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-        foreach (Transform trans in roomListContent)
+	void DestroyListItem()
+    {
+		foreach (Transform trans in roomListContent)
 		{
 			Destroy(trans.gameObject);
 		}
-		
+	}
+	
+	public override void OnRoomListUpdate(List<RoomInfo> roomList)
+	{
+		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
+		//DestroyListItem();
+
 		for (int i = 0; i < roomList.Count; i++)
 		{
 			if (roomList[i].RemovedFromList)
-				continue;
+            {
+				return;
+			}
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
 	}
-	
-	public override void OnPlayerEnteredRoom(Player newPlayer)
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerJoined.Play();
