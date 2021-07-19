@@ -170,7 +170,9 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 					Destroy(_listing[index].gameObject);
 					_listing.RemoveAt(index);
                 }
-            }
+				Destroy(_listing[index].gameObject);
+				_listing.RemoveAt(index);
+			}
             else
             {
 				RoomListItem listing = Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>();
