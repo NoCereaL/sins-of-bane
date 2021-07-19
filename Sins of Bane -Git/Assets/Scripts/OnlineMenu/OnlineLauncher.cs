@@ -132,28 +132,57 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		DestroyListItem();
 	}
 
-	void DestroyListItem()
+	void  DestroyListItem()
     {
 		foreach (Transform trans in roomListContent)
 		{
 			Destroy(trans.gameObject);
 		}
 	}
-	
+
+	/*
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-		//DestroyListItem();
+		DestroyListItem();
 
 		for (int i = 0; i < roomList.Count; i++)
 		{
 			if (roomList[i].RemovedFromList)
             {
-				return;
+				continue;
 			}
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
-	}
+	}*/
+
+	private List<RoomListItem> _listing = new List<RoomListItem>();
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (RoomInfo info in roomList)
+        {
+            if (info.RemovedFromList)
+            {
+				int index = _listing.FindIndex(x => x.info.Name == info.Name);
+				if(index != -1)
+                {
+					Destroy(_listing[index].gameObject);
+					_listing.RemoveAt(index);
+                }
+            }
+            else
+            {
+				RoomListItem listing = Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>();
+				if(listing != null)
+                {
+					listing.SetUp(info);
+					_listing.Add(listing);
+                }
+            }
+        }
+        base.OnRoomListUpdate(roomList);
+    }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
