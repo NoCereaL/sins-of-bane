@@ -43,7 +43,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-		//playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+        //playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+			RefreshList();
+        }
 	}
 
 	public override void OnConnectedToMaster()
@@ -59,6 +63,12 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		Debug.Log("Joined Lobby");
 		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");	
 	}
+
+	public void RefreshList()
+    {
+		PhotonNetwork.CreateRoom("");
+		PhotonNetwork.LeaveRoom();
+    }
 
 	public void CreateRoom()
 	{
@@ -121,7 +131,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public void JoinRoom(RoomInfo info)
 	{
-		DestroyListItem();
 		audioClick.Play();
 		PhotonNetwork.JoinRoom(info.Name);
 		MenuManager.Instance.OpenMenu("loading");
@@ -144,10 +153,9 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-        //DestroyListItem();
         foreach (GameObject obj in roomListContent)
         {
-			Destroy(obj.gameObject);
+			//Destroy(obj.gameObject);
         }
 
 		for (int i = 0; i < roomList.Count; i++)
@@ -160,42 +168,13 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 	}
 
-	/*
-	private List<RoomListItem> _listing = new List<RoomListItem>();
-
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    public override void OnJoinRoomFailed(short returnCode, string message)
     {
-		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-		foreach (RoomInfo info in roomList)
-        {
-            if (info.RemovedFromList)
-            {
-				int index = _listing.FindIndex(x => x.info.Name == info.Name);
-				if(index != -1)
-                {
-					Destroy(_listing[index].gameObject);
-					_listing.RemoveAt(index);
-                }
-				Destroy(_listing[index].gameObject);
-				_listing.RemoveAt(index);
-			}
-            else
-            {
-				RoomListItem listing = Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>();
-				if(listing != null)
-                {
-					listing.SetUp(info);
-					_listing.Add(listing);
-                }
-            }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-				Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>();
-			}
-        }
-        base.OnRoomListUpdate(roomList);
-    }*/
+		errorText.text = "Join Room Failed: " + message;
+		errorText2.text = "Join Room Failed: " + message;
+		Debug.LogError("Join Room Failed: " + message);
+		MenuManager.Instance.OpenMenu("error");
+    }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
