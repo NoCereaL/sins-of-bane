@@ -138,17 +138,15 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-        foreach (GameObject obj in roomListContent)
+		foreach (GameObject obj in roomListContent)
         {
 			Destroy(obj.gameObject);
         }
 
 		for (int i = 0; i < roomList.Count; i++)
 		{
-			if (roomList[i].RemovedFromList)
-            {
-				continue;
-			}
+			if (roomList[i].RemovedFromList)            
+				//continue;			
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
 	}
