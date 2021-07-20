@@ -683,7 +683,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9ce1ec1541afb4500ba1148308f8f90d, type: 3}
     m_FontSize: 30
-    m_FontStyle: 3
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 60
@@ -693,7 +693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Astro  Battle  Online
+  m_Text: astro  battle  online
 --- !u!222 &428014706
 CanvasRenderer:
   m_ObjectHideFlags: 0

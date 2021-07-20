@@ -57,7 +57,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	{
 		MenuManager.Instance.OpenMenu("title");
 		Debug.Log("Joined Lobby");
-		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");		
+		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");	
 	}
 
 	public void CreateRoom()
@@ -121,12 +121,13 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public void JoinRoom(RoomInfo info)
 	{
+		DestroyListItem();
 		audioClick.Play();
 		PhotonNetwork.JoinRoom(info.Name);
 		MenuManager.Instance.OpenMenu("loading");
 	}
 
-	public override void OnLeftRoom()
+    public override void OnLeftRoom()
 	{
 		MenuManager.Instance.OpenMenu("title");
 		DestroyListItem();
@@ -140,11 +141,15 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 	}
 
-	/*
+	
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-		DestroyListItem();
+        //DestroyListItem();
+        foreach (GameObject obj in roomListContent)
+        {
+			Destroy(obj.gameObject);
+        }
 
 		for (int i = 0; i < roomList.Count; i++)
 		{
@@ -154,13 +159,15 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 			}
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
-	}*/
+	}
 
+	/*
 	private List<RoomListItem> _listing = new List<RoomListItem>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (RoomInfo info in roomList)
+		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
+		foreach (RoomInfo info in roomList)
         {
             if (info.RemovedFromList)
             {
@@ -182,20 +189,27 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 					_listing.Add(listing);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+				Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>();
+			}
         }
         base.OnRoomListUpdate(roomList);
-    }
+    }*/
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
 	{
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerJoined.Play();
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+		DestroyListItem();
 	}
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerLeft.Play();
+		DestroyListItem();
     }
 }
