@@ -41,15 +41,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		PhotonNetwork.ConnectUsingSettings();
 	}
 
-    private void Update()
-    {
-        //playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-			RefreshList();
-        }
-	}
-
 	public override void OnConnectedToMaster()
 	{
 		Debug.Log("Connected to Master");
@@ -63,12 +54,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		Debug.Log("Joined Lobby");
 		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");	
 	}
-
-	public void RefreshList()
-    {
-		PhotonNetwork.CreateRoom("");
-		PhotonNetwork.LeaveRoom();
-    }
 
 	public void CreateRoom()
 	{
@@ -155,7 +140,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
         foreach (GameObject obj in roomListContent)
         {
-			//Destroy(obj.gameObject);
+			Destroy(obj.gameObject);
         }
 
 		for (int i = 0; i < roomList.Count; i++)
