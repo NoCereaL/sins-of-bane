@@ -41,7 +41,15 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		PhotonNetwork.ConnectUsingSettings();
 	}
 
-	public override void OnConnectedToMaster()
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+			RefreshList();
+        }
+    }
+
+    public override void OnConnectedToMaster()
 	{
 		Debug.Log("Connected to Master");
 		PhotonNetwork.JoinLobby();
@@ -55,7 +63,16 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");	
 	}
 
-	public void CreateRoom()
+	public void RefreshList()
+	{
+		PhotonNetwork.LeaveLobby();
+		Debug.Log("Left Lobby");
+		PhotonNetwork.JoinLobby();
+		Debug.Log("Joined Lobby");
+		MenuManager.Instance.OpenMenu("find room");
+    }
+
+    public void CreateRoom()
 	{
 		audioClick.Play();
 		if (string.IsNullOrEmpty(roomNameInputField.text))
@@ -123,10 +140,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
 	{
+		RefreshList();
 		MenuManager.Instance.OpenMenu("title");
 	}
 
-	void  DestroyListItem()
+	void DestroyListItem()
     {
 		foreach (Transform trans in roomListContent)
 		{
@@ -138,20 +156,25 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnRoomListUpdate(List<RoomInfo> roomList)
 	{
 		globalCount.text = "Currently Online: " + PhotonNetwork.CountOfPlayers;
-		foreach (GameObject obj in roomListContent)
-        {
-			Destroy(obj.gameObject);
-        }
+		DestroyListItem();
 
 		for (int i = 0; i < roomList.Count; i++)
 		{
-			if (roomList[i].RemovedFromList)            
-				//continue;			
+			if (roomList[i].RemovedFromList)
+            {
+				RefreshList();
+				continue;
+			}            
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
 	}
 
-    public override void OnJoinRoomFailed(short returnCode, string message)
+	public override void OnCreatedRoom()
+	{
+		RefreshList();
+	}
+
+	public override void OnJoinRoomFailed(short returnCode, string message)
     {
 		errorText.text = "Join Room Failed: " + message;
 		errorText2.text = "Join Room Failed: " + message;
