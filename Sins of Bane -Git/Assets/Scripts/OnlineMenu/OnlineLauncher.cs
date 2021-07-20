@@ -142,6 +142,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	{
 		RefreshList();
 		MenuManager.Instance.OpenMenu("title");
+		DestroyListItem();
 	}
 
 	void DestroyListItem()
@@ -187,11 +188,13 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerJoined.Play();
 		Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
+		DestroyListItem();
 	}
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerLeft.Play();
+		DestroyListItem();
     }
 }
