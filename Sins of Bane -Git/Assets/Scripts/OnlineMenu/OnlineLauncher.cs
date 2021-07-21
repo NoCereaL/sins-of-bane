@@ -30,6 +30,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public AudioSource audioPlayerJoined;
 	public AudioSource audioPlayerLeft;
 
+	[SerializeField] GameObject LoadingMenu;
+
 	void Awake()
 	{
 		Instance = this;
@@ -58,8 +60,9 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public override void OnJoinedLobby()
 	{
-		MenuManager.Instance.OpenMenu("title");
-		Debug.Log("Joined Lobby");
+		if(LoadingMenu.active == true) 
+			MenuManager.Instance.OpenMenu("title");
+			Debug.Log("Joined Lobby");
 		//PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");	
 	}
 
@@ -85,6 +88,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public override void OnJoinedRoom()
 	{
+		RefreshList();
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 		roomNameText2.text = PhotonNetwork.CurrentRoom.Name;
@@ -140,9 +144,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
 	{
-		RefreshList();
 		MenuManager.Instance.OpenMenu("title");
-		DestroyListItem();
 	}
 
 	void DestroyListItem()

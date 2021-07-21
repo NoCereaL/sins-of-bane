@@ -7441,6 +7441,7 @@ MonoBehaviour:
   audioStartGame: {fileID: 2125027186}
   audioPlayerJoined: {fileID: 2125027187}
   audioPlayerLeft: {fileID: 2125027188}
+  LoadingMenu: {fileID: 2037972232}
 --- !u!82 &2125027184
 AudioSource:
   m_ObjectHideFlags: 0
