@@ -181,7 +181,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 			if (roomList[i].RemovedFromList)
             {
 				RefreshList();
-				continue;
+				//StartCoroutine(BeginRefresh());
+				//continue;
 			}            
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
 		}
@@ -213,5 +214,12 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		playerCount.text = PhotonNetwork.CurrentRoom.PlayerCount + "/8 - " + "Players";
 		audioPlayerLeft.Play();
 		DestroyListItem();
+    }
+
+	IEnumerator BeginRefresh()
+    {
+		yield return new WaitForSeconds(2);
+		RefreshList();
+		Debug.Log("List Refreshed after 2 secs");
     }
 }
