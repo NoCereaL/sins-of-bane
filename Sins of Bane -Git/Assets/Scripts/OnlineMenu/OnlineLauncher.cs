@@ -75,7 +75,17 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		MenuManager.Instance.OpenMenu("find room");
     }
 
-    public void CreateRoom()
+	[PunRPC]
+	public void RefreshListRPC()
+	{
+		PhotonNetwork.LeaveLobby();
+		Debug.Log("Left Lobby");
+		PhotonNetwork.JoinLobby();
+		Debug.Log("Joined Lobby");
+		MenuManager.Instance.OpenMenu("find room");
+	}
+
+	public void CreateRoom()
 	{
 		audioClick.Play();
 		if (string.IsNullOrEmpty(roomNameInputField.text))
@@ -142,6 +152,11 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		MenuManager.Instance.OpenMenu("loading");
 	}
 
+	public void Cancel()
+    {
+		RefreshList();
+    }
+
     public override void OnLeftRoom()
 	{
 		MenuManager.Instance.OpenMenu("title");
@@ -175,6 +190,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnCreatedRoom()
 	{
 		RefreshList();
+		photonView.RPC("RefreshListRPC", RpcTarget.All);
 	}
 
 	public override void OnJoinRoomFailed(short returnCode, string message)
