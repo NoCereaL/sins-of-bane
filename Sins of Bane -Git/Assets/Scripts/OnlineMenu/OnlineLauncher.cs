@@ -190,7 +190,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnCreatedRoom()
 	{
 		RefreshList();
-		photonView.RPC("RefreshListRPC", RpcTarget.All);
 	}
 
 	public override void OnJoinRoomFailed(short returnCode, string message)
