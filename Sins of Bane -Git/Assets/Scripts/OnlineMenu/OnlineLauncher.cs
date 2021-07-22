@@ -6,6 +6,7 @@ using TMPro;
 using Photon.Realtime;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OnlineLauncher : MonoBehaviourPunCallbacks
 {
@@ -117,6 +118,8 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+		RefreshList();
+
 	}
 
 	public override void OnMasterClientSwitched(Player newMasterClient)
@@ -155,6 +158,7 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public void Cancel()
     {
 		RefreshList();
+		MenuManager.Instance.OpenMenu("title");
     }
 
     public override void OnLeftRoom()
@@ -223,5 +227,10 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		yield return new WaitForSeconds(2);
 		RefreshList();
 		Debug.Log("List Refreshed after 2 secs");
+    }
+
+	public void ErrorReconnectToMaster()
+    {
+		Application.Quit();
     }
 }
