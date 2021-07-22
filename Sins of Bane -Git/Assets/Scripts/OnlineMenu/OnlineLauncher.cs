@@ -99,7 +99,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 
 	public override void OnJoinedRoom()
 	{
-		RefreshList();
 		MenuManager.Instance.OpenMenu("room");
 		roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 		roomNameText2.text = PhotonNetwork.CurrentRoom.Name;
@@ -118,8 +117,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
-		RefreshList();
-
 	}
 
 	public override void OnMasterClientSwitched(Player newMasterClient)
