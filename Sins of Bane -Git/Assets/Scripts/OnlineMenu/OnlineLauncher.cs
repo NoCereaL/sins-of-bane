@@ -181,7 +181,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 			if (roomList[i].RemovedFromList)
             {
 				RefreshList();
-				//StartCoroutine(BeginRefresh());
 				//continue;
 			}            
 			Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);

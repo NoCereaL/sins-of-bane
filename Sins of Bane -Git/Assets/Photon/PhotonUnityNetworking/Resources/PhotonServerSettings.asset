@@ -83,6 +83,7 @@ MonoBehaviour:
   - GetPlayer
   - GetOwner
   - KillFeedColor
+  - RefreshListRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
