@@ -187,12 +187,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 	}
 
-	public override void OnCreatedRoom()
-	{
-		RefreshList();
-		StartCoroutine(BeginRefresh());
-	}
-
     public override void OnDisconnected(DisconnectCause cause)
     {
 		errorText.text = "Disconnected: " + cause;
