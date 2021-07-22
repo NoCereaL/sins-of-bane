@@ -190,9 +190,18 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 	public override void OnCreatedRoom()
 	{
 		RefreshList();
+		StartCoroutine(BeginRefresh());
 	}
 
-	public override void OnJoinRoomFailed(short returnCode, string message)
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+		errorText.text = "Disconnected: " + cause;
+		errorText2.text = "Disconnected: " + cause;
+		Debug.LogError("Disconnected: " + cause);
+		MenuManager.Instance.OpenMenu("error");
+	}
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
     {
 		errorText.text = "Join Room Failed: " + message;
 		errorText2.text = "Join Room Failed: " + message;
