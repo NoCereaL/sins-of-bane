@@ -117,7 +117,6 @@ public class OnlineLauncher : MonoBehaviourPunCallbacks
 		}
 
 		startGameButton.SetActive(PhotonNetwork.IsMasterClient);
-		Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
 	}
 
 	public override void OnMasterClientSwitched(Player newMasterClient)
