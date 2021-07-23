@@ -40,7 +40,7 @@ public class PlayerInfo : MonoBehaviourPun
         {
             playerID = PhotonNetwork.CurrentRoom.PlayerCount;
         }
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+        Debug.Log("Player ID: " +playerID);
     }
 
     // Update is called once per frame
