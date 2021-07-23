@@ -8,6 +8,7 @@ using Photon.Pun;
 public class PlayerInfo : MonoBehaviourPun
 {
     public string name;
+    public static int playerID;
     public int maxHealth = 100;
     public int currentHealth;
     public int Lives = 3;
@@ -35,6 +36,11 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        if (photonView.IsMine)
+        {
+            playerID = PhotonNetwork.CurrentRoom.PlayerCount;
+        }
+        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
     }
 
     // Update is called once per frame

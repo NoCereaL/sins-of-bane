@@ -87,7 +87,8 @@ public class PickUpController : MonoBehaviourPun
     {
         Vector2 distanceToPlayer;
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        //PhotonNetwork.LocalPlayer.ActorNumber == 1
+        if (PlayerInfo.playerID == 1)
         {
             
             player = GameObject.Find("player(Clone)").GetComponent<Transform>();
@@ -118,8 +119,8 @@ public class PickUpController : MonoBehaviourPun
             }
         }
 
-        
-        else if(PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        //PhotonNetwork.LocalPlayer.ActorNumber == 2
+        else if (PlayerInfo.playerID == 2)
         {
             
             player = GameObject.Find("player2(Clone)").GetComponent<Transform>();

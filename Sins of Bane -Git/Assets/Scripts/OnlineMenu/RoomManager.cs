@@ -42,7 +42,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		{
 			//PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
 		}
-		if(PhotonNetwork.LocalPlayer.ActorNumber == 1)
+		if(PhotonNetwork.LocalPlayer.ActorNumber == 1 )
         {
 			//GameObject ball = (GameObject)PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Ball"), Vector3.zero, Quaternion.identity);
 			//ball.GetComponent<BallMovement>().enabled = true;
@@ -52,16 +52,18 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		{
 			SpawnPlayer();
 			myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
+			Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
-		if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+		if (PhotonNetwork.LocalPlayer.ActorNumber >= 2 && photonView.IsMine)
 		{
 			SpawnPlayer2();
 			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
+			Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
 		if (PhotonNetwork.LocalPlayer.ActorNumber == 3)
 		{
-			SpawnPlayer2();
-			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
+			//SpawnPlayer2();
+			//myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
 		}
 
 	}

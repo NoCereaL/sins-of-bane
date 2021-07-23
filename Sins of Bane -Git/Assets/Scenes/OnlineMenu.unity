@@ -2289,6 +2289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomNameInputField: {fileID: 527412676}
+  roomNameInputFieldText: {fileID: 0}
   charLimit: 15
 --- !u!1 &541966885
 GameObject:
@@ -5416,6 +5417,7 @@ GameObject:
   - component: {fileID: 1329292622}
   - component: {fileID: 1329292621}
   - component: {fileID: 1329292620}
+  - component: {fileID: 1329292623}
   m_Layer: 5
   m_Name: UsernameInputField
   m_TagString: Untagged
@@ -5494,7 +5496,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 12
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
@@ -5571,6 +5573,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329292618}
   m_CullTransparentMesh: 1
+--- !u!114 &1329292623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329292618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b253b70c9186942fdb927a483ca1f230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNameInputField: {fileID: 0}
+  roomNameInputFieldText: {fileID: 1329292620}
+  charLimit: 20
 --- !u!1 &1358267844
 GameObject:
   m_ObjectHideFlags: 0
