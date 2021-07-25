@@ -49,7 +49,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 			myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
 			Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
-		if (PlayerInfo.playerID == 2)
+		if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
 		{
 			SpawnPlayer2();
 			myPlayer2.transform.Find("crosshair").gameObject.SetActive(true);
