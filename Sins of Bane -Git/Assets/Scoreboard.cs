@@ -5,25 +5,32 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.UI;
 
-public class Scoreboard : MonoBehaviour
+public class Scoreboard : MonoBehaviourPun
 {
-    [SerializeField] Transform playerListContent;
-    [SerializeField] GameObject PlayerListItemPrefab;
+    //[SerializeField] Transform playerListContent;
+    //[SerializeField] GameObject PlayerListItemPrefab;
 
-    public static Scoreboard instance;
-    [SerializeField] GameObject sbListingPrefab;
-    [SerializeField] Sprite[] howImages;
+    //public static Scoreboard instance;
+    //[SerializeField] GameObject sbListingPrefab;
+    //[SerializeField] Sprite[] howImages;
+
+    [SerializeField] Text player1Name;
+    [SerializeField] Text player2Name;
+    [SerializeField] Text player3Name;
+    [SerializeField] Text player4Name;
 
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        //instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         Player[] players = PhotonNetwork.PlayerList;
 
         foreach (Transform child in playerListContent)
@@ -34,7 +41,18 @@ public class Scoreboard : MonoBehaviour
         for (int i = 0; i < players.Count(); i++)
         {
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
-        }
+        }*/
+
+        photonView.RPC("SetNames", RpcTarget.AllBuffered);
+        SetNames();
     }
 
+    [PunRPC]
+    public void SetNames()
+    {
+        player1Name.text = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
+        player2Name.text = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
+        player3Name.text = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
+        player4Name.text = PhotonNetwork.CurrentRoom.GetPlayer(4).NickName;
+    }
 }
