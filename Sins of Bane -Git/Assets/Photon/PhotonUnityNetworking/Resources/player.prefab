@@ -390,7 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cdddce352244e168cd8928f093df4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
   player1Name: {fileID: 0}
+  player1Deaths: {fileID: 0}
   player2Name: {fileID: 0}
   player3Name: {fileID: 0}
   player4Name: {fileID: 0}
@@ -792,7 +794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cdddce352244e168cd8928f093df4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 4117584928512969002}
   player1Name: {fileID: 1072986767347093104}
+  player1Deaths: {fileID: 1589674125836160646}
   player2Name: {fileID: 6491836928327319050}
   player3Name: {fileID: 4538009991288296307}
   player4Name: {fileID: 3309908430852496511}
@@ -3137,6 +3141,7 @@ MonoBehaviour:
   RespawnY: 0
   RespawnZ: 0
   DeathCount: 0
+  kills: 0
   TeamOneScore: 0
   TeamTwoScore: 0
   player: {fileID: 8367196259086800579}
@@ -5426,6 +5431,17 @@ RectTransform:
 --- !u!114 &1072986767347093104 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6590535726991945812, guid: 314974207be724ffdbc68a036a881b24, type: 3}
+  m_PrefabInstance: {fileID: 6166072843542674980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1589674125836160646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4872299570477084834, guid: 314974207be724ffdbc68a036a881b24, type: 3}
   m_PrefabInstance: {fileID: 6166072843542674980}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

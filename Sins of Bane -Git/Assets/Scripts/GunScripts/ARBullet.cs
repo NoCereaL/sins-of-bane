@@ -56,7 +56,6 @@ public class ARBullet : MonoBehaviourPun
             Destroy(bullet);
             //DestroyImmediate(impactEffect, true);
         }
-        
         Destroy(bullet);
     }
 

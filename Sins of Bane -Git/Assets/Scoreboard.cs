@@ -16,7 +16,10 @@ public class Scoreboard : MonoBehaviourPun
     //[SerializeField] GameObject sbListingPrefab;
     //[SerializeField] Sprite[] howImages;
 
+    public PlayerInfo player1;
+
     [SerializeField] Text player1Name;
+    [SerializeField] Text player1Deaths;
     [SerializeField] Text player2Name;
     [SerializeField] Text player3Name;
     [SerializeField] Text player4Name;
@@ -42,7 +45,7 @@ public class Scoreboard : MonoBehaviourPun
         {
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }*/
-
+        SetDeaths();
         photonView.RPC("SetNames", RpcTarget.AllBuffered);
         SetNames();
     }
@@ -54,5 +57,11 @@ public class Scoreboard : MonoBehaviourPun
         player2Name.text = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
         player3Name.text = PhotonNetwork.CurrentRoom.GetPlayer(3).NickName;
         player4Name.text = PhotonNetwork.CurrentRoom.GetPlayer(4).NickName;
+    }
+
+    [PunRPC]
+    public void SetDeaths()
+    {
+        player1Deaths.text = player1.DeathCount +"";
     }
 }

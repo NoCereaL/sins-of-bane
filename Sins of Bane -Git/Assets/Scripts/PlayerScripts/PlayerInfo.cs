@@ -15,6 +15,7 @@ public class PlayerInfo : MonoBehaviourPun
     public HealthBarScript healthBar;
     public float RespawnX, RespawnY, RespawnZ;
     public int DeathCount;
+    public int kills;
     public int TeamOneScore;
     public int TeamTwoScore;
 
@@ -40,7 +41,7 @@ public class PlayerInfo : MonoBehaviourPun
         {
             playerID = PhotonNetwork.CurrentRoom.PlayerCount;
         }
-        Debug.Log("Player ID: " +playerID);
+        Debug.Log("Player ID: " + playerID);
     }
 
     // Update is called once per frame
@@ -52,8 +53,8 @@ public class PlayerInfo : MonoBehaviourPun
         //photonView.RPC("TeamOneScores", RpcTarget.AllBuffered, TeamOneScore);
         //photonView.RPC("TeamTwoScores", RpcTarget.AllBuffered, TeamTwoScore);
         //photonView.RPC("UpdateHealth", RpcTarget.OthersBuffered, currentHealth);
-        healthText.text = currentHealth +"%";
-        
+        healthText.text = currentHealth + "%";
+
         ChangeTeamImage();
         Death();
     }
@@ -94,7 +95,7 @@ public class PlayerInfo : MonoBehaviourPun
             TeamLogo.sprite = Astrolition;
             teamName.text = "Astrolition";
         }
-        else if(Team == 2)
+        else if (Team == 2)
         {
             TeamLogo.sprite = Cosniacs;
             teamName.text = "Cosniacs";
@@ -111,10 +112,17 @@ public class PlayerInfo : MonoBehaviourPun
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        if(currentHealth == 0 && photonView.IsMine)
+        if (currentHealth == 0 && photonView.IsMine)
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
+
+            GameObject owner = this.gameObject;
+            if (owner.GetPhotonView().Owner.NickName == killer)
+            {
+                owner.GetComponent<PlayerInfo>().kills++;
+            }
         }
+        
     }
 
     public void LoseLife()
@@ -126,7 +134,7 @@ public class PlayerInfo : MonoBehaviourPun
     {
         transform.position = new Vector3(RespawnX, RespawnY, RespawnZ);
         transform.rotation = new Quaternion(0, 0, 0, 0);
-     }
+    }
 
     public void Death()
     {
@@ -151,7 +159,7 @@ public class PlayerInfo : MonoBehaviourPun
     void SetDeaths()
     {
 
-        if(Team == 1)
+        if (Team == 1)
         {
             TeamTwoScore += 1;
             GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore += 1;
@@ -176,5 +184,4 @@ public class PlayerInfo : MonoBehaviourPun
     {
         GameObject.Find("GameManager").GetComponent<Scores>().TeamTwoScore = score;
     }
-
 }
