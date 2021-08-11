@@ -47,6 +47,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 		{
 			SpawnPlayer();
 			myPlayer.transform.Find("crosshair").gameObject.SetActive(true);
+			myPlayer.name = PhotonNetwork.NickName;
 			Debug.Log(PhotonNetwork.LocalPlayer.ActorNumber);
 		}
 		if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
