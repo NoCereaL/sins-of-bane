@@ -118,7 +118,7 @@ public class PlayerInfo : MonoBehaviourPun
 
             if (PhotonNetwork.LocalPlayer.NickName == killer)
             {
-                player.GetComponent<PlayerInfo>().kills++;
+                kills++;
             }
         }
         
