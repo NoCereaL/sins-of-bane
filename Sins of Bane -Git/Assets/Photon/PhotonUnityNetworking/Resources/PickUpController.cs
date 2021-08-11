@@ -314,7 +314,7 @@ public class PickUpController : MonoBehaviourPun
     [PunRPC]
     void JoinGameController2()
     {
-        player = GameObject.Find("player2(Clone)").GetComponent<Transform>();
+        player = GameObject.Find(PhotonNetwork.NickName).GetComponent<Transform>();
         gunContainer = GameObject.Find("Weapon2").GetComponent<Transform>();
         cam = GameObject.Find("Camera").GetComponent<Transform>();
         gunPosition = GameObject.Find("Weapon2").GetComponent<GunMovement>();
