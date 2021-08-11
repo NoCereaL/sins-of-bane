@@ -52,7 +52,7 @@ public class Scoreboard : MonoBehaviourPun
         SetDeaths();
         photonView.RPC("SetKills", RpcTarget.AllBuffered);
         SetKills();   
-        photonView.RPC("SetNames", RpcTarget.AllBuffered);
+        //photonView.RPC("SetNames", RpcTarget.AllBuffered);
         SetNames();
     }
 
