@@ -115,8 +115,8 @@ public class PlayerInfo : MonoBehaviourPun
         if (currentHealth == 0 && photonView.IsMine)
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
-
-            
+            Scoreboard.instance.SetDeaths();
+            Scoreboard.instance.SetKills();
         }
         if (PhotonNetwork.LocalPlayer.NickName == killer || PhotonNetwork.LocalPlayer.NickName == killed)
         {

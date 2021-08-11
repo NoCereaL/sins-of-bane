@@ -659,6 +659,7 @@ MonoBehaviour:
   player1: {fileID: 4117584928512969002}
   player1Name: {fileID: 3372783745858534280}
   player1Deaths: {fileID: 3901563153135762302}
+  player1Kills: {fileID: 0}
   player2Name: {fileID: 8812029053710933342}
   player3Name: {fileID: 5101626160861899185}
   player4Name: {fileID: 9027812663509450750}
@@ -1756,6 +1757,7 @@ MonoBehaviour:
   player1: {fileID: 0}
   player1Name: {fileID: 0}
   player1Deaths: {fileID: 0}
+  player1Kills: {fileID: 0}
   player2Name: {fileID: 0}
   player3Name: {fileID: 0}
   player4Name: {fileID: 0}
@@ -3127,6 +3129,7 @@ GameObject:
   - component: {fileID: 8367196259413413666}
   - component: {fileID: 8367196259413413667}
   - component: {fileID: 8367196259413413664}
+  - component: {fileID: 8155443959076617863}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -3222,6 +3225,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8155443959076617863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367196259413413678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61faaf8d94544e34b038b2a14d5a14e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboard: {fileID: 2770876261137082397}
 --- !u!1 &8367196259487547518
 GameObject:
   m_ObjectHideFlags: 0

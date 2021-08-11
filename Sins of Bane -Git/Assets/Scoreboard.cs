@@ -16,10 +16,13 @@ public class Scoreboard : MonoBehaviourPun
     //[SerializeField] GameObject sbListingPrefab;
     //[SerializeField] Sprite[] howImages;
 
+    public static Scoreboard instance;
+
     public PlayerInfo player1;
 
     [SerializeField] Text player1Name;
     [SerializeField] Text player1Deaths;
+    [SerializeField] Text player1Kills;
     [SerializeField] Text player2Name;
     [SerializeField] Text player3Name;
     [SerializeField] Text player4Name;
@@ -27,7 +30,7 @@ public class Scoreboard : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        //instance = this;
+        instance = this;
     }
 
     // Update is called once per frame
@@ -45,7 +48,10 @@ public class Scoreboard : MonoBehaviourPun
         {
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }*/
+        photonView.RPC("SetDeaths", RpcTarget.AllBuffered);
         SetDeaths();
+        photonView.RPC("SetKills", RpcTarget.AllBuffered);
+        SetKills();   
         photonView.RPC("SetNames", RpcTarget.AllBuffered);
         SetNames();
     }
@@ -63,5 +69,11 @@ public class Scoreboard : MonoBehaviourPun
     public void SetDeaths()
     {
         player1Deaths.text = player1.DeathCount +"";
+    }
+
+    [PunRPC]
+    public void SetKills()
+    {
+        player1Kills.text = player1.kills + "";
     }
 }
