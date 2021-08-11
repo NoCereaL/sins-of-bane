@@ -116,10 +116,9 @@ public class PlayerInfo : MonoBehaviourPun
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
 
-            GameObject owner = this.gameObject;
-            if (owner.GetPhotonView().Owner.NickName == killer)
+            if (PhotonNetwork.LocalPlayer.NickName == killer)
             {
-                owner.GetComponent<PlayerInfo>().kills++;
+                player.GetComponent<PlayerInfo>().kills++;
             }
         }
         
