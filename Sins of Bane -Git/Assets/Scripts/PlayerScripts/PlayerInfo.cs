@@ -116,12 +116,13 @@ public class PlayerInfo : MonoBehaviourPun
         {
             photonView.RPC("UpdateKillFeed", RpcTarget.AllBuffered, killer, killed);
 
+            if (PhotonNetwork.LocalPlayer.NickName == killer || PhotonNetwork.LocalPlayer.NickName == killed)
+            {
+                //kills++;
+                GameObject.Find(killer).GetComponent<PlayerInfo>().kills++;
+            }
         }
 
-        if (PhotonNetwork.LocalPlayer.NickName == killer || PhotonNetwork.LocalPlayer.NickName == killed)
-        {
-            kills++;
-        }
     }
 
     public void LoseLife()
